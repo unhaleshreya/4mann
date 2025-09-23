@@ -94,6 +94,32 @@
 
                 <div class="col-lg-12">
                     <!-- Project Item Boxes start -->
+                    @if($projects->count() > 0)
+                    <div class="row project-item-boxes align-items-center">
+                        @foreach($projects as $project)
+                        <div class="col-md-6 project-item-box">
+                            <!-- Project Item Start -->
+                            <div class="project-item wow fadeInUp">
+                                <div class="project-image">
+                                    <figure class="image-anime">
+                                        <img src="{{ asset('storage/' . $project->project_image) }}" alt="">
+                                    </figure>
+                                </div>
+
+                                <div class="project-tag">
+                                    <a href="project-showcase.php">{{ $project->project_sector }}</a>
+                                </div>
+
+                                <div class="project-content">
+                                    <h3><a href="{{ route('project-showcase.slug', $project->project_slug) }}">{{ $project->project_title }}</a></h3>
+                                </div>
+                            </div>
+                            <!-- Project Item End -->
+                        </div>
+                        @endforeach
+                        
+                    </div>
+                    @else
                     <div class="row project-item-boxes align-items-center">
                         <div class="col-md-6 project-item-box">
                             <!-- Project Item Start -->
@@ -175,6 +201,7 @@
                             <!-- Project Item End -->
                         </div>
                     </div>
+                    @endif
                     <!-- Project Item Boxes End -->
                 </div>
             </div>

@@ -94,4 +94,14 @@ class ProjectController extends Controller
 
         return redirect()->route('projects.index')->with('success', 'Project updated successfully!');
     }
+    public function viewProjects()
+    {
+        $projects = project::all();
+        return view('pages.projects', compact('projects'));
+    }
+    public function viewProjectShowcase($slug)
+    {
+        $project = project::where('project_slug', $slug)->firstOrFail();
+        return view('pages.project-showcase', compact('project'));
+    }
 }
