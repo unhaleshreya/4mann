@@ -46,7 +46,7 @@
                 <div class="col-lg-6">
                     <figure class="image-anime reveal">
 
-                        <img src="assets/images/about/Quality Standards_ Engineered for Excellence.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/about/Quality Standards_ Engineered for Excellence.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
             </div>
@@ -54,10 +54,10 @@
             <div class="row wow fadeInUp mt-5">
                 <div class="col-lg-6">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/about/Technology That Powers Excellence.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/about/Technology That Powers Excellence.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                     <figure class="image-anime reveal mt-3">
-                        <img src="assets/images/about/Facility Overview.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/about/Facility Overview.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
                 <div class="col-lg-6">
@@ -86,22 +86,22 @@
             <div class="row mt-5 wow fadeInUp">
                 <div class="col-lg-3">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/about/facility/1.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/about/facility/1.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
                 <div class="col-lg-3">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/about/facility/2.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/about/facility/2.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
                 <div class="col-lg-3">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/about/facility/3.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/about/facility/3.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
                 <div class="col-lg-3">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/about/facility/4.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/about/facility/4.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
             </div>

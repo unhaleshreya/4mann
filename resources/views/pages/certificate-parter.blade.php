@@ -6,7 +6,7 @@
 
     <!-- Page Header Start -->
     <!-- <div class="page-header parallaxie" style=" background: url('assets/images/breadcrumb/about.jpg') no-repeat center center;"> -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Certifications.jpg" data-mobile="assets/images/breadcrumb/Certificationmobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Certifications.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Certificationmobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -40,133 +40,133 @@
                 <div class="col-md-2 col-sm-6 col-12">
                     <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/1.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/1.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/2.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/2.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/3.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/3.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/4.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/4.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/5.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/5.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/6.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/6.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/7.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/7.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/8.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/8.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/9.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/9.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                     <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/10.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/10.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                  <div class="col-md-2 col-sm-6 col-12">
                     <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/11.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/11.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/12.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/12.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/13.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/13.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                     <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/14.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/14.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-6 col-12">
                     <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/15.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/15.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                     <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/16.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/16.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                     <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/17.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/17.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/18.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/18.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>
                   <div class="col-md-2 col-sm-6 col-12">
                      <div class="services1-wrap-portfolio">
                     <div class="company-logo companys text-center">
-                        <img src="assets/images/company-logo/19.png" alt="Logo 1" class="img-fluid">
+                        <img src="{{ asset('assets/images/company-logo/19.png') }}" alt="Logo 1" class="img-fluid">
                     </div>
                     </div>
                 </div>

@@ -27,7 +27,7 @@
                     <!-- Our Process Image Start -->
                     <div class="our-process-image">
                         <figure class="image-anime reveal">
-                            <img src="assets/images/about/ourvalue.jpg" alt="">
+                            <img src="{{ asset('assets/images/about/ourvalue.jpg') }}" alt="">
                         </figure>
                     </div>
                     <!-- Our Process Image End -->

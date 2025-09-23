@@ -3,7 +3,7 @@
 
 @section('content')<!-- Page Header Start -->
     <!-- <div class="page-header parallaxie" style=" background: url('assets/images/breadcrumb/about.jpg') no-repeat center center;"> -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Project.jpg" data-mobile="assets/images/breadcrumb/Projectmobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Project.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Projectmobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -100,7 +100,7 @@
                             <div class="project-item wow fadeInUp">
                                 <div class="project-image">
                                     <figure class="image-anime">
-                                        <img src="assets/images/project/project-1.jpg" alt="">
+                                        <img src="{{ asset('assets/images/project/project-1.jpg') }}" alt="">
                                     </figure>
                                 </div>
 
@@ -120,7 +120,7 @@
                             <div class="project-item wow fadeInUp" data-wow-delay="0.2s">
                                 <div class="project-image">
                                     <figure class="image-anime">
-                                        <img src="assets/images/project/project-2.jpg" alt="">
+                                        <img src="{{ asset('assets/images/project/project-2.jpg') }}" alt="">
                                     </figure>
                                 </div>
 
@@ -140,7 +140,7 @@
                             <div class="project-item wow fadeInUp" data-wow-delay="0.4s">
                                 <div class="project-image">
                                     <figure class="image-anime">
-                                        <img src="assets/images/project/project-3.jpg" alt="">
+                                        <img src="{{ asset('assets/images/project/project-3.jpg') }}" alt="">
                                     </figure>
                                 </div>
 
@@ -160,7 +160,7 @@
                             <div class="project-item wow fadeInUp" data-wow-delay="0.6s">
                                 <div class="project-image">
                                     <figure class="image-anime">
-                                        <img src="assets/images/project/project-4.jpg" alt="">
+                                        <img src="{{ asset('assets/images/project/project-4.jpg') }}" alt="">
                                     </figure>
                                 </div>
 

@@ -22,7 +22,7 @@
                                 <!-- What We Do Item Start -->
                                 <div class="what-we-do-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/icon/Dedication.svg"  alt="">
+                                        <img src="{{ asset('assets/images/icon/Dedication.svg') }}"  alt="">
                                     </div>
                                     <div class="what-we-item-content">
                                         <h3>Dedication to delivering high quality</h3>
@@ -33,7 +33,7 @@
                                 <!-- What We Do Item Start -->
                                 <div class="what-we-do-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/icon/Client.svg" alt="">
+                                        <img src="{{ asset('assets/images/icon/Client.svg') }}" alt="">
                                     </div>
                                     <div class="what-we-item-content">
                                         <h3>Trusted by numerous clients</h3>
@@ -46,7 +46,7 @@
                                 <!-- What We Do Item Start -->
                                 <div class="what-we-do-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/icon/modern.svg" alt="">
+                                        <img src="{{ asset('assets/images/icon/modern.svg') }}" alt="">
                                     </div>
                                     <div class="what-we-item-content">
                                         <h3>Modern manufacturing infrastructure</h3>
@@ -57,7 +57,7 @@
                                 <!-- What We Do Item Start -->
                                 <div class="what-we-do-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/icon/emphasis.svg" alt="">
+                                        <img src="{{ asset('assets/images/icon/emphasis.svg') }}" alt="">
                                     </div>
                                     <div class="what-we-item-content">
                                         <h3>Emphasis on innovation & sustainability</h3>
@@ -76,12 +76,12 @@
                     <!-- What We Do Image Start -->
                     <div class="what-we-do-image">
                         <figure class="image-anime">
-                            <img src="assets/images/what-we-do-image.jpg" alt="">
+                            <img src="{{ asset('assets/images/what-we-do-image.jpg') }}" alt="">
                         </figure>
 
                         <!-- Contact Now Circle Start -->
                         <div class="contact-now-circle">
-                            <img src="assets/images/icon/contact-now-circle.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/contact-now-circle.svg') }}" alt="">
                         </div>
                         <!-- Contact Now Circle End -->
                     </div>

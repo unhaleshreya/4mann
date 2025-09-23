@@ -45,7 +45,7 @@
                                 @if($product->product_image)
                                     <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_title }}">
                                 @else
-                                    <img src="assets/images/metallic-product/cosmic-chill.jpg" alt="{{ $product->product_title }}">
+                                    <img src="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="{{ $product->product_title }}">
                                 @endif
                             </a>
                         </figure>

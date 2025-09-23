@@ -1,7 +1,7 @@
 @extends('main-layout.app')
 
 @section('content') <!-- Page Header Start -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/AHPL.jpg" data-mobile="assets/images/breadcrumb/AHPLmobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/AHPL.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/AHPLmobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -28,7 +28,7 @@
             <div class="row pb-100">
                 <div class="col-lg-12">
                     <div class="footer-contact-circle download-brochure mb-30">
-                        <a href="assets/images/resources/Catalogs/4 MannHPL.pdf" target="_blank"> <img src="assets/images/icon/brochure.svg" alt=""></a>
+                        <a href="{{ asset('assets/images/resources/Catalogs/4 MannHPL.pdf') }}" target="_blank"> <img src="{{ asset('assets/images/icon/brochure.svg') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -53,7 +53,7 @@
                                                     @if($subcategory->sub_category_img)
                                                         <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
-                                                        <img src="assets/images/hpl/image-1.jpg" alt="{{ $subcategory->name }}">
+                                                        <img src="{{ asset('assets/images/hpl/image-1.jpg') }}" alt="{{ $subcategory->name }}">
                                                     @endif
                                                 </a>
                                             </figure>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/fr-acp/img-03.jpg" class="img-fluid " />
+                                    <img src="{{ asset('assets/images/fr-acp/img-03.jpg') }}" class="img-fluid " />
                                 </figure>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                         <div class="our-features-boxes ">
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/Aluminium-Based Core.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/Aluminium-Based Core.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Aluminium-Based Core</p>
@@ -122,7 +122,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/Fire-Retardant Grades Available.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/Fire-Retardant Grades Available.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Fire-Retardant Grades Available</p>
@@ -130,7 +130,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/Weatherproof.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/Weatherproof.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Weatherproof</p>
@@ -138,7 +138,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/Cost-Efficient.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/Cost-Efficient.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Cost-Efficient</p>
@@ -146,7 +146,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/Fully Recyclable.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/Fully Recyclable.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Fully Recyclable</p>
@@ -155,7 +155,7 @@
 
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/Zero Fumes or VOCs.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/Zero Fumes or VOCs.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Zero Fumes or VOCs</p>
@@ -163,7 +163,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/Borer, Fungi & Termite Resistant.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/Borer, Fungi & Termite Resistant.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Borer, Fungi & Termite Resistant</p>
@@ -171,7 +171,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/LEED Compliance.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/LEED Compliance.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>LEED Compliance</p>
@@ -179,7 +179,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/10-Year Warranty.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/10-Year Warranty.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>10-Year Warranty</p>
@@ -187,7 +187,7 @@
                             </div>
                             <div class="our-features-item">
                                 <div class="icon-box">
-                                    <img src="assets/images/ahpl/10.png" alt="">
+                                    <img src="{{ asset('assets/images/ahpl/10.png') }}" alt="">
                                 </div>
                                 <div class="features-item-content">
                                     <p>Available in All 4MANN Finishes</p>
@@ -199,17 +199,17 @@
                     <div class="row mt-50">
                         <div class="col-lg-4">
                             <figure class="image-anime reveal">
-                                <img src="assets/images/hpl/image-1.jpg" class="img-fluid border-radius-36" />
+                                <img src="{{ asset('assets/images/hpl/image-1.jpg') }}" class="img-fluid border-radius-36" />
                             </figure>
                         </div>
                         <div class="col-lg-4">
                             <figure class="image-anime reveal">
-                                <img src="assets/images/hpl/image-2.jpg" class="img-fluid border-radius-36" />
+                                <img src="{{ asset('assets/images/hpl/image-2.jpg') }}" class="img-fluid border-radius-36" />
                             </figure>
                         </div>
                         <div class="col-lg-4">
                             <figure class="image-anime reveal">
-                                <img src="assets/images/hpl/image-3.jpg" class="img-fluid border-radius-36" />
+                                <img src="{{ asset('assets/images/hpl/image-3.jpg') }}" class="img-fluid border-radius-36" />
                             </figure>
                         </div>
                     </div>

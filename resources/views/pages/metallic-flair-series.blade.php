@@ -3,7 +3,7 @@
 
 @section('content')
  <!-- Page Header Start -->
-       <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Aluminium.jpg" data-mobile="assets/images/breadcrumb/Aluminiummobile.jpg">
+       <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Aluminium.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Aluminiummobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -54,7 +54,7 @@
                                         @if($subcategory->sub_category_img)
                                             <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                         @else
-                                            <img src="assets/images/metallic-product/cosmic-chill.jpg" alt="{{ $subcategory->name }}">
+                                            <img src="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="{{ $subcategory->name }}">
                                         @endif
                                     </a>
                                 </figure>
@@ -76,7 +76,7 @@
                         <div class="post-featured-image">
                             <figure>
                                 <a href="{{route('cosmic-chill')}}" class="image-anime">
-                                    <img src="assets/images/metallic-product/cosmic-chill.jpg" alt="">
+                                    <img src="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="">
                                 </a>
                             </figure>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="post-featured-image">
                             <figure>
                                 <a href="#" class="image-anime">
-                                    <img src="assets/images/metallic-product/corten-steel.jpg" alt="">
+                                    <img src="{{ asset('assets/images/metallic-product/corten-steel.jpg') }}" alt="">
                                 </a>
                             </figure>
                         </div>
@@ -110,7 +110,7 @@
                         <div class="post-featured-image">
                             <figure>
                                 <a href="javascript:void(0)" class="image-anime">
-                                    <img src="assets/images/metallic-product/gris-desire.jpg" alt="">
+                                    <img src="{{ asset('assets/images/metallic-product/gris-desire.jpg') }}" alt="">
                                 </a>
                             </figure>
                         </div>

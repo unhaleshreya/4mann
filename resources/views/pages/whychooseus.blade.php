@@ -1,7 +1,7 @@
   @extends('main-layout.app')
 @section('content')
 <!-- Page Header Start -->
-    <div class="page-header parallaxie" style=" background: url('assets/images/breadcrumb/whychoose.jpg') no-repeat center center;">
+    <div class="page-header parallaxie" style=" background: url('{{ asset('assets/images/breadcrumb/whychoose.jpg') }}') no-repeat center center;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -32,7 +32,7 @@
                     <!-- Service Item Start -->
                     <div class="service-item1">
                         <div class="icon-box">
-                            <img src="assets/images/icon/Dedication1.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/Dedication1.svg') }}" alt="">
                         </div>
 
                         <div class="service-body">
@@ -41,7 +41,7 @@
 
                         <div class="service-footer">
                             <a href="service-single.html" class="service-btn">
-                                <img src="assets/images/icon/arrow-dark.svg" alt="">
+                                <img src="{{ asset('assets/images/icon/arrow-dark.svg') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                     <!-- Service Item Start -->
                     <div class="service-item1">
                         <div class="icon-box">
-                            <img src="assets/images/icon/snapshot1.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/snapshot1.svg') }}" alt="">
                         </div>
 
                         <div class="service-body">
@@ -61,7 +61,7 @@
 
                         <div class="service-footer">
                             <a href="service-single.html" class="service-btn">
-                                <img src="assets/images/icon/arrow-dark.svg" alt="">
+                                <img src="{{ asset('assets/images/icon/arrow-dark.svg') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                     <!-- Service Item Start -->
                     <div class="service-item1">
                         <div class="icon-box">
-                            <img src="assets/images/icon/Client1.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/Client1.svg') }}" alt="">
                         </div>
 
                         <div class="service-body">
@@ -81,7 +81,7 @@
 
                         <div class="service-footer">
                             <a href="service-single.html" class="service-btn">
-                                <img src="assets/images/icon/arrow-dark.svg" alt="">
+                                <img src="{{ asset('assets/images/icon/arrow-dark.svg') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                     <!-- Service Item Start -->
                     <div class="service-item1">
                         <div class="icon-box">
-                            <img src="assets/images/icon/Compilance1.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/Compilance1.svg') }}" alt="">
                         </div>
 
                         <div class="service-body">
@@ -101,7 +101,7 @@
 
                         <div class="service-footer">
                             <a href="service-single.html" class="service-btn">
-                                <img src="assets/images/icon/arrow-dark.svg" alt="">
+                                <img src="{{ asset('assets/images/icon/arrow-dark.svg') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                     <!-- Service Item Start -->
                     <div class="service-item1">
                         <div class="icon-box">
-                            <img src="assets/images/icon/modern1.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/modern1.svg') }}" alt="">
                         </div>
 
                         <div class="service-body">
@@ -121,7 +121,7 @@
 
                         <div class="service-footer">
                             <a href="service-single.html" class="service-btn">
-                                <img src="assets/images/icon/arrow-dark.svg" alt="">
+                                <img src="{{ asset('assets/images/icon/arrow-dark.svg') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                     <!-- Service Item Start -->
                     <div class="service-item1">
                         <div class="icon-box">
-                            <img src="assets/images/icon/emphasis1.svg" alt="">
+                            <img src="{{ asset('assets/images/icon/emphasis1.svg') }}" alt="">
                         </div>
 
                         <div class="service-body">
@@ -141,7 +141,7 @@
 
                         <div class="service-footer">
                             <a href="service-single.html" class="service-btn">
-                                <img src="assets/images/icon/arrow-dark.svg" alt="">
+                                <img src="{{ asset('assets/images/icon/arrow-dark.svg') }}" alt="">
                             </a>
                         </div>
                     </div>

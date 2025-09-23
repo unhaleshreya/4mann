@@ -2,7 +2,7 @@
 
 @section('content')
  <!-- Page Header Start -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/other.jpg" data-mobile="assets/images/breadcrumb/Othermobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/other.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Othermobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row pb-100 justify-content-center">
                 <div class="col-lg-7 col-xl-7 ">
-                     <img src="assets/images/genoa.png" class="img-fluid mb-30">
+                    <img src="{{ asset('assets/images/genoa.png') }}" class="img-fluid mb-30">
                     <!-- <div class="footer-contact-circle download-brochure">
                         <a href="assets/images/resources/Catalogs/4Mann Product Catalogue - 1.3.0 - E.pdf" target="_blank"> <img src="assets/images/icon/brochure.svg" alt=""></a>
                     </div> -->
@@ -55,7 +55,7 @@
                                                     @if($subcategory->sub_category_img)
                                                         <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
-                                                        <img src="assets/images/genoa.png" alt="{{ $subcategory->name }}">
+                                                        <img src="{{ asset('assets/images/genoa.png') }}" alt="{{ $subcategory->name }}">
                                                     @endif
                                                 </a>
                                             </figure>

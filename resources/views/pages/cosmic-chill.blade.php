@@ -11,16 +11,16 @@
                                 <div class="swiper-slide">
                                     <div class="product-detail-img">
                                         <figure>
-                                            <a href="assets/images/metallic-product/cosmic-chill.jpg" class="image-anime" data-fancybox="gallery" data-caption="COSMIC CHILL 1">
-                                                <img src="assets/images/metallic-product/cosmic-chill.jpg" alt="Image Gallery">
+                                            <a href="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="COSMIC CHILL 1">
+                                                <img src="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
                                             </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="product-detail-img">
                                         <figure>
-                                            <a href="assets/images/metallic-product/cosmic-chill.jpg" class="image-anime" data-fancybox="gallery" data-caption="COSMIC CHILL 2">
-                                                <img src="assets/images/metallic-product/cosmic-chill.jpg" alt="Image Gallery">
+                                            <a href="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="COSMIC CHILL 2">
+                                                <img src="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
                                             </a>
                                         </figure>
                                     </div>
@@ -28,8 +28,8 @@
                                 <div class="swiper-slide">
                                     <div class="product-detail-img">
                                         <figure>
-                                            <a href="assets/images/metallic-product/cosmic-chill.jpg" class="image-anime" data-fancybox="gallery" data-caption="COSMIC CHILL 3">
-                                                <img src="assets/images/metallic-product/cosmic-chill.jpg" alt="Image Gallery">
+                                            <a href="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="COSMIC CHILL 3">
+                                                <img src="{{ asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
                                             </a>
                                         </figure>
                                     </div>

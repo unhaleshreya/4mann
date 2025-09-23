@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Page Header Start -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Honeycomb-panel.jpg" data-mobile="assets/images/breadcrumb/Honeycomb-panel-mobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Honeycomb-panel.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Honeycomb-panel-mobile.jpg') }}">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -38,7 +38,7 @@
                                 <p>4MANN Honeycomb Panels are a next-generation cladding solution crafted for projects that demand the perfect balance of lightweight structure, exceptional strength, and premium aesthetics. Developed with aerospace-grade technology, our panels feature a unique aluminium honeycomb core sandwiched between high-grade aluminium skins — delivering unmatched durability, impact resistance, and fire safety.</p>
                             </div>
                             <div class="col-lg-6">
-                                <img src="assets/images/fr-acp/img-01.png" class="img-fluid" />
+                                <img src="{{ asset('assets/images/fr-acp/img-01.png') }}" class="img-fluid" />
                             </div>
                         </div>
 
@@ -58,7 +58,7 @@
                                                     @if($subcategory->sub_category_img)
                                                         <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
-                                                        <img src="assets/images/honeycomb/image-1.jpg" alt="{{ $subcategory->name }}">
+                                                        <img src="{{ asset('assets/images/honeycomb/image-1.jpg') }}" alt="{{ $subcategory->name }}">
                                                     @endif
                                                 </a>
                                             </figure>
@@ -98,17 +98,17 @@
                          <div class="row mt-50">
                             <div class="col-lg-4">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/honeycomb/image-1.jpg" class="img-fluid border-radius-36" />
+                                    <img src="{{ asset('assets/images/honeycomb/image-1.jpg') }}" class="img-fluid border-radius-36" />
                                 </figure>
                             </div>
                             <div class="col-lg-4">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/honeycomb/image-2.jpg" class="img-fluid border-radius-36" />
+                                    <img src="{{ asset('assets/images/honeycomb/image-2.jpg') }}" class="img-fluid border-radius-36" />
                                 </figure>
                             </div>
                             <div class="col-lg-4">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/honeycomb/image-3.jpg" class="img-fluid border-radius-36" />
+                                    <img src="{{ asset('assets/images/honeycomb/image-3.jpg') }}" class="img-fluid border-radius-36" />
                                 </figure>
                             </div>
                         </div>

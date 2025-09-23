@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Header Start -->
-     <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/blog.jpg" data-mobile="assets/images/breadcrumb/blogmobile.jpg">
+     <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/blog.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/blogmobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -33,7 +33,7 @@
                     <!-- Post Featured Image Start -->
                     <div class="post-image">
                         <figure class="image-anime reveal">
-                            <img src="assets/images/blog/blog-1.jpg" alt="">
+                            <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt="">
                         </figure>
                     </div>
                     <!-- Post Featured Image Start -->

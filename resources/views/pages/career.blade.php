@@ -4,7 +4,7 @@
 @section('content')
     <!-- Page Header Start -->
     <!-- <div class="page-header parallaxie" style=" background: url('assets/images/breadcrumb/about.jpg') no-repeat center center;"> -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Career1.jpg" data-mobile="assets/images/breadcrumb/Careermobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Career1.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Careermobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -59,7 +59,7 @@
                 <div class="col-lg-6">
                     <!-- About Us Image Start -->
                     <figure class="image-anime reveal">
-                        <img src="assets/images/car.png" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/images/car.png') }}" class="img-fluid" alt="">
                     </figure>
                     <!-- About Us Image End -->
                 </div>
@@ -142,7 +142,7 @@
                                     <!-- Sidebar CTA Contact Item Start -->
                                     <div class="sidebar-cta-contact-item">
                                         <div class="icon-box">
-                                            <img src="assets/images/icon/icon-phone.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon/icon-phone.svg') }}" alt="">
                                         </div>
 
                                         <div class="cta-contact-item-title">
@@ -154,7 +154,7 @@
                                     <!-- Sidebar CTA Contact Item Start -->
                                     <div class="sidebar-cta-contact-item">
                                         <div class="icon-box">
-                                            <img src="assets/images/icon/icon-mail.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon/icon-mail.svg') }}" alt="">
                                         </div>
                                         <div class="cta-contact-item-title">
                                             <h3><a href="mailto:hrd.mumbai@4mannacp.com">hrd.mumbai@4mannacp.com</a></h3>

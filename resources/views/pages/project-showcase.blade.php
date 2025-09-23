@@ -1,7 +1,7 @@
  @extends('main-layout.app')
 
 @section('content')
-<div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Project.jpg" data-mobile="assets/images/breadcrumb/Projectmobile.jpg">
+<div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Project.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Projectmobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -39,7 +39,7 @@
                                 <!-- Project Detail Item Start -->
                                 <div class="project-detail-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/project-details-icon/sidebar-project-detail-1.svg" alt="">
+                                        <img src="{{ asset('assets/images/project-details-icon/sidebar-project-detail-1.svg') }}" alt="">
                                     </div>
                                     <div class="project-detail-content">
                                         <h3>client:</h3>
@@ -51,7 +51,7 @@
                                 <!-- Project Detail Item Start -->
                                 <div class="project-detail-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/project-details-icon/sector.svg" alt="">
+                                        <img src="{{ asset('assets/images/project-details-icon/sector.svg') }}" alt="">
                                     </div>
                                     <div class="project-detail-content">
                                         <h3>Sector:</h3>
@@ -63,7 +63,7 @@
                                 <!-- Project Detail Item Start -->
                                 <div class="project-detail-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/project-details-icon/product.svg" alt="">
+                                        <img src="{{ asset('assets/images/project-details-icon/product.svg') }}" alt="">
                                     </div>
                                     <div class="project-detail-content">
                                         <h3>Product:</h3>
@@ -76,7 +76,7 @@
                                 <!-- Project Detail Item Start -->
                                 <div class="project-detail-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/project-details-icon/sidebar-project-detail-5.svg" alt="">
+                                        <img src="{{ asset('assets/images/project-details-icon/sidebar-project-detail-5.svg') }}" alt="">
                                     </div>
                                     <div class="project-detail-content">
                                         <h3>location:</h3>
@@ -137,8 +137,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/11.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/11.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/11.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/11.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -147,8 +147,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/12.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/12.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/12.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/12.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -157,8 +157,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/13.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/13.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/13.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/13.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -167,8 +167,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/14.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/14.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/14.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/14.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -177,8 +177,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/15.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/15.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/15.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/15.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -187,8 +187,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/16.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/16.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/16.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/16.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -197,8 +197,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/17.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/17.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/17.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/17.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -207,8 +207,8 @@
                         <div class="col-lg-4 col-6">
                             <!-- image gallery start -->
                             <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="assets/images/deltin/18.png" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
-                                    <img src="assets/images/deltin/18.png" alt="Image Gallery">
+                                <a href="{{ asset('assets/images/deltin/18.png') }}" class="image-anime" data-fancybox="gallery" data-caption="THE DELTIN - DAMAN">
+                                    <img src="{{ asset('assets/images/deltin/18.png') }}" alt="Image Gallery">
                                 </a>
                             </div>
                             <!-- image gallery end -->
@@ -263,7 +263,7 @@
                                             <div class="testimonial-body">
                                                 <div class="author-image">
                                                     <figure class="image-anime">
-                                                        <img src="assets/images/client/client.png" alt="">
+                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
                                                     </figure>
                                                 </div>
                                                 <div class="author-content">
@@ -293,7 +293,7 @@
                                             <div class="testimonial-body">
                                                 <div class="author-image">
                                                     <figure class="image-anime">
-                                                        <img src="assets/images/client/client.png" alt="">
+                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
                                                     </figure>
                                                 </div>
                                                 <div class="author-content">
@@ -321,7 +321,7 @@
                                             <div class="testimonial-body">
                                                 <div class="author-image">
                                                     <figure class="image-anime">
-                                                        <img src="assets/images/client/client.png" alt="">
+                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
                                                     </figure>
                                                 </div>
                                                 <div class="author-content">
@@ -348,7 +348,7 @@
                                             <div class="testimonial-body">
                                                 <div class="author-image">
                                                     <figure class="image-anime">
-                                                        <img src="assets/images/client/client.png" alt="">
+                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
                                                     </figure>
                                                 </div>
                                                 <div class="author-content">

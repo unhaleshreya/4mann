@@ -11,7 +11,7 @@
                 <!-- Project Detail Item Start -->
                 <div class="project-detail-item">
                     <div class="post-img">
-                       <a href="#"> <img src="assets/images/blog/blog-1.jpg" alt=""></a>
+                       <a href="#"> <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt=""></a>
                     </div>
                     <div class="project-detail-content">
                          <a href="4man’s-journey21may.php"><h3>4MANN’s Journey Of Design, Durability & Innovation</h3></a>
@@ -23,7 +23,7 @@
                 <!-- Project Detail Item Start -->
                 <div class="project-detail-item">
                     <div class="post-img">
-                        <a href="4man’s-journey20may.php"> <img src="assets/images/blog/blog-1.jpg" alt=""></a>
+                        <a href="4man’s-journey20may.php"> <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt=""></a>
                     </div>
                     <div class="project-detail-content">
                         <h3>4MANN’s Journey of Design, Durability & Innovation</h3>
@@ -36,7 +36,7 @@
                 <!-- Project Detail Item Start -->
                 <div class="project-detail-item">
                     <div class="post-img">
-                          <a href="4man’s-journey19may.php"> <img src="assets/images/blog/blog-1.jpg" alt=""></a>
+                          <a href="4man’s-journey19may.php"> <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt=""></a>
                     </div>
                     <div class="project-detail-content">
                         <h3>4MANN’s Journey of Design, Durability & Innovation</h3>

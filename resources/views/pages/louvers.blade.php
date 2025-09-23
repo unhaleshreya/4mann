@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Header Start -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Louvers.jpg" data-mobile="assets/images/breadcrumb/Louvers-mobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Louvers.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Louvers-mobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-lg-6">
                                <figure class="image-anime reveal">
-                                    <img src="assets/images/louvers/section.jpg" class="img-fluid border-radius-36" />
+                                    <img src="{{ asset('assets/images/louvers/section.jpg') }}" class="img-fluid border-radius-36" />
                                 </figure>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                                     @if($subcategory->sub_category_img)
                                                         <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
-                                                        <img src="assets/images/louvers/image-1.jpg" alt="{{ $subcategory->name }}">
+                                                        <img src="{{ asset('assets/images/louvers/image-1.jpg') }}" alt="{{ $subcategory->name }}">
                                                     @endif
                                                 </a>
                                             </figure>
@@ -88,7 +88,7 @@
                             <div class="our-features-boxes ">
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Architectural.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Architectural.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Architectural Elegance </p>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Weather-uv-resistence.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Weather-uv-resistence.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Weather & UV Resistance </p>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/lightwet-yet -strong.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/lightwet-yet -strong.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Lightweight yet Strong</p>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/low-maintaineneccce.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/low-maintaineneccce.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Low Maintenance</p>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Sustainable.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Sustainable.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Sustainable Choice</p>
@@ -129,7 +129,7 @@
 
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Customisable-lenghts.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Customisable-lenghts.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Customisable Lengths</p>
@@ -170,17 +170,17 @@
                         <div class="row mt-50">
                             <div class="col-lg-4">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/louvers/image-1.jpg" class="img-fluid border-radius-36" />
+                                    <img src="{{ asset('assets/images/louvers/image-1.jpg') }}" class="img-fluid border-radius-36" />
                                 </figure>
                             </div>
                             <div class="col-lg-4">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/louvers/image-2.jpg" class="img-fluid border-radius-36" />
+                                    <img src="{{ asset('assets/images/louvers/image-2.jpg') }}" class="img-fluid border-radius-36" />
                                 </figure>
                             </div>
                             <div class="col-lg-4">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/louvers/image-3.jpg" class="img-fluid border-radius-36" />
+                                    <img src="{{ asset('assets/images/louvers/image-3.jpg') }}" class="img-fluid border-radius-36" />
                                 </figure>
                             </div>
                         </div>

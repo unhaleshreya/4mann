@@ -2,7 +2,7 @@
     @extends('main-layout.app')
 
 @section('content') <!-- Page Header Start -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Aluminium.jpg" data-mobile="assets/images/breadcrumb/Aluminiummobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Aluminium.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Aluminiummobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -36,7 +36,7 @@
 
                         <div class="row mt-5 wow fadeInUp">
                             <div class="col-lg-12 text-center">
-                                <img src="assets/images/acp/acp.jpeg" class="img-fluid" />
+                                <img src="{{ asset('assets/images/acp/acp.jpeg') }}" class="img-fluid" />
                             </div>
                         </div>
                         <div class="mt-50 wow fadeInUp">
@@ -47,7 +47,7 @@
                             <div class="our-features-boxes ">
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Flatness.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Flatness.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Superior Flatness</p>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/light.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/light.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Light-weight</p>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/paint.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/paint.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Paint Finish Consistency</p>
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/uv.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/uv.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>UV-resistant</p>
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/weather.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/weather.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Weather-proof</p>
@@ -88,7 +88,7 @@
 
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/fireret.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/fireret.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Available in Fire-Retardant</p>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Impctresistent.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Impctresistent.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Impact-resistant</p>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/vibration1.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/vibration1.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Vibration & Dampening-resistant</p>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Soundheat.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Soundheat.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Sound & Heat Insulation</p>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="our-features-item">
                                     <div class="icon-box">
-                                        <img src="assets/images/acp/Easyinstallationan.png" alt="">
+                                        <img src="{{ asset('assets/images/acp/Easyinstallationan.png') }}" alt="">
                                     </div>
                                     <div class="features-item-content">
                                         <p>Easy Installation & Maintenance</p>
@@ -153,7 +153,7 @@
                                                     @if($subcategory->sub_category_img)
                                                         <img src="{{ asset( $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
-                                                        <img src="assets/images/product/metalic-flair-series.png" alt="{{ $subcategory->name }}">
+                                                        <img src="{{ asset('assets/images/product/metalic-flair-series.png') }}" alt="{{ $subcategory->name }}">
                                                     @endif
                                                 </a>
                                             </figure>

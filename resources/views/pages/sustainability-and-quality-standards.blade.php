@@ -50,14 +50,14 @@
                 </div>
                 <div class="col-lg-6">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/sustainability/sustainability1.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/sustainability/sustainability1.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
             </div>
             <div class="row wow fadeInUp mt-5">
                 <div class="col-lg-6">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/sustainability/Quality-Standard.png" class="img-fluid"  alt="">
+                        <img src="{{ asset('assets/images/sustainability/Quality-Standard.png') }}" class="img-fluid"  alt="">
                     </figure>
 
                 </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-lg-6">
                     <figure class="image-anime reveal">
-                        <img src="assets/images/sustainability/lab.jpg" class="border-radius-36" alt="">
+                        <img src="{{ asset('assets/images/sustainability/lab.jpg') }}" class="border-radius-36" alt="">
                     </figure>
                 </div>
             </div>

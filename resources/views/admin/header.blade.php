@@ -9,29 +9,29 @@
   <title>4mann Industries Pvt. Ltd.</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/assets/images/logo.png') }}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/logo.png') }}">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('/admin_assets/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin_assets/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{asset('/admin_assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{asset('/admin_assets/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin_assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin_assets/dist/css/adminlte.min.css')}}">
   <!-- DataTables -->
-  <link rel="stylesheet" href="{{asset('/admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{asset('/admin_assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{asset('/admin_assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin_assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin_assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 <!-- ✅ jQuery CDN (include this before your script) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('/admin_assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/admin_assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 <!-- AdminLTE App -->
-<script src="{{ asset('/admin_assets/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('assets/admin_assets/dist/js/adminlte.min.js') }}"></script>
 
 
-  <link rel="stylesheet" href="{{asset('/admin_assets/plugins/summernote/summernote-bs4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin_assets/plugins/summernote/summernote-bs4.min.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -81,7 +81,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="info">
-            <center><img src="{{ asset('/assets/images/logo.png') }}" style="width: 100%;" alt="company log"></center>
+            <center><img src="{{ asset('assets/images/logo.png') }}" style="width: 100%;" alt="company log"></center>
 
           </div>
         </div>

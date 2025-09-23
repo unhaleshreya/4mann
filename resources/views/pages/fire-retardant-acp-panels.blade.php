@@ -3,7 +3,7 @@
     @extends('main-layout.app')
 
 @section('content')<!-- Page Header Start -->
-    <div class="page-header parallaxie breadcumb-area" data-desktop="assets/images/breadcrumb/Fire-Retardant.jpg" data-mobile="assets/images/breadcrumb/Fireretardentmobile.jpg">
+    <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Fire-Retardant.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Fireretardentmobile.jpg') }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <figure class="image-anime reveal">
-                                    <img src="assets/images/fr-acp/img-02.jpeg" class="border-radius-36" alt="">
+                                    <img src="{{ asset('assets/images/fr-acp/img-02.jpeg') }}" class="border-radius-36" alt="">
                                 </figure>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                                     @if($subcategory->sub_category_img)
                                                         <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
-                                                        <img src="assets/images/fr-acp/img-02.jpeg" alt="{{ $subcategory->name }}">
+                                                        <img src="{{ asset('assets/images/fr-acp/img-02.jpeg') }}" alt="{{ $subcategory->name }}">
                                                     @endif
                                                 </a>
                                             </figure>
