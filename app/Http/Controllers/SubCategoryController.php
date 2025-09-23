@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
-use App\Models\Subcategory;
+use App\Models\subcategory;
 use App\Models\categories;
 
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class SubCategoryController extends Controller
     //
     public function index()
     {
-        $subcategories = Subcategory::all();
+        $subcategories = subcategory::all();
         $categories = categories::all(); // Make sure the model is 'Category', not 'categories'
 
         return view("admin.categories.index", compact("categories", "subcategories"));
@@ -67,7 +67,7 @@ class SubCategoryController extends Controller
 
     public function edit($id)
     {
-        $subcategory = Subcategory::findOrFail($id);
+        $subcategory = subcategory::findOrFail($id);
         return response()->json($subcategory);
     }
 

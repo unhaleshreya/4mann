@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 
-class adminController extends Controller
+class AdminController extends Controller
 {
     //
    public function login(Request $request)
@@ -26,7 +26,7 @@ class adminController extends Controller
         // Password matches, login successful
         $request->session()->put('admin_id', $admin->id);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Logged in successfully!');
+        return redirect()->route('banners.index')->with('success', 'Logged in successfully!');
     }
 
 
@@ -37,7 +37,7 @@ class adminController extends Controller
     }
     public function dashboard()
     {
-        return view('admin.dashboard');
+             return redirect()->route('banners.index');
     }
     public function logout(Request $request)
     {

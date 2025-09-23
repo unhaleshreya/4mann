@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Categories;
-use App\Models\SubCategory;
+use App\Models\subcategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str; // <-- import Str
 use DB;
@@ -44,7 +44,7 @@ class CategorySeeder extends Seeder
             ]);
 
             foreach ($subCategories as $subCatName) {
-                SubCategory::create([
+                subcategory::create([
                     'name' => $subCatName['name'],
                     'category_id' => $category->id,
                     'slug' => Str::slug($subCatName['name']), // generate unique slug
