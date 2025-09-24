@@ -45,37 +45,51 @@
                             <div class="form-group col-lg-3 col-md-6 mb-4">
                                 <select id="product" name="product" class="form-select">
                                     <option value="">Select Product</option>
-                                    <option value="Metallic Flair Series">Metallic Flair Series</option>
-                                    <option value="Solid Series">Solid Series</option>
-                                    <option value="Sand Series">Sand Series</option>
-                                    <option value="Wooden Series">Wooden Series</option>
+                                    @foreach($products as $product)
+                    <option value="{{ $product->id }}">{{ $product->product_title }}</option>
+                @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-lg-3 col-md-6 mb-4">
                                 <select id="states" name="states" class="form-select">
-                                    <option>Select state</option>
-                                    <option value="AN">Andaman and Nicobar Islands</option>
-                                    <option value="AP">Andhra Pradesh</option>
-                                    <option value="AR">Arunachal Pradesh</option>
-                                    <option value="AS">Assam</option>
-                                    <option value="BR">Bihar</option>
-                                    <option value="CH">Chandigarh</option>
-                                    <option value="CT">Chhattisgarh</option>
-                                    <option value="DN">Dadra and Nagar Haveli</option>
-                                    <option value="DD">Daman and Diu</option>
-                                    <option value="DL">Delhi</option>
-                                    <option value="GA">Goa</option>
-                                    <option value="GJ">Gujarat</option>
-                                    <option value="HR">Haryana</option>
-                                    <option value="HP">Himachal Pradesh</option>
-                                    <option value="JK">Jammu and Kashmir</option>
-                                    <option value="JH">Jharkhand</option>
-                                    <option value="KA">Karnataka</option>
-                                    <option value="KL">Kerala</option>
-                                    <option value="LA">Ladakh</option>
-                                    <option value="LD">Lakshadweep</option>
-                                    <option value="MP">Madhya Pradesh</option>
-                                    <option value="MH">Maharashtra</option>
+                                    <option  value="">Select state</option>
+                                    
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Ladakh">Ladakh</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Puducherry">Puducherry</option>
                                 </select>
                             </div>
                             <div class="form-group col-lg-3 col-md-6 mb-4">
@@ -95,7 +109,7 @@
                 <div class="col-lg-12">
                     <!-- Project Item Boxes start -->
                     @if($projects->count() > 0)
-                    <div class="row project-item-boxes align-items-center">
+                    <div class="row project-item-boxes align-items-center" id="projectsContainer">
                         @foreach($projects as $project)
                         <div class="col-md-6 project-item-box">
                             <!-- Project Item Start -->
@@ -117,7 +131,7 @@
                             <!-- Project Item End -->
                         </div>
                         @endforeach
-                        
+
                     </div>
                     @else
                     <div class="row project-item-boxes align-items-center">
@@ -208,4 +222,56 @@
         </div>
     </div>
     <!-- Our Work Section End -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+$(document).ready(function () {
+
+    // 🔹 State -> City Dropdown
+    $('#states').on('change', function () {
+        let state = $(this).val();
+
+        if (state) {
+            $.ajax({
+                url: '/get-cities/' + state, // backend route
+                type: 'GET',
+                success: function (data) {
+                    let $city = $('#city');
+                    $city.empty();
+                    $city.append('<option value="">Select City</option>');
+                    $.each(data, function (id, name) {
+                        $city.append('<option value="' + name + '">' + name + '</option>');
+                    });
+                }
+            });
+        } else {
+            $('#city').empty().append('<option value="">Select City</option>');
+        }
+    });
+
+    // 🔹 Filter Projects dynamically
+    $('#sector, #product, #states, #city').on('change', function () {
+        let filters = {
+            sector: $('#sector').val(),
+            product: $('#product').val(),
+            state: $('#states').val(),
+            city: $('#city').val()
+        };
+
+        $.ajax({
+            url: '/projects/filter',   // backend route
+            type: 'GET',
+            data: filters,
+            success: function (response) {
+                // Replace with your container ID where projects are displayed
+                $('#projectsContainer').html(response);
+            }
+        });
+    });
+
+});
+</script>
+
+
+
     @endsection

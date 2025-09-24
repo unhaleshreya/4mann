@@ -1,7 +1,8 @@
  @extends('main-layout.app')
 
 @section('content')
-<div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset($project->project_image) }}" data-mobile="{{ asset($project->project_image) }}">
+{{-- {{ print_r($project) }} --}}
+<div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('storage/' . $project->project_image) }}" data-mobile="{{ asset('storage/' . $project->project_image) }}">
 
         <div class="container">
             <div class="row align-items-center">
@@ -123,103 +124,32 @@
         <div class="container">
 
             <!-- gallery section start -->
-            <div class="row">
-                <!-- Section Title Start -->
+           <div class="row">
+    <!-- Section Title Start -->
+    <div class="col-lg-12 text-center mb-5">
+        <div class="section-title">
+            <h2 class="text-anime-style-3" data-cursor="-opaque">Project <span>Gallery</span></h2>
+        </div>
+    </div>
 
-                <div class="col-lg-12 text-center mb-5">
-                    <div class="section-title">
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Project <span>Gallery</span></h2>
+    <div class="col-lg-12">
+        <!-- Gallery Section -->
+        <div class="row">
+            @foreach($project->images as $image)
+                <div class="col-lg-4 col-6">
+                    <!-- image gallery start -->
+                    <div class="project-gallery wow fadeInUp" data-cursor-text="View">
+                        <a href="{{ asset('storage/' . $image->image_path) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
+                            <img src="{{ asset('storage/' . $image->image_path) }}" alt="Image Gallery">
+                        </a>
                     </div>
+                    <!-- image gallery end -->
                 </div>
-                <div class="col-lg-12">
-                    <!-- Gallery Section -->
-                    <div class="row">
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('storage/' . $project->project_image) }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
+            @endforeach
+        </div>
+    </div>
+</div>
 
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('assets/images/deltin/12.png') }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
-
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('assets/images/deltin/13.png') }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
-
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('assets/images/deltin/14.png') }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
-
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('assets/images/deltin/15.png') }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
-
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('assets/images/deltin/16.png') }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
-
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('assets/images/deltin/17.png') }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
-
-                        <div class="col-lg-4 col-6">
-                            <!-- image gallery start -->
-                            <div class="project-gallery wow fadeInUp" data-cursor-text="View">
-                                <a href="{{ asset('storage/' . $project->project_image) }}" class="image-anime" data-fancybox="gallery" data-caption="{{ $project->project_title }}">
-                                    <img src="{{ asset('assets/images/deltin/18.png') }}" alt="Image Gallery">
-                                </a>
-                            </div>
-                            <!-- image gallery end -->
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
             <!-- gallery section end -->
         </div>
     </div>

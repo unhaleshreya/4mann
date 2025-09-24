@@ -51,6 +51,18 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
+    <label>Project Images (Up to 6)</label>
+    <div class="row">
+        @for ($i = 1; $i <= 6; $i++)
+            <div class="col-lg-2 col-md-4 mb-2">
+                <input type="file" name="project_image{{ $i }}" class="form-control">
+            </div>
+        @endfor
+    </div>
+</div>
+
+
+                        <div class="form-group mb-3">
                             <label for="project_products_id">Select Product</label>
                             <select name="project_products_id" id="project_products_id" class="form-control">
                             <option value="">-- Select Product --</option>
@@ -69,7 +81,13 @@
                         </div>
                          <div class="form-group mb-3">
                             <label for="project_sector">Project Sector</label>
-                            <input type="text" name="project_sector" id="project_sector" class="form-control">
+                            <select id="project_sector" name="project_sector" class="form-control">
+                                    <option value="">Select Sector</option>
+                                    <option value="Hotel">Hotel</option>
+                                    <option value="Hospital">Hospital</option>
+                                    <option value="Interior">Interior</option>
+                                    <option value="Mall">Mall</option>
+                                </select>
                             @error('project_sector') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
                      <div class="form-group mb-3">
@@ -121,11 +139,14 @@
                             <input type="text" name="project_state" id="project_state" class="form-control">
                             @error('project_state') <div class="text-danger">{{ $message }}</div> @enderror
                         </div> --}}
-                        <div class="form-group mb-3">
-                            <label for="project_city">Project City</label>
-                            <input type="text" name="project_city" id="project_city" class="form-control">
-                            @error('project_city') <div class="text-danger">{{ $message }}</div> @enderror
-                        </div>
+                       <div class="form-group mb-3">
+    <label for="project_city">Select City</label>
+    <select name="project_city" id="project_city" class="form-control">
+        <option value="">-- Select City --</option>
+    </select>
+    @error('project_city') <div class="text-danger">{{ $message }}</div> @enderror
+</div>
+
                           <div class="form-group mb-3">
                             <label for="project_location">Project Location</label>
                             <input type="text" name="project_location" id="project_location" class="form-control">
@@ -214,9 +235,22 @@ $(document).on("click", ".editProjectBtn", function () {
             $("#project_description").val(response.project_description);
             $("#project_sector").val(response.project_sector);
             $("#project_state").val(response.project_state);
-            $("#project_city").val(response.project_city);
+            // $("#project_city").val(response.project_city);
             $("#project_location").val(response.project_location);
            $("#project_products_id").val(response.project_products_id);
+               if (response.project_state) {
+        $.ajax({
+            url: '/get-cities/' + response.project_state,
+            type: 'GET',
+            success: function (data) {
+                $('#project_city').empty().append('<option value="">-- Select City --</option>');
+                $.each(data, function (id, name) {
+                    let selected = (name === response.project_city) ? 'selected' : '';
+                    $('#project_city').append('<option value="' + name + '" ' + selected + '>' + name + '</option>');
+                });
+            }
+        });
+    }
 
             // Show current image if exists
             if (response.project_image) {
@@ -339,4 +373,25 @@ document.getElementById("project_image").addEventListener("change", function() {
 });
 
     </script>
+<script>
+    $('#project_state').on('change', function () {
+        var stateName = $(this).val();
+
+        if (stateName) {
+            $.ajax({
+                url: '/get-cities/' + stateName,
+                type: 'GET',
+                success: function (data) {
+                    $('#project_city').empty().append('<option value="">-- Select City --</option>');
+                    $.each(data, function (id, name) {
+                        $('#project_city').append('<option value="' + name + '">' + name + '</option>');
+                    });
+                }
+            });
+        } else {
+            $('#project_city').empty().append('<option value="">-- Select City --</option>');
+        }
+    });
+</script>
+
 

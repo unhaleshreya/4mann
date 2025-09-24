@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Products;
+use App\Models\ProjectImage;
 
 class project extends Model
 {
@@ -23,5 +25,8 @@ class project extends Model
     public function product() {
     return $this->belongsTo(Products::class, 'project_products_id');
 }
-
+public function images()
+{
+    return $this->hasMany(ProjectImage::class);
+}
 }
