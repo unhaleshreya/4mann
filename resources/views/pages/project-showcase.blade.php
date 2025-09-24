@@ -172,122 +172,43 @@
                         <!-- Section Title End -->
 
                         <!-- Testimonial Slider Start -->
+                        @if($testimonies->count() > 0)
                         <div class="testimonial-slider">
                             <div class="swiper">
                                 <div class="swiper-wrapper" data-cursor-text="Drag">
+                                    @foreach($testimonies as $testimony)
                                     <!-- Testimonial Slide Start -->
                                     <div class="swiper-slide">
                                         <div class="testimonial-item">
                                             <div class="testimonial-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
+                                                @for($i = 1; $i <= $testimony->rating; $i++)
+                                                    <i class="fa-solid fa-star"></i>
+                                                @endfor
                                             </div>
 
+                                            
+
                                             <div class="testimonial-content">
-                                                <p>“4MANN ACPs strike the perfect balance between style and strength. The finish options are stunning, and the durability is unmatched!”</p>
+                                                <p>“{{ $testimony->message }}”</p>
                                             </div>
 
                                             <div class="testimonial-body">
                                                 <div class="author-image">
                                                     <figure class="image-anime">
-                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
+                                                        <img src="{{ asset('storage/' . $testimony->image_path) }}" alt="">
                                                     </figure>
                                                 </div>
                                                 <div class="author-content">
-                                                    <h3>Riya Biradar</h3>
-                                                    <p>Homeowner</p>
+                                                    <h3>{{ $testimony->name }}</h3>
+                                                    <p>{{ $testimony->customer_type }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <!-- Testimonial Slide End -->
 
-                                    <!-- Testimonial Slide Start -->
-                                    <div class="swiper-slide">
-                                        <div class="testimonial-item">
-                                            <div class="testimonial-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-
-                                            <div class="testimonial-content">
-                                                <p>“Lightweight panels, easy installation, and top-notch quality—4MANN has made our projects smoother and more efficient.”</p>
-                                            </div>
-
-                                            <div class="testimonial-body">
-                                                <div class="author-image">
-                                                    <figure class="image-anime">
-                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
-                                                    </figure>
-                                                </div>
-                                                <div class="author-content">
-                                                    <h3>Seema</h3>
-                                                    <p>senior engineer</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Testimonial Slide End -->
-                                    <div class="swiper-slide">
-                                        <div class="testimonial-item">
-                                            <div class="testimonial-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-
-                                            <div class="testimonial-content">
-                                                <p>“Our office got a complete facelift with 4MANN ACPs. Modern, sleek, and weather-resistant — exactly what we needed!”</p>
-                                            </div>
-
-                                            <div class="testimonial-body">
-                                                <div class="author-image">
-                                                    <figure class="image-anime">
-                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
-                                                    </figure>
-                                                </div>
-                                                <div class="author-content">
-                                                    <h3>Shital</h3>
-                                                    <p>senior engineer</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="testimonial-item">
-                                            <div class="testimonial-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-
-                                            <div class="testimonial-content">
-                                                <p>“The vibrant ACP panels from 4MANN elevated our storefront look. Great customer support and excellent product!”</p>
-                                            </div>
-
-                                            <div class="testimonial-body">
-                                                <div class="author-image">
-                                                    <figure class="image-anime">
-                                                        <img src="{{ asset('assets/images/client/client.png') }}" alt="">
-                                                    </figure>
-                                                </div>
-                                                <div class="author-content">
-                                                    <h3>Anita</h3>
-                                                    <p>senior engineer</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        
                                 </div>
                                 <!-- <div class="testimonial-btn">
                                     <div class="testimonial-button-prev"></div>
@@ -295,6 +216,22 @@
                                 </div> -->
                             </div>
                         </div>
+                        @else
+                        <div class="testimonial-slider">
+                            <div class="swiper">
+                                <div class="swiper-wrapper" data-cursor-text="Drag">
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-item">
+                                            <div class="testimonial-content">
+                                                <p>No testimonials available</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        
                         <!-- Testimonial Slider End -->
                     </div>
                     <!-- Our Testimonial Content End -->

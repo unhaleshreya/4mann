@@ -33,6 +33,11 @@
                             <textarea name="Message" id="Message" class="form-control"></textarea>
                             @error('Message') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="rating">Rating</label>
+                            <input type="number" name="rating" id="rating" class="form-control">
+                            @error('rating') <div class="text-danger">{{ $message }}</div> @enderror
+                        </div>
 
                         <!-- Product Image -->
                         <div class="form-group mb-3">
@@ -59,7 +64,7 @@
 
                         <button type="submit" class="btn btn-success" id="formSubmitBtn">Add Project</button>
                         <button type="button" class="btn btn-secondary ml-2" id="resetFormBtn" style="display: none;">Reset Form</button>
-                        <input type="hidden" name="testimon_id" id="testimon_id">
+                        <input type="hidden" name="testimony_id" id="testimony_id">
 
                     </form>
                 </div>
@@ -75,7 +80,7 @@
                                 <th>Name</th>
                                 <th>Message </th>
                                 <th>Type</th>
-                                
+                                <th>Rating</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -86,9 +91,10 @@
                                 <td>{{ $project->name }}</td>
                                 <td>{{ $project->message}}</td>
                                 <td>{{ $project->customer_type }}</td>
+                                <td>{{ $project->rating }}</td>
                                 <td>
-                                    @if($project->image)
-                                        <img src="{{ asset('storage/' . $project->project_image) }}" width="100">
+                                    @if($project->image_path)
+                                        <img src="{{ asset('storage/' . $project->image_path) }}" width="100">
                                     @endif
                                 </td>
 
@@ -130,13 +136,13 @@ $(document).on("click", ".editTestimonyBtn", function () {
 
             // Fill other fields
             $("#name").val(response.name);
-            $("#messeage").val(response.messeage);
+            $("#Message").val(response.message);
             $("#customer_type").val(response.customer_type);
-         
+            $("#rating").val(response.rating);
             
             // Show current image if exists
-            if (response.image) {
-                $("#currentImage").attr("src", "{{ asset('storage/') }}/" + response.project_image);
+            if (response.image_path) {
+                $("#currentImage").attr("src", "{{ asset('storage/') }}/" + response.image_path);
                 $("#currentImageContainer").show();
             } else {
                 $("#currentImageContainer").hide();
@@ -146,7 +152,7 @@ $(document).on("click", ".editTestimonyBtn", function () {
             $("#formSubmitBtn").text("Update").removeClass("btn-success").addClass("btn-primary");
 
             // Show reset button
-            $("#resetFormBtn").show();
+            // $("#resetFormBtn").show();
 
             // Change form action
             $("#testimonyForms").attr("action", "{{ route('testimony.update') }}");
@@ -158,37 +164,37 @@ $(document).on("click", ".editTestimonyBtn", function () {
 });
 
 // Reset form functionality
-$(document).on("click", "#resetFormBtn", function () {
-    // Reset form to add new product mode
-    $("#testimonyForms")[0].reset();
-    $("#testimonyForms").attr("action", "{{ route('projects.store') }}");
-    $("#formSubmitBtn").text("Add Project").removeClass("btn-primary").addClass("btn-success");
-    $("#resetFormBtn").hide();
-    $("#productCodeField").show();
-    $("#currentImageContainer").hide();
-    $("#testimony_id").val("");
-    pendingSubcategoryId = null;
-});
+// $(document).on("click", "#resetFormBtn", function () {
+//     // Reset form to add new product mode
+//     $("#testimonyForms")[0].reset();
+//     $("#testimonyForms").attr("action", "{{ route('projects.store') }}");
+//     $("#formSubmitBtn").text("Add Project").removeClass("btn-primary").addClass("btn-success");
+//     $("#resetFormBtn").hide();
+//     $("#productCodeField").show();
+//     $("#currentImageContainer").hide();
+//     $("#testimony_id").val("");
+//     pendingSubcategoryId = null;
+// });
 
 // Reset form after successful submit (optional)
-$(document).on("submit", "#projectForm", function (e) {
-    e.preventDefault();
-    let formData = new FormData(this);
+// $(document).on("submit", "#projectForm", function (e) {
+//     e.preventDefault();
+//     let formData = new FormData(this);
 
-    $.ajax({
-        url: $(this).attr("action"),
-        type: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function () {
-            window.location.reload();
-        },
-        error: function () {
-            alert("Something went wrong!");
-        }
-    });
-});
+//     $.ajax({
+//         url: $(this).attr("action"),
+//         type: "POST",
+//         data: formData,
+//         contentType: false,
+//         processData: false,
+//         success: function () {
+//             window.location.reload();
+//         },
+//         error: function () {
+//             alert("Something went wrong!");
+//         }
+//     });
+// });
 </script>
 <!-- DataTables -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">

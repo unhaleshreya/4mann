@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\State;
 use App\Models\City;
-
+use App\Models\Testimony;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -141,7 +141,8 @@ for ($i = 1; $i <= 9; $i++) {
     public function viewProjectShowcase($slug)
     {
         $project = project::with('images')->where('project_slug', $slug)->firstOrFail();
-        return view('pages.project-showcase', compact('project'));
+        $testimonies = Testimony::all();
+        return view('pages.project-showcase', compact('project', 'testimonies'));
     }
     public function getCities($stateName)
     {
