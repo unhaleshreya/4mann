@@ -42,7 +42,7 @@
                         <!-- Product Image -->
                         <div class="form-group mb-3">
                             <label for="image">Upload Image</label>
-                            <small class="text-danger">(≥ 800 x 800)</small>
+                            <small class="text-danger">(Image should be 800 x 800px)</small>
                             <input type="file" name="image" id="image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('image') <div class="text-danger">{{ $message }}</div> @enderror
@@ -55,14 +55,14 @@
                                 </div>
                             </div>
                         </div>
-      
+
                          <div class="form-group mb-3">
                             <label for="customer_type">Customer type</label>
                             <input type="text" name="customer_type" id="customer_type" class="form-control">
                             @error('customer_type') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-success" id="formSubmitBtn">Add Project</button>
+                        <button type="submit" class="btn btn-success" id="formSubmitBtn">Add Testimony</button>
                         <button type="button" class="btn btn-secondary ml-2" id="resetFormBtn" style="display: none;">Reset Form</button>
                         <input type="hidden" name="testimony_id" id="testimony_id">
 
@@ -140,7 +140,7 @@ $(document).on("click", ".editTestimonyBtn", function () {
             $("#Message").val(response.message);
             $("#customer_type").val(response.customer_type);
             $("#rating").val(response.rating);
-            
+
             // Show current image if exists
             if (response.image_path) {
                 $("#currentImage").attr("src", "{{ asset('storage/') }}/" + response.image_path);
@@ -247,7 +247,7 @@ $(document).on("click", ".editTestimonyBtn", function () {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width < minWidth || this.height < minHeight) {
+        if (this.width != minWidth || this.height != minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }

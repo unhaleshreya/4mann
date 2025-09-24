@@ -37,7 +37,7 @@
                         <!-- Product Image -->
                         <div class="form-group mb-3">
                             <label for="project_image">Upload Image</label>
-                            <small class="text-danger">(≥ 800 x 800)</small>
+                            <small class="text-danger">(Image should be 800 x 800px)</small>
                             <input type="file" name="project_image" id="project_image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('project_image') <div class="text-danger">{{ $message }}</div> @enderror

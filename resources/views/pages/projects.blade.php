@@ -53,7 +53,7 @@
                             <div class="form-group col-lg-3 col-md-6 mb-4">
                                 <select id="states" name="states" class="form-select">
                                     <option  value="">Select state</option>
-                                    
+
         <option value="Andhra Pradesh">Andhra Pradesh</option>
         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
         <option value="Assam">Assam</option>
@@ -121,7 +121,8 @@
                                 </div>
 
                                 <div class="project-tag">
-                                    <a href="{{ route('project-showcase.slug', $project->project_slug) }}">{{ $project->project_sector }}</a>
+                                    <h3><a href="{{ route('project-showcase.slug',
+                                     $project->project_slug) }}">{{ $project->project_sector }}</a></h3>
                                 </div>
 
                                 <div class="project-content">
