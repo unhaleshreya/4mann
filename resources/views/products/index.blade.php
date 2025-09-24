@@ -63,7 +63,7 @@
                         <!-- Product Image -->
                         <div class="form-group mb-3">
                             <label for="product_image">Upload Product Image</label>
-                            <small class="text-danger">(≥ 800 x 800)</small>
+                            <small class="text-danger">(Image should be 600 x 300px)</small>
                             <input type="file" name="product_image" id="product_image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('product_image') <div class="text-danger">{{ $message }}</div> @enderror
@@ -318,7 +318,7 @@ $(document).on("submit", "#updateProductForm", function (e) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width < minWidth || this.height < minHeight) {
+        if (this.width != minWidth || this.height != minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }
@@ -328,7 +328,7 @@ $(document).on("submit", "#updateProductForm", function (e) {
 
 // Call validation on change
 document.getElementById("product_image").addEventListener("change", function() {
-    validateImage(this, 800, 800, "image_error");
+    validateImage(this, 600, 300, "image_error");
 });
 $(document).on("keyup", "#product_code", function () {
     let productCode = $(this).val();

@@ -359,7 +359,7 @@ $(document).on("submit", "#projectForm", function (e) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width < minWidth || this.height < minHeight) {
+        if (this.width != minWidth || this.height != minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }

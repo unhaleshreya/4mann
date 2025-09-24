@@ -51,7 +51,7 @@
                                             <figure>
                                                 <a href="{{ route('subcategory.page', $subcategory->slug ?? $subcategory->id) }}" class="image-anime">
                                                     @if($subcategory->sub_category_img)
-                                                        <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
+                                                        <img src="{{ asset($subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
                                                         <img src="{{ asset('assets/images/hpl/image-1.jpg') }}" alt="{{ $subcategory->name }}">
                                                     @endif

@@ -26,7 +26,7 @@ class productController extends Controller
            'product_code' => 'required|string|max:255|unique:products,product_code',
             'title' => 'required|string|max:255|unique:products,product_title',
             'description' => 'required|string',
-            'product_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'product_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048|dimensions:min_width=600,min_height=300',
         ]);
 
         $imagePath = null;
