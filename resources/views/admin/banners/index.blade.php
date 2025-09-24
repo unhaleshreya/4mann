@@ -129,7 +129,7 @@ $(document).on("click", ".editBannerBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/banners/" + id + "/edit",
+        url: "{{ route('banners.ajax.edit', ':id') }}".replace(':id', id),
         type: "GET",
         success: function (response) {
             // Fill form with banner data

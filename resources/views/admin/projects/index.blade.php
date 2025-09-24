@@ -221,7 +221,8 @@ $(document).on("click", ".editProjectBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/projects/" + id + "/edit",
+        url: "{{ route('projects.edit', ':id') }}".replace(':id', id),
+
         type: "GET",
         success: function (response) {
             console.log('Project data received:', response);
@@ -240,7 +241,7 @@ $(document).on("click", ".editProjectBtn", function () {
            $("#project_products_id").val(response.project_products_id);
                if (response.project_state) {
         $.ajax({
-            url: '/get-cities/' + response.project_state,
+            url: '{{ route('get.cities') }}/' + response.project_state,
             type: 'GET',
             success: function (data) {
                 $('#project_city').empty().append('<option value="">-- Select City --</option>');
@@ -379,7 +380,7 @@ document.getElementById("project_image").addEventListener("change", function() {
 
         if (stateName) {
             $.ajax({
-                url: '/get-cities/' + stateName,
+                url: '{{ route('get.cities') }}/' + stateName,
                 type: 'GET',
                 success: function (data) {
                     $('#project_city').empty().append('<option value="">-- Select City --</option>');

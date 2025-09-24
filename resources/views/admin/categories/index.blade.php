@@ -139,7 +139,8 @@ $(document).on("click", ".editSubcategoryBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/subcategories/" + id + "/edit",
+        url: "{{ route('subcategory.edit', ':id') }}".replace(':id', id),
+
         type: "GET",
         success: function (response) {
             // Fill form with banner data

@@ -126,7 +126,8 @@ $(document).on("click", ".editTestimonyBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/testimony/" + id + "/edit",
+        url: "{{ route('testimony.edit', ':id') }}".replace(':id', id),
+
         type: "GET",
         success: function (response) {
             console.log('Testimony data received:', response);

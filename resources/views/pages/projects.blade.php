@@ -233,7 +233,7 @@ $(document).ready(function () {
 
         if (state) {
             $.ajax({
-                url: '/get-cities/' + state, // backend route
+                url: '{{ route('get.cities') }}/' + state, // backend route
                 type: 'GET',
                 success: function (data) {
                     let $city = $('#city');
@@ -259,7 +259,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: '/projects/filter',   // backend route
+            url: '{{ route('projects.filter') }}',   // backend route
             type: 'GET',
             data: filters,
             success: function (response) {

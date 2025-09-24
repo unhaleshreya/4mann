@@ -150,7 +150,7 @@ $("#category_id").change(function () {
         subcategorySelect.html('<option value="">-- Loading... --</option>');
 
         $.ajax({
-            url: "/admin/get-subcategories/" + categoryId,
+            url: "{{ route('get.subcategories') }}/" + categoryId,
             type: "GET",
             success: function (data) {
                 subcategorySelect.empty().append('<option value="">-- Select Subcategory --</option>');
@@ -182,7 +182,7 @@ $(document).on("click", ".editProductBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/products/" + id + "/edit",
+        url: "{{ route('products.edit', ':id') }}".replace(':id', id),
         type: "GET",
         success: function (response) {
             console.log('Product data received:', response);

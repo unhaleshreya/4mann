@@ -27,7 +27,7 @@ class SubCategoryController extends Controller
     $request->validate([
         'category_id' => 'required|exists:categories,id',
         'name' => 'required|string|max:255',
-        'sub_category_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048|dimensions:min_width=500,min_height=400',
+        'sub_category_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048|dimensions:min_width=500,min_height=400',
     ]);
 
     $imagePath = null;

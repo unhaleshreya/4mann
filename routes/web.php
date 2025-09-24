@@ -53,7 +53,7 @@ Route::view('/4man’s-journey20may', 'pages.4man’s-journey20may');
 Route::view('/4man’s-journey21may', 'pages.4man’s-journey21may');
 Route::get('/projects', [ProjectController::class, 'viewProjects'])->name('projects');
 Route::get('/project/{slug}', [ProjectController::class, 'viewProjectShowcase'])->name('project-showcase.slug');
-Route::get('/get-cities/{state}', [ProjectController::class, 'getCities']);
+Route::get('/get-cities/{state?}', [ProjectController::class, 'getCities'])->name('get.cities');
 Route::get('/projects/filter', [ProjectController::class, 'filterProjects'])->name('projects.filter');
 Route::view('/project-showcase', 'pages.project-showcase')->name('project-showcase');
 Route::view('/career', 'pages.career')->name('career');
@@ -86,7 +86,7 @@ Route::get('/subcategories/{id}/edit', [App\Http\Controllers\SubCategoryControll
 Route::post('/subcategory/update', [BannerController::class, 'update'])->name('subcategory.ajax.update');
 Route::get('/products',[productController::class, 'index'])->name('products.index');
 Route::post('/products',[productController::class, 'store'])->name('products.store');
-Route::get('/get-subcategories/{categoryId}',[productController::class, 'getSubcategories'])->name('get.subcategories');
+Route::get('/get-subcategories/{categoryId?}',[productController::class, 'getSubcategories'])->name('get.subcategories');
 Route::get('/products/{id}/edit', [productController::class, 'edit'])->name('products.edit');
 Route::post('/products/update', [productController::class, 'update'])->name('products.update');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
