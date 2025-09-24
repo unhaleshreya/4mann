@@ -167,6 +167,16 @@
 
 
            </li>
+             <a href="{{ route('testimony.index') }}" class="nav-link ">
+             <i class="fa fa-bullseye"></i>
+               <p>
+                 Add Testimony
+
+             </p>
+             </a>
+
+
+           </li>
             <!--<li class="nav-item">-->
             <!--  <a href="{{ url('admin/testimonials') }}" class="nav-link ">-->
             <!--    <i class="fa fa-bullseye"></i>-->

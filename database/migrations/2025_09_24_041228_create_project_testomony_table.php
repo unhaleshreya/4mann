@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('message');
-            $table->foreign('project_id')->references('id')
-            ->on('projects')->onDelete('cascade');
-            $table->string('customer_type');
+          $table->string('customer_type');
             $table->string('image_path');
             $table->timestamps();
         });

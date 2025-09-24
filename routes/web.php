@@ -93,6 +93,7 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects.ind
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 Route::get('/projects/{id}/edit', [projectController::class, 'edit'])->name('projects.edit');
 Route::post('/projects/update', [projectController::class, 'update'])->name('projects.update');
+Route::get('/projects/testimony', [App\Http\Controllers\TestimonyController::class, 'index'])->name('testimony.index');
 });
 
 

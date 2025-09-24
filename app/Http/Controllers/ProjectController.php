@@ -104,7 +104,7 @@ class ProjectController extends Controller
             'project_city' => $request->project_city,
             'project_location' => $request->project_location,
         ]);
-for ($i = 1; $i <= 6; $i++) {
+for ($i = 1; $i <= 9; $i++) {
         $fileInput = 'project_image'.$i;
         if ($request->hasFile($fileInput)) {
             $newPath = $request->file($fileInput)->store('projects', 'public');
