@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-header bg-primary text-white">Testimony</div>
                 <div class="card-body">
-                    <form action="{{ route('testimony.store') }}" method="POST" enctype="multipart/form-data" id="projectsForm">
+                    <form action="{{ route('testimony.store') }}" method="POST" enctype="multipart/form-data" id="testimonyForms">
                         @csrf
                         <!-- Project Title -->
                         <div class="form-group mb-3">
@@ -69,7 +69,7 @@
             <div class="card mt-4">
                 <div class="card-header"><strong>All Testimonies</strong></div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped" id="projectsTable">
+                    <table class="table table-bordered table-striped" id="TesimonyTable">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -93,7 +93,7 @@
                                 </td>
 
                                  <td>
-                                    <button class="btn btn-sm btn-primary editTestomonyBtn" data-id="{{ $project->id }}">
+                                    <button class="btn btn-sm btn-primary editTestimonyBtn" data-id="{{ $project->id }}">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                 </td>
@@ -116,43 +116,26 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-$(document).on("click", ".editProjectBtn", function () {
+$(document).on("click", ".editTestimonyBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/projects/" + id + "/edit",
+        url: "/admin/testimony/" + id + "/edit",
         type: "GET",
         success: function (response) {
-            console.log('Project data received:', response);
+            console.log('Testimony data received:', response);
 
             // Fill form
-            $("#project_id").val(response.id);
+            $("#testimony_id").val(response.id);
 
             // Fill other fields
-            $("#project_client").val(response.project_client);
-            $("#project_title").val(response.project_title);
-            $("#project_description").val(response.project_description);
-            $("#project_sector").val(response.project_sector);
-            $("#project_state").val(response.project_state);
-            // $("#project_city").val(response.project_city);
-            $("#project_location").val(response.project_location);
-           $("#project_products_id").val(response.project_products_id);
-               if (response.project_state) {
-        $.ajax({
-            url: '/get-cities/' + response.project_state,
-            type: 'GET',
-            success: function (data) {
-                $('#project_city').empty().append('<option value="">-- Select City --</option>');
-                $.each(data, function (id, name) {
-                    let selected = (name === response.project_city) ? 'selected' : '';
-                    $('#project_city').append('<option value="' + name + '" ' + selected + '>' + name + '</option>');
-                });
-            }
-        });
-    }
-
+            $("#name").val(response.name);
+            $("#messeage").val(response.messeage);
+            $("#customer_type").val(response.customer_type);
+         
+            
             // Show current image if exists
-            if (response.project_image) {
+            if (response.image) {
                 $("#currentImage").attr("src", "{{ asset('storage/') }}/" + response.project_image);
                 $("#currentImageContainer").show();
             } else {
@@ -160,15 +143,15 @@ $(document).on("click", ".editProjectBtn", function () {
             }
 
             // Change button text to "Update Product"
-            $("#formSubmitBtn").text("Update Project").removeClass("btn-success").addClass("btn-primary");
+            $("#formSubmitBtn").text("Update").removeClass("btn-success").addClass("btn-primary");
 
             // Show reset button
             $("#resetFormBtn").show();
 
             // Change form action
-            $("#projectsForm").attr("action", "{{ route('projects.update') }}");
+            $("#testimonyForms").attr("action", "{{ route('testimony.update') }}");
              $('html, body').animate({
-                scrollTop: $("#projectsForm").offset().top - 20 // adjust 20px above
+                scrollTop: $("#testimonyForms").offset().top - 20 // adjust 20px above
             }, 600);
         }
     });
@@ -177,14 +160,13 @@ $(document).on("click", ".editProjectBtn", function () {
 // Reset form functionality
 $(document).on("click", "#resetFormBtn", function () {
     // Reset form to add new product mode
-    $("#projectsForm")[0].reset();
-    $("#projectsForm").attr("action", "{{ route('projects.store') }}");
+    $("#testimonyForms")[0].reset();
+    $("#testimonyForms").attr("action", "{{ route('projects.store') }}");
     $("#formSubmitBtn").text("Add Project").removeClass("btn-primary").addClass("btn-success");
     $("#resetFormBtn").hide();
     $("#productCodeField").show();
     $("#currentImageContainer").hide();
-    $("#project_id").val("");
-    $("#subcategory_id").prop('disabled', true).html('<option value="">-- Select Subcategory --</option>');
+    $("#testimony_id").val("");
     pendingSubcategoryId = null;
 });
 
@@ -220,7 +202,7 @@ $(document).on("submit", "#projectForm", function (e) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 <script>
     $(document).ready(function () {
-        $('#projectsTable').DataTable({
+        $('#TesimonyTable').DataTable({
             dom: 'Bfrtip',   // Show buttons (Copy, CSV, Print, etc.)
             paging: true,    // Enable pagination
             searching: true, // Enable search
@@ -267,30 +249,11 @@ $(document).on("submit", "#projectForm", function (e) {
 }
 
 // Call validation on change
-document.getElementById("project_image").addEventListener("change", function() {
+document.getElementById("image").addEventListener("change", function() {
     validateImage(this, 800, 800, "image_error");
 });
 
     </script>
-<script>
-    $('#project_state').on('change', function () {
-        var stateName = $(this).val();
 
-        if (stateName) {
-            $.ajax({
-                url: '/get-cities/' + stateName,
-                type: 'GET',
-                success: function (data) {
-                    $('#project_city').empty().append('<option value="">-- Select City --</option>');
-                    $.each(data, function (id, name) {
-                        $('#project_city').append('<option value="' + name + '">' + name + '</option>');
-                    });
-                }
-            });
-        } else {
-            $('#project_city').empty().append('<option value="">-- Select City --</option>');
-        }
-    });
-</script>
 
 
