@@ -121,7 +121,7 @@
                                 </div>
 
                                 <div class="project-tag">
-                                    <a href="project-showcase.php">{{ $project->project_sector }}</a>
+                                    <a href="{{ route('project-showcase.slug', $project->project_slug) }}">{{ $project->project_sector }}</a>
                                 </div>
 
                                 <div class="project-content">
