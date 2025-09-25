@@ -25,68 +25,41 @@
 	<div class="page-blog">
 		<div class="container">
 			<div class="row">
+				@if($mediaBlogs->isNotEmpty())
+				@foreach($mediaBlogs as $blog)
 				<div class="col-lg-4 col-md-6">
 					<div class="post-item wow fadeInUp">
 						<div class="post-featured-image">
 							<figure>
-								<a href="{{ url('4man’s-journey21may') }}" class="image-anime" data-cursor-text="View">
-									<img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt="">
+								<a href="{{ route('blog.details', $blog->slug) }}" class="image-anime" data-cursor-text="View">
+									<img src="{{ asset('storage/' . $blog->image) }}" alt="">
 								</a>
 							</figure>
 						</div>
 						<div class="post-item-body">
 							<div class="post-item-content">
 								<span style="font-weight: normal;">21 May , 2025</span>
-								<h2><a href="{{ url('4man’s-journey21may') }}">4MANN’s Journey Of Design, Durability & Innovation</a></h2>
+								<h2><a href="{{ route('blog.details', $blog->slug) }}">{{ $blog->title }}</a></h2>
 							</div>
 							<div class="post-readmore-btn mt40">
-								<a href="{{ url('4man’s-journey21may') }}">Read more</a>
+								<a href="{{ route('blog.details', $blog->slug) }}">Read more</a>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="post-item wow fadeInUp" data-wow-delay="0.2s">
-						<div class="post-featured-image">
-							<figure>
-								<a href="{{ url('4man’s-journey20may') }}" class="image-anime" data-cursor-text="View">
-									<img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt="">
-								</a>
-							</figure>
-						</div>
-						<div class="post-item-body">
-							<div class="post-item-content">
-								<span style="font-weight: normal;">20 May , 2025</span>
-								<h2><a href="{{ url('4man’s-journey20may') }}">4MANN’s Journey of Design, Durability & Innovation</a></h2>
-							</div>
-							<div class="post-readmore-btn mt40">
-								<a href="{{ url('4man’s-journey20may') }}">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="post-item wow fadeInUp" data-wow-delay="0.4s">
-						<div class="post-featured-image">
-							<figure>
-								<a href="{{ url('4man’s-journey19may') }}" class="image-anime" data-cursor-text="View">
-									<img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt="">
-								</a>
-							</figure>
-						</div>
-						<div class="post-item-body">
-							<div class="post-item-content">
-								<span style="font-weight: normal;">19 May , 2025</span>
-								<h2><a href="{{ url('4man’s-journey19may') }}">4MANN’s Journey of Design, Durability and Innovation</a></h2>
-							</div>
-							<div class="post-readmore-btn mt40">
-								<a href="{{ url('4man’s-journey19may') }}">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				@endforeach
+				@else
+                <div class="col-lg-12">
+                    <div class="post-item wow fadeInUp">
+                        <div class="post-item-body">
+                            <div class="post-item-content">
+                                <h2>No blogs found</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				@endif
+				
 			</div>
 		</div>
 	</div>

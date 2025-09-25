@@ -47,7 +47,8 @@ Route::get('/other-building-materials', [HomeController::class, 'otherBuildingMa
 
 // Resources, Blog, Projects, Career, Contact
 Route::view('/resources', 'pages.resources')->name('resources');
-Route::view('/blog', 'pages.blog')->name('blog');
+Route::get('/blog', [App\Http\Controllers\MediablogController::class, 'viewBlog'])->name('blog');
+Route::get('/blog/{slug}', [App\Http\Controllers\MediablogController::class, 'viewBlogDetails'])->name('blog.details');
 Route::view('/4man’s-journey19may', 'pages.4man’s-journey19may');
 Route::view('/4man’s-journey20may', 'pages.4man’s-journey20may');
 Route::view('/4man’s-journey21may', 'pages.4man’s-journey21may');
@@ -97,6 +98,10 @@ Route::get('/projects/testimony', [App\Http\Controllers\TestimonyController::cla
 Route::post('/projests/testimony', [App\Http\Controllers\TestimonyController::class, 'store'])->name('testimony.store');
 Route::get('/testimony/{id}/edit', [App\Http\Controllers\TestimonyController::class, 'edit'])->name('testimony.edit');
 Route::post('/testimony/update', [App\Http\Controllers\TestimonyController::class, 'update'])->name('testimony.update');
+Route::get('/media-blog', [App\Http\Controllers\MediablogController::class, 'index'])->name('media-blog.index');
+Route::post('/media-blog', [App\Http\Controllers\MediablogController::class, 'store'])->name('media-blog.store');
+Route::get('/media-blog/{id}/edit', [App\Http\Controllers\MediablogController::class, 'edit'])->name('media-blog.edit');
+Route::post('/media-blog/update', [App\Http\Controllers\MediablogController::class, 'update'])->name('media-blog.update');
 });
 
 

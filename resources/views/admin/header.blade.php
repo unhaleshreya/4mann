@@ -177,6 +177,16 @@
 
 
            </li>
+           <li class="nav-item">
+           <a href="{{ route('media-blog.index') }}" class="nav-link ">
+             <i class="fa fa-bullseye"></i>
+               <p>
+                 Add Media Blog
+
+             </p>
+             </a>
+
+           </li>
             <!--<li class="nav-item">-->
             <!--  <a href="{{ url('admin/testimonials') }}" class="nav-link ">-->
             <!--    <i class="fa fa-bullseye"></i>-->

@@ -8,42 +8,30 @@
             <!-- Project Detail Title End -->
 
             <div class="project-detail-list">
+                @if($mediaBlogs->count() > 0)
+                @foreach($mediaBlogs as $blog)
                 <!-- Project Detail Item Start -->
                 <div class="project-detail-item">
                     <div class="post-img">
-                       <a href="#"> <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt=""></a>
+                       <a href="{{ route('blog.details', $blog->slug) }}"><img src="{{ asset('storage/' . $blog->image) }}" alt=""></a>
                     </div>
                     <div class="project-detail-content">
-                         <a href="4man’s-journey21may.php"><h3>4MANN’s Journey Of Design, Durability & Innovation</h3></a>
-                        <p>21 May, 2025</p>
+                         <a href="{{ route('blog.details', $blog->slug) }}"><h3>{{ $blog->title }}</h3></a>
+                        <p>{{ $blog->created_at->format('d M, Y') }}</p>
                     </div>
                 </div>
-                <!-- Project Detail Item End -->
+                        <!-- Project Detail Item End -->
+                @endforeach
+                @else
+                <div class="project-detail-item">
+                    <div class="project-detail-content">
+                        <h3>No blogs found</h3>
+                    </div>
+                </div>
+                @endif
 
                 <!-- Project Detail Item Start -->
-                <div class="project-detail-item">
-                    <div class="post-img">
-                        <a href="4man’s-journey20may.php"> <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt=""></a>
-                    </div>
-                    <div class="project-detail-content">
-                        <h3>4MANN’s Journey of Design, Durability & Innovation</h3>
-
-                        <p>20 May, 2025</p>
-                    </div>
-                </div>
-                <!-- Project Detail Item End -->
-
-                <!-- Project Detail Item Start -->
-                <div class="project-detail-item">
-                    <div class="post-img">
-                          <a href="4man’s-journey19may.php"> <img src="{{ asset('assets/images/blog/blog-1.jpg') }}" alt=""></a>
-                    </div>
-                    <div class="project-detail-content">
-                        <h3>4MANN’s Journey of Design, Durability & Innovation</h3>
-                        <p>19 May, 2025</p>
-                    </div>
-                </div>
-                <!-- Project Detail Item End -->
+            
 
 
             </div>
