@@ -38,7 +38,7 @@
 						</div>
 						<div class="post-item-body">
 							<div class="post-item-content">
-								<span style="font-weight: normal;">21 May , 2025</span>
+								<span style="font-weight: normal;">{{ $blog->created_at->format('d M, Y') }}</span>
 								<h2><a href="{{ route('blog.details', $blog->slug) }}">{{ $blog->title }}</a></h2>
 							</div>
 							<div class="post-readmore-btn mt40">
@@ -59,8 +59,7 @@
                     </div>
                 </div>
 				@endif
-				
-			</div>
+                </div>
 		</div>
 	</div>
 	<!-- Page Blog End -->

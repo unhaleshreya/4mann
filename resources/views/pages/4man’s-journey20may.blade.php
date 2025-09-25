@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                      @include('pages.blog-menu')
+                      @include('pages.blog-menu2')
 
                 </div>
             </div>

@@ -42,11 +42,11 @@
                     <div class="post-content">
                         <!-- Post Entry Start -->
                         <div class="post-entry">
-                            <span style="font-weight: normal;color: #b44880;">19 May , 2025</span>
+                            <span style="font-weight: normal;color: #b44880;">{{ $mediaBlog->created_at->format('d M, Y') }}</span>
                             <h4 style="margin-top: 10px;">{{ $mediaBlog->title }}</h4>
                             <p class="wow fadeInUp">{!! $mediaBlog->html_content !!}</p>
 
-                            
+
                         </div>
                         <!-- Post Entry End -->
 
