@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Products;
+use App\Models\products;
 use App\Models\ProjectImage;
 
 class project extends Model
@@ -23,7 +23,7 @@ class project extends Model
         'project_location',
     ];
     public function product() {
-    return $this->belongsTo(Products::class, 'project_products_id');
+    return $this->belongsTo(products::class, 'project_products_id');
 }
 public function images()
 {

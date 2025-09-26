@@ -248,25 +248,7 @@ $(document).on("click", "#resetFormBtn", function () {
     pendingSubcategoryId = null;
 });
 
-// Reset form after successful submit (optional)
-// $(document).on("submit", "#updateProductForm", function (e) {
-//     e.preventDefault();
-//     let formData = new FormData(this);
 
-//     $.ajax({
-//         url: $(this).attr("action"),
-//         type: "POST",
-//         data: formData,
-//         contentType: false,
-//         processData: false,
-//         success: function () {
-//             window.location.reload();
-//         },
-//         error: function () {
-//             alert("Something went wrong!");
-//         }
-//     });
-// });
 </script>
 <!-- DataTables -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
