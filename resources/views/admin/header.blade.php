@@ -197,6 +197,16 @@
              </a>
 
            </li>
+              <li class="nav-item">
+           <a href="{{ route('contact.index') }}" class="nav-link ">
+             <i class="fa fa-bullseye"></i>
+               <p>
+                Contacts
+
+             </p>
+             </a>
+
+           </li>
             <!--<li class="nav-item">-->
             <!--  <a href="{{ url('admin/testimonials') }}" class="nav-link ">-->
             <!--    <i class="fa fa-bullseye"></i>-->

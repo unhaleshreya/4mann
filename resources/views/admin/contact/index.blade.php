@@ -7,10 +7,10 @@
 
       <div class="card mt-4">
                 <div class="card-header">
-                    <strong>Submitted Applications</strong>
+                    <strong>Contacts</strong>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped" id="careersTable">
+                    <table class="table table-bordered table-striped" id="contactTable">
                         <thead>
                             <tr>
                                 <th>sr.no.</th>
@@ -18,29 +18,23 @@
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Company Name</th>
+                                <th>Customer Type</th>
                                 <th>Message</th>
-                                <th>Attachment</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($careers as $index => $career)
+                            @forelse($contact as $index => $con)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $career->first_name }}</td>
-                                    <td>{{ $career->last_name }}</td>
-                                    <td>{{ $career->email }}</td>
-                                    <td>{{ $career->phone }}</td>
-                                    <td>{{ $career->message ?? '-' }}</td>
-                                    <td>
-                                        @if($career->resume_path)
-                                           <a href="{{ asset('storage/' . $career->attachment) }}"
-                                             target="_blank">View File</a>
-                                             
-                                        @else
-                                            <span class="text-muted">No File</span>
-                                        @endif
-                                    </td>
+                                    <td>{{ $con->fname }}</td>
+                                    <td>{{ $con->lname }}</td>
+                                    <td>{{ $con->email }}</td>
+                                    <td>{{ $con->phone }}</td>
+                                    <td>{{ $con->company_name}}</td>
+                                    <td>{{ $con->who_we_serve}}</td>
+                                    <td>{{ $con->message}}</td>
 
                                 </tr>
                             @empty
@@ -70,7 +64,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 <script>
     $(document).ready(function () {
-        $('#careersTable').DataTable({
+        $('#contactTable').DataTable({
             dom: 'Bfrtip',   // Show buttons (Copy, CSV, Print, etc.)
             paging: true,    // Enable pagination
             searching: true, // Enable search

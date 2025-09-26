@@ -93,7 +93,8 @@
 						</div>
 						<div class="contact-form">
 							<form id="contactForm" action="#" method="POST" data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
-								<div class="row">
+								@csrf
+                                <div class="row">
 									<div class="form-group col-md-6 mb-4">
 										<input type="text" name="fname" class="form-control" id="fname" placeholder="Enter first name" required>
 										<div class="help-block with-errors"></div>
@@ -131,7 +132,7 @@
 									</div>
 									<div class="col-md-12">
 										<button type="submit" class="btn-default"><span>submit message</span></button>
-										<div id="msgSubmit" class="h3 hidden"></div>
+										<div id="msgSubmit" class="h3 hidden text-success" style="font-size: 14px;"></div>
 									</div>
 								</div>
 							</form>
@@ -157,4 +158,43 @@
 	</div>
 	<!-- Google Map End -->
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+
+        let formData = {
+            _token: $('input[name="_token"]').val(),
+            fname: $('#fname').val(),
+            lname: $('#lname').val(),
+            email: $('#email').val(),
+            phone: $('#phone').val(),
+            'company-name': $('#company-name').val(),
+            'who-we-serve': $('#who-we-serve').val(),
+            message: $('#message').val(),
+        };
+
+        $.ajax({
+            url: "{{ route('contact.store') }}",
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                $('#msgSubmit').text('Your message has been sent!').show();
+                $('#contactForm')[0].reset();
+            },
+            error: function(xhr) {
+                let errors = xhr.responseJSON.errors;
+                let errorMsg = '';
+                $.each(errors, function(key, value) {
+                    errorMsg += value + '\n';
+                });
+                alert(errorMsg);
+            }
+        });
+    });
+});
+</script>
 

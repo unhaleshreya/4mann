@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CareerController;
 
 
 
@@ -103,6 +105,7 @@ Route::post('/media-blog', [App\Http\Controllers\MediablogController::class, 'st
 Route::get('/media-blog/{id}/edit', [App\Http\Controllers\MediablogController::class, 'edit'])->name('media-blog.edit');
 Route::post('/media-blog/update', [App\Http\Controllers\MediablogController::class, 'update'])->name('media-blog.update');
 Route::get('/careers',[App\Http\Controllers\CareerController::class, 'index'])->name('careers.index');
+Route::get('/contact',[App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
 });
 
 
@@ -124,4 +127,7 @@ Route::get('/product/{slug}', [HomeController::class, 'productDetails'])->name('
 Route::post('/check-product-code', [ProductController::class, 'checkProductCode'])->name('check.product.code');
 
 Route::post('/career', [App\Http\Controllers\CareerController::class, 'store'])->name('careers.store');
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 
