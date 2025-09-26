@@ -33,12 +33,18 @@
                             <select name="document_type" id="document_type" class="form-control">
                                 <option value="">-- Select Document Type --</option>
                                 <option value="technical-manual">4MANN - Technical Manual</option>
-                                <option value="BIS-Certificate">BIS Certificate</option>
-                                <option value="Catalogs">Catalogs</option>
-                                <option value="IGBC-Certificate">IGBC Certificate</option>
-                                <option value="Fire-Test-Certificate">Fire Test Certificate</option>
-                                <option value="ISO-Certificates">ISO Certificates</option>
-                                <option value="TDS">TDS</option>
+                                <option value="bis-certificate">BIS Certificate</option>
+                                <option value="approval-letters">Approval Letters</option>
+                                <option value="performance-certificates">Performance Certificates</option>
+                                <option value="warrington-fire-test-report">Warrington Fire Test Report</option>
+                                <option value="sound-absorbing-test-certificates">Sound Absorbing Test Certificates</option>
+                                <option value="arai-test-report">ARAI Test Report</option>
+                                <option value="catalogs">Catalogs</option>
+                                <option value="igbc-certificate'">IGBC Certificate</option>
+                                <option value="fire-test-certificate">Fire Test Certificate</option>
+                                <option value="iso-certificates">ISO Certificates</option>
+                                <option value="iit-test-certificate">IIT Test Certificate<</option>
+                                <option value="tds">TDS</option>
                                 <option value="Other-Test-Reports">Other Test Reports</option>
                                 <option value="Other-Resources">Other Resources</option>
                             </select>

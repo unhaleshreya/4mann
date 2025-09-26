@@ -15,11 +15,18 @@ class ResourcesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'document_type' => 'required|string|max:255',
-            'document_path' => 'required|pdf|doc|docx|max:255',
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:255',
-        ]);
+    'title' => 'required|string|max:255',
+
+    // Validating document_type as a file (doc, docx, pdf)
+    'document_type' => 'required|string|max:255', // max:10240 = 10MB
+
+    // Validating document_path as a file (doc, docx, pdf)
+    'document_path' => 'required|file|mimes:pdf,doc,docx|max:10240',
+
+    // Validating image_path as optional image (jpeg, png, jpg, webp), max 2MB
+    'image_path' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+]);
+
         $document_path = null;
         if ($request->hasFile('document_path')) {
             $document_path = $request->file('document_path')->store('resources', 'public');
@@ -46,8 +53,8 @@ class ResourcesController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'document_type' => 'required|string|max:255',
-            'document_path' => 'nullable|file|pdf|doc|docx|max:255',
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:255',
+            'document_path' => 'nullable|file|mimes:pdf,doc,docx|max:10240',
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
         
         $resource = Resources::findOrFail($request->resource_id);
