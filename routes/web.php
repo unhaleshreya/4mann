@@ -102,6 +102,7 @@ Route::get('/media-blog', [App\Http\Controllers\MediablogController::class, 'ind
 Route::post('/media-blog', [App\Http\Controllers\MediablogController::class, 'store'])->name('media-blog.store');
 Route::get('/media-blog/{id}/edit', [App\Http\Controllers\MediablogController::class, 'edit'])->name('media-blog.edit');
 Route::post('/media-blog/update', [App\Http\Controllers\MediablogController::class, 'update'])->name('media-blog.update');
+Route::get('/careers',[App\Http\Controllers\CareerController::class, 'index'])->name('careers.index');
 });
 
 
@@ -121,4 +122,6 @@ Route::get('/subcategory-by-id/{id}', [HomeController::class, 'subcategoryPageBy
 Route::get('/product/{slug}', [HomeController::class, 'productDetails'])->name('product.details');
 
 Route::post('/check-product-code', [ProductController::class, 'checkProductCode'])->name('check.product.code');
+
+Route::post('/career', [App\Http\Controllers\CareerController::class, 'store'])->name('careers.store');
 

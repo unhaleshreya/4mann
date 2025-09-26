@@ -2,6 +2,7 @@
 @extends('main-layout.app')
 
 @section('content')
+
     <!-- Page Header Start -->
     <!-- <div class="page-header parallaxie" style=" background: url('assets/images/breadcrumb/about.jpg') no-repeat center center;"> -->
     <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Career1.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Careermobile.jpg') }}">
@@ -186,7 +187,8 @@
 
                                 <div class="contact-form" id="apply-here">
                                     <!-- Contact Form Start -->
-                                    <form id="contactForm" action="#" method="POST" data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
+                                    <form id="contactForm" action="{{ route('careers.store') }}" method="POST" enctype=multipart/form-data data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
+                                         @csrf
                                         <div class="row">
                                             <div class="form-group col-md-6 mb-4">
                                                 <input type="text" name="fname" class="form-control" id="fname" placeholder="Enter first name" required>
@@ -236,5 +238,45 @@
     </div>
     <!-- Page Faq End -->
  @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+
+        let formData = new FormData(this);
+
+        $.ajax({
+            url: $(this).attr('action'),
+            method: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(res) {
+                if(res.success){
+                    alert(res.message);
+                    $('#contactForm')[0].reset();
+                 }
+            },
+            error: function(xhr) {
+                let errors = xhr.responseJSON.errors;
+                let errorMsg = "";
+                $.each(errors, function(key, value) {
+                    errorMsg += value[0] + "\n";
+                });
+                alert(errorMsg);
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+
 
 
