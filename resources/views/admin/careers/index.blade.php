@@ -37,6 +37,7 @@
                                             <a href="{{ asset('storage/' . $career->resume_path) }}" target="_blank" class="btn btn-sm btn-info">
                                                 View File
                                             </a>
+
                                         @else
                                             <span class="text-muted">No File</span>
                                         @endif
