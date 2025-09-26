@@ -140,22 +140,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function loadSubcategories(categoryId, container) {
-        fetch(`/get-subcategories/${categoryId}`)
+        // Laravel route with placeholder
+        let url = "{{ route('get.subcategories.frontend', ':id') }}";
+        // Replace :id with actual categoryId
+        url = url.replace(':id', categoryId ?? '');
+
+        fetch(url)
             .then(response => response.json())
             .then(subcategories => {
                 container.innerHTML = '';
                 subcategories.forEach(function(subcategory) {
                     const li = document.createElement('li');
                     li.className = 'nav-item';
-                    // Create proper link to subcategory page
+
                     const link = document.createElement('a');
                     link.className = 'nav-link';
-                    // Use slug if available, otherwise use ID
+
+                    // Use slug if available, otherwise fallback to ID
                     if (subcategory.slug) {
-                        link.href = `/subcategory/${subcategory.slug}`;
+                        link.href = "{{ route('subcategory.page', ':slug') }}"
+                            .replace(':slug', subcategory.slug);
                     } else {
-                        link.href = `/subcategory-by-id/${subcategory.id}`;
+                        link.href = "{{ route('subcategory.page.by.id', ':id') }}"
+                            .replace(':id', subcategory.id);
                     }
+
                     link.textContent = subcategory.name;
                     li.appendChild(link);
                     container.appendChild(li);

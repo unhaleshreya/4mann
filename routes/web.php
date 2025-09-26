@@ -112,7 +112,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/get-subcategories/{categoryId}',[HomeController::class, 'getSubcategories'])->name('get.subcategories.frontend');
+Route::get('/get-subcategories/{categoryId}', [HomeController::class, 'getSubcategories'])->name('get.subcategories.frontend');
+
 
 // Subcategory pages
 Route::get('/subcategory/{slug}', [HomeController::class, 'subcategoryPage'])->name('subcategory.page');
