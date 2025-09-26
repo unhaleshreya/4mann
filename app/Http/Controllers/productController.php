@@ -90,7 +90,7 @@ public function update(Request $request)
 
     $product->save();
 
-    return response()->json(['success' => 'Product updated successfully!']);
+    return redirect()->route('products.index')->with('success', 'Product updated successfully!');
 }
 public function checkProductCode(Request $request)
 {
