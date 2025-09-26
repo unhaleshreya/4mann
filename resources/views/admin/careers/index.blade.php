@@ -13,7 +13,7 @@
                     <table class="table table-bordered table-striped">
                         <thead class="table-dark">
                             <tr>
-                                <th>#</th>
+                                <th>sr.no.</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Email</th>
@@ -33,7 +33,7 @@
                                     <td>{{ $career->phone }}</td>
                                     <td>{{ $career->message ?? '-' }}</td>
                                     <td>
-                                        @if($career->attachment)
+                                        @if($career->resume_path)
                                             <a href="{{ asset('storage/' . $career->attachment) }}" target="_blank" class="btn btn-sm btn-info">
                                                 View File
                                             </a>
@@ -51,10 +51,7 @@
                         </tbody>
                     </table>
 
-                    <!-- Optional pagination -->
-                    <div class="mt-3">
-                        {{-- {{ $careers->links() }} --}}
-                    </div>
+                  
 
                 </div>
             </div>
