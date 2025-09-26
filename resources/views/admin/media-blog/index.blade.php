@@ -36,6 +36,7 @@
                         <div class="form-group mb-3">
                             <label>Blog Image</label>
                             <input type="file" name="image" id="image" class="form-control">
+                            <span class="text-dandger">(Image should be 1200 x 675px)</span>
                         </div>
 
                         <button type="submit" id="addBlogBtn" class="btn btn-primary">Submit</button>
@@ -134,7 +135,7 @@ function validateImage(input, minWidth, minHeight, errorSpanId) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width < minWidth || this.height < minHeight) {
+        if (this.width != minWidth || this.height != minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }
@@ -144,6 +145,6 @@ function validateImage(input, minWidth, minHeight, errorSpanId) {
 
 // Call validation on change
 document.getElementById("image").addEventListener("change", function() {
-    validateImage(this, 1920, 750, "image_error"); // Website image
+    validateImage(this, 1200, 675, "image_error"); // Website image
 });
 </script>
