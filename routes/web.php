@@ -48,7 +48,7 @@ Route::get('/metafulte-aluminium-composite-louvers', [HomeController::class, 'al
 Route::get('/other-building-materials', [HomeController::class, 'otherBuildingMaterials'])->name('other-building');
 
 // Resources, Blog, Projects, Career, Contact
-Route::view('/resources', 'pages.resources')->name('resources');
+Route::get('/resources', [App\Http\Controllers\ResourcesController::class, 'viewindex'])->name('resources');
 Route::get('/blog', [App\Http\Controllers\MediablogController::class, 'viewBlog'])->name('blog');
 Route::get('/blog/{slug}', [App\Http\Controllers\MediablogController::class, 'viewBlogDetails'])->name('blog.details');
 Route::view('/4man’s-journey19may', 'pages.4man’s-journey19may');
@@ -106,6 +106,10 @@ Route::get('/media-blog/{id}/edit', [App\Http\Controllers\MediablogController::c
 Route::post('/media-blog/update', [App\Http\Controllers\MediablogController::class, 'update'])->name('media-blog.update');
 Route::get('/careers',[App\Http\Controllers\CareerController::class, 'index'])->name('careers.index');
 Route::get('/contact',[App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
+Route::get('/resources', [App\Http\Controllers\ResourcesController::class, 'index'])->name('resources.index');
+Route::post('/resources', [App\Http\Controllers\ResourcesController::class, 'store'])->name('resources.store');
+Route::get('/resources/{id}/edit', [App\Http\Controllers\ResourcesController::class, 'edit'])->name('resources.edit');
+Route::post('/resources/update', [App\Http\Controllers\ResourcesController::class, 'update'])->name('resources.update');
 });
 
 

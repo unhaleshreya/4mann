@@ -12,6 +12,28 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
+                        @php
+                            $resourcestechmanual = Resources::where('document_type', 'technical-manual')->get();
+                        @endphp
+                        @if($resourcestechmanual->count() > 0)
+                        @foreach($resourcestechmanual as $resource)
+                        <div class="post-item wow fadeInUp">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                                @if($resource->image_path)
+                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                @else
+                                    <img src="{{ asset('assets/images/resources/4.jpg') }}" alt="">
+                                @endif
+                            </a>
+
+                            <div class="post-item-body">
+                                <div class="post-item-content mt-3">
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        @else
                         <div class="post-item wow fadeInUp">
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset('assets/images/resources/4MANN - Technical Manual.pdf') }}')" class="image-anime" data-cursor-text="View">
                                 <img src="{{ asset('assets/images/resources/4.jpg') }}" alt="">
@@ -23,6 +45,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -33,17 +56,34 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
+                        @php
+                            $resourcesbiscertificate = Resources::where('document_type', 'bis-certificate')->get();
+                        @endphp
+                        @if($resourcesbiscertificate->count() > 0)
+                        @foreach($resourcesbiscertificate as $resource)
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('assets/images/resources/BIS Certificate/BIS License.pdf') }}')" class="image-anime" data-cursor-text="View">
-                                <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                                @if($resource->image_path)
+                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                @else
+                                    <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
+                                @endif
                             </a>
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('assets/images/resources/4MANN - Technical Manual.pdf') }}')">BIS License</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+                        @else
+                        <div class="post-item wow fadeInUp">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('assets/images/resources/BIS Certificate/BIS License.pdf') }}')" class="image-anime" data-cursor-text="View">
+                                <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
+                            </a>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -52,6 +92,27 @@
                     <h2 class="text-anime-style-2"> <span> Catalogs</span></h2>
                 </div>
                 <div class="row">
+                    @php
+                        $resourcescatalogs = Resources::where('document_type', 'catalogs')->get();
+                    @endphp
+                    @if($resourcescatalogs->count() > 0)
+                    @foreach($resourcescatalogs as $resource)
+                    <div class="col-lg-4 col-md-6">
+                        <!-- Post Item Start -->
+                        <div class="post-item wow fadeInUp">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('assets/images/resources/Catalogs/4Mann Product Catalogue - 1.3.0 - E.pdf') }}')" class="image-anime" data-cursor-text="View">
+                                <img src="{{ asset('assets/images/resources/5.jpg') }}" alt="">
+                            </a>
+
+                            <div class="post-item-body">
+                                <div class="post-item-content mt-3">
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('assets/images/resources/Catalogs/4Mann Product Catalogue - 1.3.0 - E.pdf') }}')">4Mann Product Catalogue - 1.3.0 - E</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    @else
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
@@ -80,6 +141,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="divider" id="Other-Resources">

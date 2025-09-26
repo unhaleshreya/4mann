@@ -125,7 +125,7 @@
                         <div class="sidebar-cta-box wow fadeInUp" data-wow-delay="0.25s">
                             <!-- Sidebar Image Start -->
                             <div class="sidebar-cta-logo">
-                                <img src="images/footer-logo.svg" alt="">
+                                <img src="{{ asset('assets/images/logo/footer-logo.svg') }}" alt="">
                             </div>
                             <!-- Sidebar Image End -->
 
