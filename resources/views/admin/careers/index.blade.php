@@ -34,7 +34,7 @@
                                     <td>{{ $career->message ?? '-' }}</td>
                                     <td>
                                         @if($career->resume_path)
-                                            <a href="{{ asset('storage/' . $career->attachment) }}" target="_blank" class="btn btn-sm btn-info">
+                                            <a href="{{ asset('storage/' . $career->resume_path) }}" target="_blank" class="btn btn-sm btn-info">
                                                 View File
                                             </a>
                                         @else
