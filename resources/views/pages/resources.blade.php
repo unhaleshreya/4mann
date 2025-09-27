@@ -16,9 +16,9 @@
                         @if($resourcestechmanual->count() > 0)
                         @foreach($resourcestechmanual as $resource)
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/4.jpg') }}" alt="">
                                 @endif
@@ -26,7 +26,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                         @if($resourcesbiscertificate->count() > 0)
                         @foreach($resourcesbiscertificate as $resource)
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
                                 @endif
@@ -70,7 +70,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -98,9 +98,9 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset( $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/5.jpg') }}" alt="">
                                 @endif
@@ -109,7 +109,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                        <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                        <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                     </div>
                             </div>
                         </div>
@@ -161,9 +161,9 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt="">
                                 @endif
@@ -172,7 +172,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -275,9 +275,9 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
                                 @endif
@@ -286,7 +286,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -380,9 +380,9 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Report.jpg') }}" alt="">
                                 @endif
@@ -391,7 +391,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -449,9 +449,9 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Report.jpg') }}" alt="">
                                 @endif
@@ -460,7 +460,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -498,16 +498,16 @@
                 <h3 class="mb-4">Sound Absorbing Test Certificates</h3>
                 <div class="row">
                     @php
-                         $resouucesSoundAbsorbingTestCertificates = $resources->where('document_type', 'sound-absorbing-test-certificates');                
+                         $resouucesSoundAbsorbingTestCertificates = $resources->where('document_type', 'sound-absorbing-test-certificates');
                     @endphp
                     @if($resouucesSoundAbsorbingTestCertificates->count() > 0)
                     @foreach($resouucesSoundAbsorbingTestCertificates as $resource)
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
                                 @endif
@@ -516,7 +516,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -561,9 +561,9 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
                                 @endif
@@ -572,7 +572,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -601,16 +601,16 @@
                 </div>
                 <div class="row">
                     @php
-                        $resourcesIGBCcertificate = $resources->where('document_type', 'igbc-certificate');                
+                        $resourcesIGBCcertificate = $resources->where('document_type', 'igbc-certificate');
                     @endphp
                     @if($resourcesIGBCcertificate->count() > 0)
                     @foreach($resourcesIGBCcertificate as $resource)
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
                                 @endif
@@ -619,7 +619,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -707,7 +707,7 @@
                     @endphp
                     @if($resourcesISOcertificates->count() > 0)
                     @foreach($resourcesISOcertificates as $resource)
-                    
+
                     @endforeach
                     @else
                     <div class="col-lg-4 col-md-6">
@@ -765,9 +765,9 @@
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
                         <div class="post-item wow fadeInUp">
-                            <a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset( $resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
-                                    <img src="{{ asset('storage/' . $resource->image_path) }}" alt="">
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
                                 @else
                                     <img src="{{ asset('assets/images/resources/Report.jpg') }}" alt="">
                                 @endif
@@ -776,7 +776,7 @@
 
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
-                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset('storage/' . $resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>

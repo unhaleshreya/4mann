@@ -30,10 +30,12 @@ class ResourcesController extends Controller
         $document_path = null;
         if ($request->hasFile('document_path')) {
             $document_path = $request->file('document_path')->store('resources', 'public');
+            $document_path='/storage'.'/'.$document_path;
         }
         $image_path = null;
         if ($request->hasFile('image_path')) {
             $image_path = $request->file('image_path')->store('resources', 'public');
+            $image_path='/storage'.'/'.$image_path;
         }
         Resources::create([
             'title' => $request->title,
@@ -56,21 +58,23 @@ class ResourcesController extends Controller
             'document_path' => 'nullable|file|mimes:pdf,doc,docx|max:10240',
             'image_path' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
-        
+
         $resource = Resources::findOrFail($request->resource_id);
         if ($request->hasFile('document_path')) {
             $document_path = $request->file('document_path')->store('resources', 'public');
+            $document_path='/storage'.'/'.$document_path;
             $resource->document_path = $document_path;
         }
         if ($request->hasFile('image_path')) {
             $image_path = $request->file('image_path')->store('resources', 'public');
+            $image_path='/storage'.'/'.$image_path;
             $resource->image_path = $image_path;
         }
         $resource->save();
         $resource->update([
             'title' => $request->title,
             'document_type' => $request->document_type,
-           
+
         ]);
         return redirect()->route('resources.index')->with('success', 'Resource updated successfully.');
     }

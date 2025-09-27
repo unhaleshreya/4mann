@@ -87,7 +87,7 @@
                     <strong>Uploaded Resources</strong>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped" id="resourcesTable">
                         <thead>
                             <tr>
                                 <th>Title</th>
@@ -104,7 +104,7 @@
                                     <td>{{ $resource->document_type }}</td>
                                     <td>
                                         @if ($resource->document_path)
-                                            <a href="{{ asset('storage/' . $resource->document_path) }}" target="_blank"
+                                            <a href="{{ asset( $resource->document_path) }}" target="_blank"
                                                 class="btn btn-sm btn-info">
                                                 View Document
                                             </a>
@@ -114,7 +114,7 @@
                                     </td>
                                     <td>
                                         @if ($resource->image_path)
-                                            <img src="{{ asset('storage/' . $resource->image_path) }}" width="100">
+                                            <img src="{{ asset( $resource->image_path) }}" width="100">
                                         @else
                                             <span class="text-muted">No image</span>
                                         @endif
@@ -167,3 +167,27 @@
         });
     });
 </script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#resourcesTable').DataTable({
+            dom: 'Bfrtip',   // Show buttons (Copy, CSV, Print, etc.)
+            paging: true,    // Enable pagination
+            searching: true, // Enable search
+            ordering: true,  // Enable sorting
+            responsive: true,
+            lengthMenu: [10, 25, 50, 100],
+            buttons: [
+                'copy', 'csv', 'print'
+            ]
+        });
+    });
+    </script>
