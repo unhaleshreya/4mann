@@ -181,6 +181,13 @@
     <p class="mb-0"> Contacts</p>
   </a>
 </li>
+ <li class="nav-item">
+  <a href="{{ route('resources.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-book me-2"></i>
+    <p class="mb-0">Resources</p>
+  </a>
+</li>
+
 
             <!--<li class="nav-item">-->
             <!--  <a href="{{ url('admin/testimonials') }}" class="nav-link ">-->
