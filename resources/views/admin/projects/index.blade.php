@@ -37,7 +37,7 @@
                         <!-- Product Image -->
                         <div class="form-group mb-3">
                             <label for="project_image">Upload Image</label>
-                            <small class="text-danger">(Image should be 800 x 800px)</small>
+                            <small class="text-danger">(Image should be ≥ 800 x 800px)</small>
                             <input type="file" name="project_image" id="project_image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('project_image') <div class="text-danger">{{ $message }}</div> @enderror
@@ -93,44 +93,12 @@
                      <div class="form-group mb-3">
     <label for="project_state">Select State</label>
     <select name="project_state" id="project_state" class="form-control">
-        <option value="">-- Select State --</option>
-        <option value="Andhra Pradesh">Andhra Pradesh</option>
-        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-        <option value="Assam">Assam</option>
-        <option value="Bihar">Bihar</option>
-        <option value="Chhattisgarh">Chhattisgarh</option>
-        <option value="Goa">Goa</option>
-        <option value="Gujarat">Gujarat</option>
-        <option value="Haryana">Haryana</option>
-        <option value="Himachal Pradesh">Himachal Pradesh</option>
-        <option value="Jharkhand">Jharkhand</option>
-        <option value="Karnataka">Karnataka</option>
-        <option value="Kerala">Kerala</option>
-        <option value="Madhya Pradesh">Madhya Pradesh</option>
-        <option value="Maharashtra">Maharashtra</option>
-        <option value="Manipur">Manipur</option>
-        <option value="Meghalaya">Meghalaya</option>
-        <option value="Mizoram">Mizoram</option>
-        <option value="Nagaland">Nagaland</option>
-        <option value="Odisha">Odisha</option>
-        <option value="Punjab">Punjab</option>
-        <option value="Rajasthan">Rajasthan</option>
-        <option value="Sikkim">Sikkim</option>
-        <option value="Tamil Nadu">Tamil Nadu</option>
-        <option value="Telangana">Telangana</option>
-        <option value="Tripura">Tripura</option>
-        <option value="Uttar Pradesh">Uttar Pradesh</option>
-        <option value="Uttarakhand">Uttarakhand</option>
-        <option value="West Bengal">West Bengal</option>
-        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-        <option value="Chandigarh">Chandigarh</option>
-        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-        <option value="Ladakh">Ladakh</option>
-        <option value="Lakshadweep">Lakshadweep</option>
-        <option value="Puducherry">Puducherry</option>
-    </select>
+    <option value="">-- Select State --</option>
+    @foreach($states as $state)
+        <option value="{{ $state->id }}">{{ $state->name }}</option>
+    @endforeach
+</select>
+
     @error('project_state') <div class="text-danger">{{ $message }}</div> @enderror
 </div>
 
@@ -147,11 +115,11 @@
     @error('project_city') <div class="text-danger">{{ $message }}</div> @enderror
 </div>
 
-                          <div class="form-group mb-3">
+                          {{-- <div class="form-group mb-3">
                             <label for="project_location">Project Location</label>
                             <input type="text" name="project_location" id="project_location" class="form-control">
                             @error('project_location') <div class="text-danger">{{ $message }}</div> @enderror
-                        </div>
+                        </div> --}}
 
                         <button type="submit" class="btn btn-success" id="formSubmitBtn">Add Project</button>
                         <button type="button" class="btn btn-secondary ml-2" id="resetFormBtn" style="display: none;">Reset Form</button>
@@ -173,7 +141,7 @@
                                 <th>Project Client</th>
                                 <th>Project Sector</th>
                                 <th>Project State</th>
-                                <th>Project Location</th>
+                                {{-- <th>Project Location</th> --}}
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -186,7 +154,7 @@
                                 <td>{{ $project->project_client }}</td>
                                 <td>{{ $project->project_sector }}</td>
                                 <td>{{ $project->project_state }}</td>
-                                <td>{{ $project->project_location }}</td>
+                                {{-- <td>{{ $project->project_location }}</td> --}}
                                 <td>
                                     @if($project->project_image)
                                         <img src="{{ asset('storage/' . $project->project_image) }}" width="100">
@@ -247,7 +215,7 @@ $(document).on("click", ".editProjectBtn", function () {
                 $('#project_city').empty().append('<option value="">-- Select City --</option>');
                 $.each(data, function (id, name) {
                     let selected = (name === response.project_city) ? 'selected' : '';
-                    $('#project_city').append('<option value="' + name + '" ' + selected + '>' + name + '</option>');
+                    $('#project_city').append('<option value="' + id + '" ' + selected + '>' + name + '</option>');
                 });
             }
         });
@@ -360,7 +328,7 @@ $(document).on("submit", "#projectForm", function (e) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width != minWidth || this.height != minHeight) {
+        if (this.width < minWidth || this.height < minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }

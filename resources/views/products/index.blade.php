@@ -63,7 +63,7 @@
                         <!-- Product Image -->
                         <div class="form-group mb-3">
                             <label for="product_image">Upload Product Image</label>
-                            <small class="text-danger">(Image should be 600 x 300px)</small>
+                            <small class="text-danger">(Image should be ≥ 600 x 300px)</small>
                             <input type="file" name="product_image" id="product_image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('product_image') <div class="text-danger">{{ $message }}</div> @enderror
@@ -300,7 +300,7 @@ $(document).on("click", "#resetFormBtn", function () {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width != minWidth || this.height != minHeight) {
+        if (this.width < minWidth || this.height < minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }

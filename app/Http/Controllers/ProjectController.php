@@ -17,6 +17,8 @@ class ProjectController extends Controller
     {
             $projects = project::all();
             $products = products::all();
+            $states = State::all();
+            $cities = City::all();
             return view("admin.projects.index", compact("projects","products"));
     }
     public function store(Request $request){
@@ -29,7 +31,7 @@ class ProjectController extends Controller
             'project_products_id' => 'required|exists:products,id',
             'project_state' => 'required|string|max:255',
             'project_city' => 'required|string|max:255',
-            'project_location' => 'required|string|max:255',
+            'project_location' => 'nullable|string|max:255',
         ]);
 
         $imagePath = null;
@@ -55,11 +57,11 @@ class ProjectController extends Controller
             $path = $request->file($fileInput)->store('projects', 'public');
             $project->images()->create([
                 'image_path' => $path,
-                
+
             ]);
         }
     }
-    
+
 
         return redirect()->route('projects.index')->with('success', 'Project added successfully!');
 
@@ -79,7 +81,7 @@ class ProjectController extends Controller
             'project_products_id' => 'required|exists:products,id',
             'project_state' => 'required|string|max:255',
             'project_city' => 'required|string|max:255',
-            'project_location' => 'required|string|max:255',
+            'project_location' => 'nullable|string|max:255',
         ]);
 
         $project = project::findOrFail($request->project_id);
@@ -116,19 +118,19 @@ for ($i = 1; $i <= 9; $i++) {
                 Storage::disk('public')->delete($existingImage->image_path);
                 $existingImage->update([
                     'image_path' => $newPath,
-                    
+
                 ]);
             } else {
                 // Create new image if not exists
                 $project->images()->create([
                     'image_path' => $newPath,
-                    
+
                 ]);
             }
         }
 }
             return redirect()->route('projects.index')->with('success', 'Project updated successfully!');
-    
+
 }
     public function viewProjects()
     {

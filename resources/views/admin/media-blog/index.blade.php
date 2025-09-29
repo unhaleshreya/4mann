@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <form action="{{ route('media-blog.store') }}" id="blogForm" method="POST" enctype="multipart/form-data">
                         @csrf
-                        
+
                         <input type="hidden" name="blog_id" id="blog_id">
 
                         <!-- Title -->
@@ -36,7 +36,7 @@
                         <div class="form-group mb-3">
                             <label>Blog Image</label>
                             <input type="file" name="image" id="image" class="form-control">
-                            <span class="text-dandger">(Image should be 1200 x 675px)</span>
+                            <span class="text-dandger">(Image should be ≥ 1200 x 675px)</span>
                         </div>
 
                         <button type="submit" id="addBlogBtn" class="btn btn-primary">Submit</button>
@@ -73,7 +73,7 @@
                                         <a href="javascript:void(0);" class="btn btn-sm btn-primary editBlogBtn" data-id="{{ $blog->id }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                       
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -135,7 +135,7 @@ function validateImage(input, minWidth, minHeight, errorSpanId) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width != minWidth || this.height != minHeight) {
+        if (this.width < minWidth || this.height < minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }
