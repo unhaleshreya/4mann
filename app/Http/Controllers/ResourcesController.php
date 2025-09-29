@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resources;
+use Illuminate\Support\Facades\Storage;
 
 class ResourcesController extends Controller
 {
@@ -61,11 +62,17 @@ class ResourcesController extends Controller
 
         $resource = Resources::findOrFail($request->resource_id);
         if ($request->hasFile('document_path')) {
+            if($resource->document_path){
+                 Storage::disk('public')->delete($resource->document_path);
+            }
             $document_path = $request->file('document_path')->store('resources', 'public');
             $document_path='/storage'.'/'.$document_path;
             $resource->document_path = $document_path;
         }
         if ($request->hasFile('image_path')) {
+            if($resource->image_path){
+                 Storage::disk('public')->delete($resource->image_path);
+            }
             $image_path = $request->file('image_path')->store('resources', 'public');
             $image_path='/storage'.'/'.$image_path;
             $resource->image_path = $image_path;
