@@ -19,7 +19,7 @@ class ProjectController extends Controller
             $products = products::all();
             $states = State::all();
             $cities = City::all();
-            return view("admin.projects.index", compact("projects","products"));
+            return view("admin.projects.index", compact("projects","products","states","cities"));
     }
     public function store(Request $request){
         $request->validate([
@@ -136,19 +136,19 @@ for ($i = 1; $i <= 9; $i++) {
     {
         $projects = project::all();
         $products = products::all();
-    $states   = State::orderBy('name')->get();
+        $states = State::orderBy('name')->get();
 
     return view("pages.projects", compact("projects", "products", "states"));
     }
     public function viewProjectShowcase($slug)
     {
-        $project = project::with('images')->where('project_slug', $slug)->firstOrFail();
+        $project = project::with('images', 'state', 'city')->where('project_slug', $slug)->firstOrFail();
         $testimonies = Testimony::all();
         return view('pages.project-showcase', compact('project', 'testimonies'));
     }
     public function getCities($stateName)
     {
-        $state = State::where('name', $stateName)->first();
+        $state = State::where('id', $stateName)->first();
 
         if (!$state) {
             return response()->json([]);

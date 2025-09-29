@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="project-detail-content">
                                         <h3>location:</h3>
-                                        <p>{{ $project->project_location }}</p>
+                                        <p>{{ $project->city->name }}, {{ $project->state->name }}</p>
                                     </div>
                                 </div>
                                 <!-- Project Detail Item End -->
@@ -186,7 +186,7 @@
                                                 @endfor
                                             </div>
 
-                                            
+
 
                                             <div class="testimonial-content">
                                                 <p>“{{ $testimony->message }}”</p>
@@ -208,7 +208,7 @@
                                     @endforeach
                                     <!-- Testimonial Slide End -->
 
-                        
+
                                 </div>
                                 <!-- <div class="testimonial-btn">
                                     <div class="testimonial-button-prev"></div>
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                         @endif
-                        
+
                         <!-- Testimonial Slider End -->
                     </div>
                     <!-- Our Testimonial Content End -->

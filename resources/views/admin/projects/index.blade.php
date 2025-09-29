@@ -214,7 +214,7 @@ $(document).on("click", ".editProjectBtn", function () {
             success: function (data) {
                 $('#project_city').empty().append('<option value="">-- Select City --</option>');
                 $.each(data, function (id, name) {
-                    let selected = (name === response.project_city) ? 'selected' : '';
+                    let selected = (id === response.project_city) ? 'selected' : '';
                     $('#project_city').append('<option value="' + id + '" ' + selected + '>' + name + '</option>');
                 });
             }
@@ -353,7 +353,7 @@ document.getElementById("project_image").addEventListener("change", function() {
                 success: function (data) {
                     $('#project_city').empty().append('<option value="">-- Select City --</option>');
                     $.each(data, function (id, name) {
-                        $('#project_city').append('<option value="' + name + '">' + name + '</option>');
+                        $('#project_city').append('<option value="' + id + '">' + name + '</option>');
                     });
                 }
             });

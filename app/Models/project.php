@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\products;
 use App\Models\ProjectImage;
+use App\Models\State;
+use App\Models\City;
 
 class project extends Model
 {
@@ -20,7 +22,6 @@ class project extends Model
         'project_slug',
         'project_state',
         'project_city',
-        'project_location',
     ];
     public function product() {
     return $this->belongsTo(products::class, 'project_products_id');
@@ -28,5 +29,13 @@ class project extends Model
 public function images()
 {
     return $this->hasMany(ProjectImage::class);
+}
+public function state()
+{
+    return $this->belongsTo(State::class, 'project_state', 'id');
+}
+public function city()
+{
+    return $this->belongsTo(City::class, 'project_city', 'id');
 }
 }
