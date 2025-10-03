@@ -37,6 +37,7 @@
                              <div class="form-group mb-3">
                             <label for="web_image">Upload image for Sub category
                                 <small class="text-danger">(Image should be ≥ 500 x 400px)</small>
+                                <small class="text-danger">(Image should be ≥ 500 x 400px)</small>
                             </label>
                             <input type="file" name="sub_category_image" id="image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
@@ -210,6 +211,7 @@ function validateImage(input, minWidth, minHeight, errorSpanId) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
+    if (this.width < minWidth || this.height < minHeight) {
     if (this.width < minWidth || this.height < minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";

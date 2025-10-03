@@ -1,4 +1,5 @@
 @extends('main-layout.app')
+@extends('main-layout.app')
 @section('content')
 <!-- Page Blog Start -->
     <div class="page-blog">
@@ -7,7 +8,7 @@
                 <div class="section-title">
                     <h2 class="text-anime-style-2">4MANN - <span> Technical Manual</span></h2>
                 </div>
-                 
+
                 <div class="row">
                     @php
                             $resourcestechmanual = $resources->where('document_type', 'technical-manual');
@@ -15,12 +16,12 @@
                         @if($resourcestechmanual->count() > 0)
                         @foreach($resourcestechmanual as $resource)
                     <div class="col-lg-4 col-md-6">
-                       
+
                         <div class="post-item wow fadeInUp">
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                               
+
                                 @endif
                             </a>
 
@@ -36,9 +37,9 @@
                        @endforeach
                         @endif
                 </div>
-              
+
             </div>
-           
+
             <div class="divider" id="BIS-Certificate">
                 <div class="section-title">
                     <h2 class="text-anime-style-2">BIS <span> Certificate</span></h2>
@@ -51,8 +52,14 @@
                         @foreach($resourcesbiscertificate as $resource)
                     <div class="col-lg-4 col-md-6">
                         <!-- Post Item Start -->
-                       
+
                         <div class="post-item wow fadeInUp">
+                            <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
+                                @if($resource->image_path)
+                                    <img src="{{ asset($resource->image_path) }}" alt="">
+                                @else
+                                    <img src="{{ asset('assets/images/resources/Certificate.jpg') }}" alt="">
+                                @endif
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
@@ -64,13 +71,14 @@
                             <div class="post-item-body">
                                 <div class="post-item-content mt-3">
                                     <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
+                                    <h2><a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')">{{ $resource->title }}</a></h2>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     @endforeach
-                       
+
                         @endif
                 </div>
             </div>
@@ -90,7 +98,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                             
+
                                 @endif
                            </a>
 
@@ -102,7 +110,7 @@
                         </div>
                     </div>
                     @endforeach
-                   
+
                     @endif
                 </div>
             </div>
@@ -123,7 +131,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                            
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -136,7 +144,7 @@
                         </div>
                     </div>
                     @endforeach
-                  
+
                     @endif
                 </div>
                 <h3 class="mb-4">Performance Certificates</h3>
@@ -152,7 +160,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                                
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -165,7 +173,7 @@
                         </div>
                     </div>
                     @endforeach
-                   
+
                   @endif
                 </div>
             </div>
@@ -186,7 +194,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                               
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -199,7 +207,7 @@
                         </div>
                     </div>
                     @endforeach
-                  
+
                     @endif
                 </div>
                 <h3 class="mb-4">ARAI Test Report</h3>
@@ -215,7 +223,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                              
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -228,7 +236,7 @@
                         </div>
                     </div>
                     @endforeach
-                
+
                     @endif
                 </div>
                 <h3 class="mb-4">Sound Absorbing Test Certificates</h3>
@@ -244,7 +252,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                                
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -258,7 +266,7 @@
                     </div>
                     @endforeach
                     @else
-                 
+
                     @endif
                 </div>
                 <h3 class="mb-4">IIT Test Certificate</h3>
@@ -274,7 +282,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                               
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -287,7 +295,7 @@
                         </div>
                     </div>
                     @endforeach
-                   
+
                     @endif
                 </div>
             </div>
@@ -307,7 +315,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                                
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -320,7 +328,7 @@
                         </div>
                     </div>
                     @endforeach
-                    
+
                     @endif
                 </div>
             </div>
@@ -348,8 +356,8 @@
                         </div>
                     </div>
                     @endforeach
-                   
-               
+
+
                     @endif
                 </div>
             </div>
@@ -377,7 +385,7 @@
                         </div>
                     </div>
                     @endforeach
-                  
+
                     @endif
                 </div>
             </div>
@@ -397,7 +405,7 @@
                             <a href="javascript:void(0)" onclick="openPDF('{{ asset($resource->document_path) }}')" class="image-anime" data-cursor-text="View">
                                 @if($resource->image_path)
                                     <img src="{{ asset($resource->image_path) }}" alt="">
-                         
+
                                 @endif
                                 {{-- <img src="{{ asset('assets/images/resources/Letter.jpg') }}" alt=""> --}}
                             </a>
@@ -410,8 +418,8 @@
                         </div>
                     </div>
                     @endforeach
-                 
-                 
+
+
                     @endif
                 </div>
             </div>

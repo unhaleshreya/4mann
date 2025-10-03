@@ -52,12 +52,14 @@
 
                         <!-- Mobile View Image -->
                         {{-- <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label for="mobile_image">Upload image for Mobile View
                                 <small class="text-danger">(≥ 834 x 1194px)</small>
                             </label>
                             <input type="file" name="mobile_image" id="mobile_image" class="form-control">
                             <span id="mobile_image_error" class="text-danger"></span>
                             @error('mobile_image') <div class="text-danger">{{ $message }}</div> @enderror
+                        </div> --}}
                         </div> --}}
 
                         <!-- Submit Button -->
@@ -81,6 +83,7 @@
                                 <th>Order</th>
                                 <th>Web Image</th>
                                 {{-- <th>Mobile Image</th> --}}
+                                {{-- <th>Mobile Image</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -93,7 +96,7 @@
                                 <td>
                                     <img src="{{ asset('storage/'.$banner->image_path) }}" width="150">
                                 </td>
-                             
+
                                 <td>
                                     <a href="javascript:void(0);"
                                         class="btn btn-sm btn-primary editBannerBtn"
@@ -106,7 +109,7 @@
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this banner?')">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                    </form> 
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -127,6 +130,7 @@ $(document).on("click", ".editBannerBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
+        url: "{{ route('banners.ajax.edit', ':id') }}".replace(':id', id),
         url: "{{ route('banners.ajax.edit', ':id') }}".replace(':id', id),
         type: "GET",
         success: function (response) {

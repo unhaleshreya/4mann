@@ -3,6 +3,7 @@
 
 @section('content')
 
+
     <!-- Page Header Start -->
     <!-- <div class="page-header parallaxie" style=" background: url('assets/images/breadcrumb/about.jpg') no-repeat center center;"> -->
     <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Career1.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Careermobile.jpg') }}">
@@ -126,6 +127,7 @@
                             <!-- Sidebar Image Start -->
                             <div class="sidebar-cta-logo">
                                 <img src="{{ asset('assets/images/logo/footer-logo.svg') }}" alt="">
+                                <img src="{{ asset('assets/images/logo/footer-logo.svg') }}" alt="">
                             </div>
                             <!-- Sidebar Image End -->
 
@@ -187,6 +189,8 @@
 
                                 <div class="contact-form" id="apply-here">
                                     <!-- Contact Form Start -->
+                                    <form id="contactForm" action="{{ route('careers.store') }}" method="POST" enctype=multipart/form-data data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
+                                         @csrf
                                     <form id="contactForm" action="{{ route('careers.store') }}" method="POST" enctype=multipart/form-data data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
                                          @csrf
                                         <div class="row">

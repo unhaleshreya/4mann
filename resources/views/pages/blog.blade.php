@@ -27,6 +27,8 @@
 			<div class="row">
 				@if($mediaBlogs->isNotEmpty())
 				@foreach($mediaBlogs as $blog)
+				@if($mediaBlogs->isNotEmpty())
+				@foreach($mediaBlogs as $blog)
 				<div class="col-lg-4 col-md-6">
 					<div class="post-item wow fadeInUp">
 						<div class="post-featured-image">
@@ -40,13 +42,29 @@
 							<div class="post-item-content">
 								<span style="font-weight: normal;">{{ $blog->created_at->format('d M, Y') }}</span>
 								<h2><a href="{{ route('blog.details', $blog->slug) }}">{{ $blog->title }}</a></h2>
+								<span style="font-weight: normal;">{{ $blog->created_at->format('d M, Y') }}</span>
+								<h2><a href="{{ route('blog.details', $blog->slug) }}">{{ $blog->title }}</a></h2>
 							</div>
 							<div class="post-readmore-btn mt40">
+								<a href="{{ route('blog.details', $blog->slug) }}">Read more</a>
 								<a href="{{ route('blog.details', $blog->slug) }}">Read more</a>
 							</div>
 						</div>
 					</div>
 				</div>
+				@endforeach
+				@else
+                <div class="col-lg-12">
+                    <div class="post-item wow fadeInUp">
+                        <div class="post-item-body">
+                            <div class="post-item-content">
+                                <h2>No blogs found</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				@endif
+                </div>
 				@endforeach
 				@else
                 <div class="col-lg-12">

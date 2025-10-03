@@ -104,7 +104,7 @@ $(document).on("click", ".editBlogBtn", function () {
     $("#blog_id").val(response.id);
     $("#title").val(response.title);
      $('#summernote').summernote('code', response.html_content);
-    
+
     // Set form action for update
     $("#addBlogBtn").text("Update");
     $("#blogForm").attr("action", "{{ route('media-blog.update') }}");

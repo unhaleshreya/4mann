@@ -10,6 +10,8 @@
             <div class="project-detail-list">
                 @if($mediaBlogs->count() > 0)
                 @foreach($mediaBlogs as $blog)
+                @if($mediaBlogs->count() > 0)
+                @foreach($mediaBlogs as $blog)
                 <!-- Project Detail Item Start -->
                 <div class="project-detail-item">
                     <div class="post-img">
@@ -18,20 +20,27 @@
                     <div class="project-detail-content">
                          <a href="{{ route('blog.details', $blog->slug) }}"><h3>{{ $blog->title }}</h3></a>
                         <p>{{ $blog->created_at->format('d M, Y') }}</p>
+                         <a href="{{ route('blog.details', $blog->slug) }}"><h3>{{ $blog->title }}</h3></a>
+                        <p>{{ $blog->created_at->format('d M, Y') }}</p>
                     </div>
                 </div>
+                        <!-- Project Detail Item End -->
+                @endforeach
+                @else
                         <!-- Project Detail Item End -->
                 @endforeach
                 @else
                 <div class="project-detail-item">
                     <div class="project-detail-content">
                         <h3>No blogs found</h3>
+                        <h3>No blogs found</h3>
                     </div>
                 </div>
                 @endif
+                @endif
 
                 <!-- Project Detail Item Start -->
-            
+
 
 
             </div>

@@ -33,7 +33,7 @@
                                                 <h1 class="text-anime-style-2" data-cursor="-opaque">
                                                     {!! $banner->text_content !!}
                                                 </h1>
-                                            
+
                                             @endif
 
                                             {{-- Banner Sub Text --}}
@@ -41,7 +41,7 @@
                                                 <p class="wow fadeInUp" data-wow-delay="0.25s">
                                                     {!! $banner->sub_text_content !!}
                                                 </p>
-                                            
+
                                             @endif
                                         </div>
 
@@ -60,7 +60,7 @@
 
                 {{-- Else fallback to static banners --}}
                 @else
-                   
+
                 @endif
 
             </div>
