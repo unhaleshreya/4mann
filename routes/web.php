@@ -112,8 +112,8 @@ Route::post('/our_resources', [App\Http\Controllers\ResourcesController::class, 
 Route::get('/our_resources/{id}/edit', [App\Http\Controllers\ResourcesController::class, 'edit'])->name('resources.edit');
 Route::post('/our_resources/update', [App\Http\Controllers\ResourcesController::class, 'update'])->name('resources.update');
 Route::get('/about-us',[App\Http\Controllers\AboutusController::class, 'index'])->name('leadership.index');
- Route::get('leadership/edit/{id}', [AboutusController::class, 'edit'])->name('leadership.edit');
-    Route::post('leadership/update', [AboutusController::class, 'update'])->name('leadership.update');
+Route::get('/leadership/edit/{id}', [AboutusController::class, 'edit'])->name('leadership.edit');
+Route::post('/leadership/update', [AboutusController::class, 'update'])->name('leadership.update');
 });
 
 
