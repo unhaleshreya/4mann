@@ -29,7 +29,7 @@
                         <!-- Content 1 -->
                         <div class="form-group mb-3">
                             <label>Content</label>
-                            <textarea name="content" id="summernote" class="form-control" rows="4"></textarea>
+                            <textarea name="content1" id="summernote" class="form-control" rows="4"></textarea>
                         </div>
 
                         <input type="hidden" name="leader_id" id="leader_id">
@@ -88,7 +88,7 @@ $(document).on("click", ".editLeaderBtn", function () {
             $("#leader_id").val(response.id);
             $("#leader_name").val(response.name);
             $("#leader_position").val(response.position);
-            $('#summernote').summernote('code', response.content);
+            $('#summernote').summernote('code', response.content1);
            
             // Update form action
             $("#leaderForm").attr("action",  "{{ route('leadership.update') }}");

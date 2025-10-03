@@ -14,6 +14,6 @@ class leadership extends Model
     protected $fillable = [
         'name',
         'position',
-        'content',
+        'content1',
     ];
 }

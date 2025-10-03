@@ -20,7 +20,7 @@ class AboutusController extends Controller
         $request->validate([
             'name'      => 'required|string|max:255',
             'position'  => 'required|string|max:255',
-            'content'  => 'required|string',
+            'content1'  => 'required|string',
         ]);
 
         leadership::create($request->all());
@@ -43,7 +43,7 @@ public function update(Request $request)
 
     $leader = leadership::findOrFail($request->leader_id);
     $leader->update([
-        'content' => $request->content,
+        'content' => $request->content1,
     ]);
 
     return redirect()->back()->with('success', 'Contents updated successfully.');

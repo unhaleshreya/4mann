@@ -17,13 +17,13 @@ class LeadershipTeamSeeder extends Seeder
             [
                 'name' => 'Suresh Gala',
                 'position' => 'Managing Director',
-                'content' => 'A visionary leader and the cornerstone of 4MANN GROUP. He brings over 30 years of entrepreneurial excellence to the company.
+                'content1' => 'A visionary leader and the cornerstone of 4MANN GROUP. He brings over 30 years of entrepreneurial excellence to the company.
                 As Managing Director, his unwavering dedication and forward-thinking approach have shaped 4MANN into a trusted brand in Aluminium Composite Panels and Iron Ore Beneficiation.',
             ],
             [
                 'name' => 'Dharm Gala',
                 'position' => 'Director',
-                'content' => 'A Chartered Accountant by qualification and a new-age leader by mindset, he brings a rare blend of financial discipline and modern business vision to 4MANN GROUP.
+                'content1' => 'A Chartered Accountant by qualification and a new-age leader by mindset, he brings a rare blend of financial discipline and modern business vision to 4MANN GROUP.
                 His sharp instincts, quick decision-making, and aggressive market approach have been instrumental in expanding the brand’s presence across India.',
             ],
             // Add more leaders here if needed
