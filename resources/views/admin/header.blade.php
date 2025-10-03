@@ -162,6 +162,13 @@
   </a>
 </li>
 
+<li class="nav-item">
+  <a href="{{ route('faqs.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-question-circle me-2" style="margin-right: 5px;"></i>
+    <p class="mb-0">FAQs</p>
+  </a>
+</li>
+
 
             <li class="nav-item">
               <a href="{{url('admin/logout')}}" class="nav-link">

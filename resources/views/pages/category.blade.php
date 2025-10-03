@@ -39,7 +39,7 @@
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title">{{ $subcategory->name }}</h5>
                                 <div class="mt-auto">
-                                    <a href="{{ route('subcategory.page', $subcategory->slug ?? $subcategory->id) }}" class="btn btn-primary">View Products</a>
+                                    <a href="{{ route('subcategory.page', [$category->slug, $subcategory->slug ?? $subcategory->id]) }}" class="btn btn-primary">View Products</a>
                                 </div>
                             </div>
                         </div>

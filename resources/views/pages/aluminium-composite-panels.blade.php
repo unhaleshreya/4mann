@@ -149,7 +149,7 @@
                                     <div class="post-item pro-grid wow fadeInUp">
                                         <div class="post-featured-image">
                                             <figure>
-                                                <a href="{{ route('subcategory.page', $subcategory->slug ?? $subcategory->id) }}" class="image-anime" data-cursor-text="View">
+                                                <a href="{{ route('subcategory.page', [$category->slug, $subcategory->slug ?? $subcategory->id]) }}" class="image-anime" data-cursor-text="View">
                                                     @if($subcategory->sub_category_img)
                                                         <img src="{{ asset( $subcategory->sub_category_img) }}" alt="{{ $subcategory->name }}">
                                                     @else
@@ -160,7 +160,7 @@
                                         </div>
                                         <div class="post-item-body">
                                             <div class="post-item-content text-center">
-                                                <h2><a href="{{ route('subcategory.page', $subcategory->slug ?? $subcategory->id) }}">{{ $subcategory->name }}</a></h2>
+                                                <h2><a href="{{ route('subcategory.page', [$category->slug, $subcategory->slug ?? $subcategory->id]) }}">{{ $subcategory->name }}</a></h2>
                                             </div>
                                         </div>
                                     </div>

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::table('leadershipteam', function (Blueprint $table) {
-            // $table->dropColumn(['content']);
+        Schema::create('faqs', function (Blueprint $table) {
+            $table->id();
+            $table->string('question');
+            $table->text('answer');
+            $table->timestamps();
         });
     }
 
@@ -22,9 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::table('leadershipteam', function (Blueprint $table) {
-            //  $table->longText('content')->nullable();
-        });
+        Schema::dropIfExists('faqs');
     }
 };

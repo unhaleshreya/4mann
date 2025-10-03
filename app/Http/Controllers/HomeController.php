@@ -8,6 +8,7 @@ use App\Models\Banner;
 use App\Models\categories;
 use App\Models\subcategory;
 use App\Models\products;
+use App\Models\Faqs;
 
 class HomeController extends Controller
 {
@@ -26,12 +27,13 @@ class HomeController extends Controller
 
     public function getSubcategories($categoryId)
     {
-        $subcategories = subcategory::where('category_id', $categoryId)->get();
+        $subcategories = subcategory::with('category')->where('category_id', $categoryId)->get();
         return response()->json($subcategories);
     }
 
-    public function subcategoryPage($slug)
+    public function subcategoryPage($categoryslug,$slug)
     {
+        // dd($categoryslug,$slug);
         $subcategory = subcategory::where('slug', $slug)->with('category')->firstOrFail();
         $products = products::where('sub_category_id', $subcategory->id)->with(['category', 'subcategory'])->get();
 
@@ -118,7 +120,8 @@ class HomeController extends Controller
     public function productDetails($slug)
     {
         $product = products::where('slug', $slug)->with(['category', 'subcategory'])->firstOrFail();
-        return view('pages.product-details', compact('product'));
+        $faqs = Faqs::all();
+        return view('pages.product-details', compact('product', 'faqs'));
     }
 
 }

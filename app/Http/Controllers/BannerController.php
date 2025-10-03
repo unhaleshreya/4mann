@@ -27,7 +27,7 @@ class BannerController extends Controller
             'text_content' => 'required|string',
             'sub_text_content' => 'required|string',
             'banner_link' => 'nullable|string',
-            'display_order' => 'nullable|integer',
+            'display_order' => 'required|integer|unique:banners,display_order',
         ]);
     //    if($request->file){
         if ($request->hasFile('image')) {
@@ -47,7 +47,7 @@ class BannerController extends Controller
             'sub_text_content' => $request->sub_text_content,
             'mobile_img_path' => $mobile_img_path,
             'banner_link' => $request->banner_link,
-            'display_order' => $request->display_order ?? 0,
+            'display_order' => $request->display_order,
         ]);
 
         return redirect()->route('banners.index')->with('success', 'Banner created successfully.');

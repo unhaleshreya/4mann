@@ -116,6 +116,10 @@ Route::post('/our_resources/update', [App\Http\Controllers\ResourcesController::
 Route::get('/about-us',[App\Http\Controllers\AboutusController::class, 'index'])->name('leadership.index');
 Route::get('/leadership/edit/{id}', [AboutusController::class, 'edit'])->name('leadership.edit');
 Route::post('/leadership/update', [AboutusController::class, 'update'])->name('leadership.update');
+Route::get('/faqs', [App\Http\Controllers\FaqsController::class, 'index'])->name('faqs.index');
+Route::post('/faqs', [App\Http\Controllers\FaqsController::class, 'store'])->name('faqs.store');
+Route::get('/faqs/{id}/edit', [App\Http\Controllers\FaqsController::class, 'edit'])->name('faqs.edit');
+Route::post('/faqs/update', [App\Http\Controllers\FaqsController::class, 'update'])->name('faqs.update');
 });
 
 
@@ -132,7 +136,7 @@ Route::get('/get-subcategories/{categoryId}', [HomeController::class, 'getSubcat
 
 
 // Subcategory pages
-Route::get('/subcategory/{slug}', [HomeController::class, 'subcategoryPage'])->name('subcategory.page');
+Route::get('/{categoryslug}/{slug?}', [HomeController::class, 'subcategoryPage'])->name('subcategory.page');
 Route::get('/subcategory-by-id/{id}', [HomeController::class, 'subcategoryPageById'])->name('subcategory.page.by.id');
 Route::get('/product/{slug}', [HomeController::class, 'productDetails'])->name('product.details');
 

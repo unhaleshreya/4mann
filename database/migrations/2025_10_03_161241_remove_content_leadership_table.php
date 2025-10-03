@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::table('leadershipteam', function (Blueprint $table) {
-            $table->dropColumn(['content2']);
+            // $table->dropColumn(['content2']);
             
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
     {
         //
         Schema::table('leadershipteam', function (Blueprint $table) {
-             $table->longText('content2')->nullable();
+            //  $table->longText('content2')->nullable();
         });
     }
 };
