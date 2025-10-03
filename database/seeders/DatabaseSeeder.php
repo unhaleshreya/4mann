@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         StateSeeder::class,
         CitySeeder::class,
         ResourceSeeder::class,
+        Faqseeder::class,
+        LeadershipTeamSeeder::class,
     ]);
 }
 

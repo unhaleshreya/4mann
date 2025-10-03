@@ -38,12 +38,12 @@ class AboutusController extends Controller
 public function update(Request $request)
 {
     $request->validate([
-        'content' => 'nullable|string',
+        'content1' => 'nullable|string',
     ]);
 
     $leader = leadership::findOrFail($request->leader_id);
     $leader->update([
-        'content' => $request->content1,
+        'content1' => $request->content1,
     ]);
 
     return redirect()->back()->with('success', 'Contents updated successfully.');

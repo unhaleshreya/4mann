@@ -158,7 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Use slug if available, otherwise fallback to ID
                     if (subcategory.slug) {
-                        link.href = "{{ route('subcategory.page', ':slug') }}"
+                        link.href = "{{ route('subcategory.page', ':category-slug/:slug') }}"
+                            .replace(':category-slug', subcategory.category.slug)
                             .replace(':slug', subcategory.slug);
                     } else {
                         link.href = "{{ route('subcategory.page.by.id', ':id') }}"

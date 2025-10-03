@@ -32,7 +32,7 @@
                             <textarea name="content1" id="summernote" class="form-control" rows="4"></textarea>
                         </div>
 
-                        <input type="hidden" name="leader_id" id="leader_id">
+                        {{-- <input type="hidden" name="leader_id" id="leader_id"> --}}
 
                         <button type="submit" id="updateLeaderBtn" class="btn btn-primary">Update</button>
                     </form>
@@ -57,7 +57,7 @@
                                 <tr>
                                     <td>{{ $leader->name }}</td>
                                     <td>{{ $leader->position }}</td>
-                                    <td>{!! html_entity_decode($leader->content) !!}</td>
+                                    <td>{!! html_entity_decode($leader->content1) !!}</td>
                                     <td>
                                         <a href="javascript:void(0);" class="btn btn-sm btn-primary editLeaderBtn" data-id="{{ $leader->id }}">
                                             <i class="fas fa-edit"></i>

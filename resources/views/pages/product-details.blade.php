@@ -62,25 +62,27 @@
                         <!-- FAQ Accordion Start -->
                         <div class="faq-accordion" id="accordion">
                             <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp">
-                                <h2 class="accordion-header" id="heading1">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        What industries do you serve?
+                            @foreach($faqs as $faq)
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="{{ $loop->index * 0.2 }}s">
+                                <h2 class="accordion-header" id="heading{{ $loop->index + 1 }}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $loop->index + 1 }}" aria-expanded="true" aria-controls="collapse{{ $loop->index + 1 }}">
+                                        {{ $faq->question }}
                                     </button>
                                 </h2>
-                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordion">
+                                <div id="collapse{{ $loop->index + 1 }}" class="accordion-collapse collapse @if($loop->index == 0) show @endif" aria-labelledby="heading{{ $loop->index + 1 }}" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        <p>{!! html_entity_decode($faq->answer) !!}</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- FAQ Item End -->
+                            @endforeach
 
                             <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                            {{-- <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
                                 <h2 class="accordion-header" id="heading2">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        How do you ensure product quality?
+                                        {{ $faq->question }}
                                     </button>
                                 </h2>
                                 <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion">
@@ -88,11 +90,11 @@
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500ss</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- FAQ Item End -->
 
                             <!-- FAQ Item Start -->
-
+{{-- 
                             <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
                                 <h2 class="accordion-header" id="heading3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
@@ -134,7 +136,7 @@
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- FAQ Item End -->
                         </div>
                         <!-- FAQ Accordion End -->
