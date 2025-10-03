@@ -17,7 +17,9 @@ class ProjectController extends Controller
     {
             $projects = project::all();
             $products = products::all();
-            return view("admin.projects.index", compact("projects","products"));
+            $states = State::all();
+            $cities = City::all();
+            return view("admin.projects.index", compact("projects","products","states","cities"));
     }
     public function store(Request $request){
         $request->validate([
@@ -29,7 +31,7 @@ class ProjectController extends Controller
             'project_products_id' => 'required|exists:products,id',
             'project_state' => 'required|string|max:255',
             'project_city' => 'required|string|max:255',
-            'project_location' => 'required|string|max:255',
+            'project_location' => 'nullable|string|max:255',
         ]);
 
         $imagePath = null;
@@ -55,11 +57,11 @@ class ProjectController extends Controller
             $path = $request->file($fileInput)->store('projects', 'public');
             $project->images()->create([
                 'image_path' => $path,
-                
+
             ]);
         }
     }
-    
+
 
         return redirect()->route('projects.index')->with('success', 'Project added successfully!');
 
@@ -79,19 +81,22 @@ class ProjectController extends Controller
             'project_products_id' => 'required|exists:products,id',
             'project_state' => 'required|string|max:255',
             'project_city' => 'required|string|max:255',
-            'project_location' => 'required|string|max:255',
+            'project_location' => 'nullable|string|max:255',
         ]);
 
         $project = project::findOrFail($request->project_id);
 
-        if ($request->hasFile('project_image')) {
-            // Delete old image if exists
-            if ($project->project_image) {
-                Storage::disk('public')->delete($project->project_image);
-            }
-            $imagePath = $request->file('project_image')->store('projects', 'public');
-            $project->project_image = $imagePath;
-        }
+       if ($request->hasFile('project_image')) {
+    // Delete old image if it exists
+    if ($project->project_image && Storage::disk('public')->exists($project->project_image)) {
+        Storage::disk('public')->delete($project->project_image);
+    }
+
+    // Store new image
+    $imagePath = $request->file('project_image')->store('projects', 'public');
+    $project->project_image = $imagePath;
+}
+
 
         $project->update([
             'project_title' => $request->project_title,
@@ -116,37 +121,37 @@ for ($i = 1; $i <= 9; $i++) {
                 Storage::disk('public')->delete($existingImage->image_path);
                 $existingImage->update([
                     'image_path' => $newPath,
-                    
+
                 ]);
             } else {
                 // Create new image if not exists
                 $project->images()->create([
                     'image_path' => $newPath,
-                    
+
                 ]);
             }
         }
 }
             return redirect()->route('projects.index')->with('success', 'Project updated successfully!');
-    
+
 }
     public function viewProjects()
     {
         $projects = project::all();
         $products = products::all();
-    $states   = State::orderBy('name')->get();
+        $states = State::orderBy('name')->get();
 
     return view("pages.projects", compact("projects", "products", "states"));
     }
     public function viewProjectShowcase($slug)
     {
-        $project = project::with('images')->where('project_slug', $slug)->firstOrFail();
+        $project = project::with('images', 'state', 'city')->where('project_slug', $slug)->firstOrFail();
         $testimonies = Testimony::all();
         return view('pages.project-showcase', compact('project', 'testimonies'));
     }
     public function getCities($stateName)
     {
-        $state = State::where('name', $stateName)->first();
+        $state = State::where('id', $stateName)->first();
 
         if (!$state) {
             return response()->json([]);

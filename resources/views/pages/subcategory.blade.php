@@ -11,7 +11,7 @@
                     <h1 class="text-anime-style-2" data-cursor="-opaque">{{ $subcategory->name }}</h1>
                     <nav class="wow fadeInUp">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">{{ $subcategory->category->name }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $subcategory->name }}</li>
                         </ol>
@@ -54,9 +54,7 @@
                         <div class="post-item-content">
                             <h2>{{ $product->product_code }}</h2>
                             <h2><a href="{{ route('product.details', $product->slug ?? $product->id) }}">{{ $product->product_title }}</a></h2>
-                            @if($product->product_desc)
-                            <p>{{ Str::limit($product->product_desc, 100) }}</p>
-                            @endif
+                           
                         </div>
                     </div>
                 </div>

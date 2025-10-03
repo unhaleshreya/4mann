@@ -3,7 +3,7 @@
         <div class="col-md-6 project-item-box">
             <div class="project-item">
                 <div class="project-image">
-                    <img src="{{ asset('storage/' . $project->project_image) }}" alt="">
+                  <img src="{{ asset('storage/'.$project->project_image) }}" alt="">
                 </div>
                 <div class="project-tag">
                     <a href="#">{{ $project->project_sector }}</a>

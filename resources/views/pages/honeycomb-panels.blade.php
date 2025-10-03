@@ -12,7 +12,7 @@
                         <h1 class="text-anime-style-2" data-cursor="-opaque">4MANN Honeycomb Panels </h1>
                         <nav class="wow fadeInUp">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.php">home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('') }}">home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">4MANN Honeycomb Panels</li>
                             </ol>
                         </nav>

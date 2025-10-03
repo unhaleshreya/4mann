@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CareerController;
+use App\Http\Controllers\AboutusController;
 
 
 
@@ -30,7 +33,7 @@ Route::get('/', [HomeController::class,'index'])->name('home');
 Route::view('/company-overview', 'pages.company-overview')->name('company-overview');
 Route::view('/vision-mission', 'pages.vision-mission')->name('vision-mission');
 Route::view('/core-values', 'pages.core-values')->name('core-values');
-Route::view('/leadership-team', 'pages.leadership-team')->name('leadership-team');
+Route::get('/leadership-team', [AboutusController::class, 'viewLeadershipTeam'])->name('leadership-team');
 Route::view('/manufacturing-facilities', 'pages.manufacturing-facilities')->name('manufacturing-facilities');
 Route::view('/sustainability-and-quality-standards', 'pages.sustainability-and-quality-standards')->name('sustainability-quality-standards');
 Route::view('/milestone', 'pages.milestone')->name('milestone');
@@ -46,14 +49,15 @@ Route::get('/metafulte-aluminium-composite-louvers', [HomeController::class, 'al
 Route::get('/other-building-materials', [HomeController::class, 'otherBuildingMaterials'])->name('other-building');
 
 // Resources, Blog, Projects, Career, Contact
-Route::view('/resources', 'pages.resources')->name('resources');
-Route::view('/blog', 'pages.blog')->name('blog');
+Route::get('/our_resources', [App\Http\Controllers\ResourcesController::class, 'viewindex'])->name('resources');
+Route::get('/blog', [App\Http\Controllers\MediablogController::class, 'viewBlog'])->name('blog');
+Route::get('/blog/{slug}', [App\Http\Controllers\MediablogController::class, 'viewBlogDetails'])->name('blog.details');
 Route::view('/4man’s-journey19may', 'pages.4man’s-journey19may');
 Route::view('/4man’s-journey20may', 'pages.4man’s-journey20may');
 Route::view('/4man’s-journey21may', 'pages.4man’s-journey21may');
 Route::get('/projects', [ProjectController::class, 'viewProjects'])->name('projects');
 Route::get('/project/{slug}', [ProjectController::class, 'viewProjectShowcase'])->name('project-showcase.slug');
-Route::get('/get-cities/{state}', [ProjectController::class, 'getCities']);
+Route::get('/get-cities/{state?}', [ProjectController::class, 'getCities'])->name('get.cities');
 Route::get('/projects/filter', [ProjectController::class, 'filterProjects'])->name('projects.filter');
 Route::view('/project-showcase', 'pages.project-showcase')->name('project-showcase');
 Route::view('/career', 'pages.career')->name('career');
@@ -83,10 +87,10 @@ Route::post('/banners/update', [BannerController::class, 'updateAjax'])->name('b
 [App\Http\Controllers\SubCategoryController::class, 'index'])->name('categories.index');
 Route::post('/store',[App\Http\Controllers\SubCategoryController::class, 'store'])->name('subcategory.store');
 Route::get('/subcategories/{id}/edit', [App\Http\Controllers\SubCategoryController::class, 'edit'])->name('subcategory.edit');
-Route::post('/subcategory/update', [BannerController::class, 'update'])->name('subcategory.ajax.update');
+Route::post('/subcategory/update', [App\Http\Controllers\SubCategoryController::class, 'update'])->name('subcategory.ajax.update');
 Route::get('/products',[productController::class, 'index'])->name('products.index');
 Route::post('/products',[productController::class, 'store'])->name('products.store');
-Route::get('/get-subcategories/{categoryId}',[productController::class, 'getSubcategories'])->name('get.subcategories');
+Route::get('/get-subcategories/{categoryId?}',[productController::class, 'getSubcategories'])->name('get.subcategories');
 Route::get('/products/{id}/edit', [productController::class, 'edit'])->name('products.edit');
 Route::post('/products/update', [productController::class, 'update'])->name('products.update');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
@@ -97,6 +101,19 @@ Route::get('/projects/testimony', [App\Http\Controllers\TestimonyController::cla
 Route::post('/projests/testimony', [App\Http\Controllers\TestimonyController::class, 'store'])->name('testimony.store');
 Route::get('/testimony/{id}/edit', [App\Http\Controllers\TestimonyController::class, 'edit'])->name('testimony.edit');
 Route::post('/testimony/update', [App\Http\Controllers\TestimonyController::class, 'update'])->name('testimony.update');
+Route::get('/media-blog', [App\Http\Controllers\MediablogController::class, 'index'])->name('media-blog.index');
+Route::post('/media-blog', [App\Http\Controllers\MediablogController::class, 'store'])->name('media-blog.store');
+Route::get('/media-blog/{id}/edit', [App\Http\Controllers\MediablogController::class, 'edit'])->name('media-blog.edit');
+Route::post('/media-blog/update', [App\Http\Controllers\MediablogController::class, 'update'])->name('media-blog.update');
+Route::get('/careers',[App\Http\Controllers\CareerController::class, 'index'])->name('careers.index');
+Route::get('/contact',[App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
+Route::get('/our_resources', [App\Http\Controllers\ResourcesController::class, 'index'])->name('resources.index');
+Route::post('/our_resources', [App\Http\Controllers\ResourcesController::class, 'store'])->name('resources.store');
+Route::get('/our_resources/{id}/edit', [App\Http\Controllers\ResourcesController::class, 'edit'])->name('resources.edit');
+Route::post('/our_resources/update', [App\Http\Controllers\ResourcesController::class, 'update'])->name('resources.update');
+Route::get('/about-us',[App\Http\Controllers\AboutusController::class, 'index'])->name('leadership.index');
+ Route::get('leadership/edit/{id}', [AboutusController::class, 'edit'])->name('leadership.edit');
+    Route::post('leadership/update/{id}', [AboutusController::class, 'update'])->name('leadership.update');
 });
 
 
@@ -107,7 +124,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/get-subcategories/{categoryId}',[HomeController::class, 'getSubcategories'])->name('get.subcategories.frontend');
+Route::get('/get-subcategories/{categoryId}', [HomeController::class, 'getSubcategories'])->name('get.subcategories.frontend');
+
 
 // Subcategory pages
 Route::get('/subcategory/{slug}', [HomeController::class, 'subcategoryPage'])->name('subcategory.page');
@@ -115,4 +133,9 @@ Route::get('/subcategory-by-id/{id}', [HomeController::class, 'subcategoryPageBy
 Route::get('/product/{slug}', [HomeController::class, 'productDetails'])->name('product.details');
 
 Route::post('/check-product-code', [ProductController::class, 'checkProductCode'])->name('check.product.code');
+
+Route::post('/career', [App\Http\Controllers\CareerController::class, 'store'])->name('careers.store');
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 

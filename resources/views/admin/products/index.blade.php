@@ -56,14 +56,14 @@
                         <!-- Product Description -->
                         <div class="form-group mb-3">
                             <label for="description">Product Description</label>
-                            <textarea name="description" id="description" class="form-control"></textarea>
+                            <textarea name="description" id="summernote" class="form-control"></textarea>
                             @error('description') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
 
                         <!-- Product Image -->
                         <div class="form-group mb-3">
                             <label for="product_image">Upload Product Image</label>
-                            <small class="text-danger">(Image should be 600 x 300px)</small>
+                            <small class="text-danger">(Image should be ≥ 600 x 300px)</small>
                             <input type="file" name="product_image" id="product_image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('product_image') <div class="text-danger">{{ $message }}</div> @enderror
@@ -89,7 +89,7 @@
             <div class="card mt-4">
                 <div class="card-header"><strong>All Products</strong></div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped" id="productsTable">
+                    <table class="table table-bordered table-striped" id="example1">
                         <thead>
                             <tr>
                                 <th>Category</th>
@@ -108,10 +108,10 @@
                                 <td>{{ $product->subcategory->name }}</td>
                                 <td>{{ $product->product_code }}</td>
                                 <td>{{ $product->product_title }}</td>
-                                <td>{{ $product->product_desc }}</td>
+                                <td>{!! html_entity_decode($product->product_desc) !!}</td>
                                 <td>
                                     @if($product->product_image)
-                                        <img src="{{ asset('storage/' . $product->product_image) }}" width="100">
+                                        <img src="{{ asset('storage/'.$product->product_image) }}" width="100">
                                     @endif
                                 </td>
 
@@ -134,9 +134,10 @@
         </div>
     </div>
 </div>
-
+</div>
+@include('admin.footer')
 <!-- jQuery for Subcategory Dropdown -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 // Store the subcategory ID that needs to be selected after loading
 let pendingSubcategoryId = null;
@@ -150,7 +151,7 @@ $("#category_id").change(function () {
         subcategorySelect.html('<option value="">-- Loading... --</option>');
 
         $.ajax({
-            url: "/admin/get-subcategories/" + categoryId,
+            url: "{{ route('get.subcategories') }}/" + categoryId,
             type: "GET",
             success: function (data) {
                 subcategorySelect.empty().append('<option value="">-- Select Subcategory --</option>');
@@ -168,6 +169,7 @@ $("#category_id").change(function () {
             },
             error: function() {
                 subcategorySelect.html('<option value="">-- Error loading subcategories --</option>');
+                //  alert("Error loading subcategories. Check console for details.");
             }
         });
     } else {
@@ -182,7 +184,7 @@ $(document).on("click", ".editProductBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/products/" + id + "/edit",
+        url: "{{ route('products.edit', ':id') }}".replace(':id', id),
         type: "GET",
         success: function (response) {
             console.log('Product data received:', response);
@@ -206,7 +208,8 @@ $(document).on("click", ".editProductBtn", function () {
             // Fill other fields
             $("#product_code").val(response.product_code);
             $("#title").val(response.product_title);
-            $("#description").val(response.product_desc);
+           $('#summernote').summernote('code', response.product_desc);
+
 
             // Show current image if exists
             if (response.product_image) {
@@ -238,6 +241,7 @@ $(document).on("click", ".editProductBtn", function () {
 $(document).on("click", "#resetFormBtn", function () {
     // Reset form to add new product mode
     $("#updateProductForm")[0].reset();
+    $('#summernote').summernote('code', '');
     $("#updateProductForm").attr("action", "{{ route('products.store') }}");
     $("#formSubmitBtn").text("Add Product").removeClass("btn-primary").addClass("btn-success");
     $("#resetFormBtn").hide();
@@ -248,50 +252,11 @@ $(document).on("click", "#resetFormBtn", function () {
     pendingSubcategoryId = null;
 });
 
-// Reset form after successful submit (optional)
-$(document).on("submit", "#updateProductForm", function (e) {
-    e.preventDefault();
-    let formData = new FormData(this);
 
-    $.ajax({
-        url: $(this).attr("action"),
-        type: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function () {
-            window.location.reload();
-        },
-        error: function () {
-            alert("Something went wrong!");
-        }
-    });
-});
 </script>
-<!-- DataTables -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
 <script>
-    $(document).ready(function () {
-        $('#productsTable').DataTable({
-            dom: 'Bfrtip',   // Show buttons (Copy, CSV, Print, etc.)
-            paging: true,    // Enable pagination
-            searching: true, // Enable search
-            ordering: true,  // Enable sorting
-            responsive: true,
-            lengthMenu: [10, 25, 50, 100],
-            buttons: [
-                'copy', 'csv', 'print'
-            ]
-        });
-    });
+
     function validateImage(input, minWidth, minHeight, errorSpanId) {
         // alert('minWidth='+minWidth);
     let file = input.files[0];
@@ -318,7 +283,7 @@ $(document).on("submit", "#updateProductForm", function (e) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width != minWidth || this.height != minHeight) {
+        if (this.width < minWidth || this.height < minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }

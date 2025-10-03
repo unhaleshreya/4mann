@@ -27,7 +27,7 @@ class SubCategoryController extends Controller
     $request->validate([
         'category_id' => 'required|exists:categories,id',
         'name' => 'required|string|max:255',
-        'sub_category_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048|dimensions:min_width=500,min_height=400',
+        'sub_category_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048|dimensions:min_width=500,min_height=400',
     ]);
 
     $imagePath = null;
@@ -42,9 +42,12 @@ class SubCategoryController extends Controller
         // Update existing subcategory
         $subcategory = subcategory::findOrFail($request->subcategory_id);
 
-        if ($request->hasFile('sub_category_image') && $subcategory->sub_category_img) {
-            Storage::disk('public')->delete($subcategory->sub_category_img);
-        }
+       if ($request->hasFile('sub_category_image') && $subcategory->sub_category_img) {
+    $relativePath = ltrim(str_replace('/storage/', '', $subcategory->sub_category_img), '/');
+    Storage::disk('public')->delete($relativePath);
+}
+
+
 
         $subcategory->update([
             'category_id' => $request->category_id,
@@ -71,23 +74,26 @@ class SubCategoryController extends Controller
         return response()->json($subcategory);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
 {
+    
     $request->validate([
         'category_id'=>'required|exists:categories,id',
         'name'=>'required|string|max:255',
-        'sub_category_img' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+        'sub_category_image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
     ]);
 
-    $subcategory = SubCategory::findOrFail($id);
+    $subcategory = SubCategory::findOrFail($request->subcategory_id);
 
     $imagePath = $subcategory->sub_category_img;
 
-    if ($request->hasFile('sub_category_img')) {
-        if ($subcategory->sub_category_img) {
-            Storage::disk('public')->delete($subcategory->sub_category_img);
+    if ($request->hasFile('sub_category_image')) {
+        if ($subcategory->sub_category_image) {
+            $relativePath = ltrim(str_replace('/storage/', '', $subcategory->sub_category_img), '/');
+            Storage::disk('public')->delete($relativePath);
         }
-        $imagePath = $request->file('sub_category_img')->store('subcategory_images', 'public');
+       $imagePath = $request->file('sub_category_image')->store('subcategory_images', 'public');
+        $imagePath='/storage'.'/'.$imagePath;
     }
 
     $subcategory->update([

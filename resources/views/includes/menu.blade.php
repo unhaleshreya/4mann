@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Logo Start -->
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                 </a>
                 <!-- Logo End -->
@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse main-menu">
                     <div class="nav-menu-wrapper">
                         <ul class="navbar-nav mr-auto" id="menu">
-                            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                             <li class="nav-item submenu"><a class="nav-link" href="javascript:void(0)">About Us</a>
                                 <ul>
                                     <li class="nav-item"><a class="nav-link" href="{{ route('company-overview') }}">Company Overview</a></li>
@@ -81,15 +81,15 @@
                             </li>
                             <li class="nav-item submenu"><a class="nav-link" href="{{ route('resources') }}">Resources</a>
                                 <ul>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#technical-manual') }}">4MANN - Technical Manual</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#BIS-Certificate') }}">BIS Certificate</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#Catalogs') }}">Catalogs</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#IGBC-Certificate') }}">IGBC Certificate</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#Fire-Test-Certificate') }}">Fire Test Certificate</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#ISO-Certificates') }}">ISO Certificates</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#TDS') }}">TDS</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#Other-Test-Reports') }}">Other Test Reports</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ url('resources#Other-Resources') }}">Other Resources</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#technical-manual') }}">4MANN - Technical Manual</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#BIS-Certificate') }}">BIS Certificate</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#Catalogs') }}">Catalogs</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#IGBC-Certificate') }}">IGBC Certificate</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#Fire-Test-Certificate') }}">Fire Test Certificate</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#ISO-Certificates') }}">ISO Certificates</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#TDS') }}">TDS</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#Other-Test-Reports') }}">Other Test Reports</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ url('our_resources#Other-Resources') }}">Other Resources</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('blog') }}">Media & News</a></li>
@@ -140,22 +140,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function loadSubcategories(categoryId, container) {
-        fetch(`/get-subcategories/${categoryId}`)
+        // Laravel route with placeholder
+        let url = "{{ route('get.subcategories.frontend', ':id') }}";
+        // Replace :id with actual categoryId
+        url = url.replace(':id', categoryId ?? '');
+
+        fetch(url)
             .then(response => response.json())
             .then(subcategories => {
                 container.innerHTML = '';
                 subcategories.forEach(function(subcategory) {
                     const li = document.createElement('li');
                     li.className = 'nav-item';
-                    // Create proper link to subcategory page
+
                     const link = document.createElement('a');
                     link.className = 'nav-link';
-                    // Use slug if available, otherwise use ID
+
+                    // Use slug if available, otherwise fallback to ID
                     if (subcategory.slug) {
-                        link.href = `/subcategory/${subcategory.slug}`;
+                        link.href = "{{ route('subcategory.page', ':slug') }}"
+                            .replace(':slug', subcategory.slug);
                     } else {
-                        link.href = `/subcategory-by-id/${subcategory.id}`;
+                        link.href = "{{ route('subcategory.page.by.id', ':id') }}"
+                            .replace(':id', subcategory.id);
                     }
+
                     link.textContent = subcategory.name;
                     li.appendChild(link);
                     container.appendChild(li);

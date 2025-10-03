@@ -2,6 +2,7 @@
 @extends('main-layout.app')
 
 @section('content')
+
     <!-- Page Header Start -->
     <!-- <div class="page-header parallaxie" style=" background: url('assets/images/breadcrumb/about.jpg') no-repeat center center;"> -->
     <div class="page-header parallaxie breadcumb-area" data-desktop="{{ asset('assets/images/breadcrumb/Career1.jpg') }}" data-mobile="{{ asset('assets/images/breadcrumb/Careermobile.jpg') }}">
@@ -14,7 +15,7 @@
                         <h1 class="text-anime-style-2" data-cursor="-opaque">Career</h1>
                         <nav class="wow fadeInUp">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.php">home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Career</li>
                             </ol>
                         </nav>
@@ -124,7 +125,7 @@
                         <div class="sidebar-cta-box wow fadeInUp" data-wow-delay="0.25s">
                             <!-- Sidebar Image Start -->
                             <div class="sidebar-cta-logo">
-                                <img src="images/footer-logo.svg" alt="">
+                                <img src="{{ asset('assets/images/logo/footer-logo.svg') }}" alt="">
                             </div>
                             <!-- Sidebar Image End -->
 
@@ -186,7 +187,8 @@
 
                                 <div class="contact-form" id="apply-here">
                                     <!-- Contact Form Start -->
-                                    <form id="contactForm" action="#" method="POST" data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
+                                    <form id="contactForm" action="{{ route('careers.store') }}" method="POST" enctype=multipart/form-data data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.5s">
+                                         @csrf
                                         <div class="row">
                                             <div class="form-group col-md-6 mb-4">
                                                 <input type="text" name="fname" class="form-control" id="fname" placeholder="Enter first name" required>
@@ -236,5 +238,63 @@
     </div>
     <!-- Page Faq End -->
  @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+
+<!-- Include SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+$(document).ready(function() {
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+
+        let formData = new FormData(this);
+
+        $.ajax({
+            url: $(this).attr('action'),
+            method: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(res) {
+                if (res.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Application Sent!',
+                        text: res.message || 'Your application has been sent.',
+                        confirmButtonColor: '#3085d6',
+                        timer: 3000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+
+                    $('#contactForm')[0].reset();
+                }
+            },
+            error: function(xhr) {
+                let errors = xhr.responseJSON.errors;
+                let errorMsg = "";
+                $.each(errors, function(key, value) {
+                    errorMsg += value[0] + "\n";
+                });
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Submission Failed',
+                    text: errorMsg || 'Something went wrong!',
+                    confirmButtonColor: '#d33'
+                });
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+
+
 
 

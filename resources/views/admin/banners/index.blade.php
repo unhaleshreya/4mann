@@ -51,14 +51,14 @@
                         </div>
 
                         <!-- Mobile View Image -->
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label for="mobile_image">Upload image for Mobile View
                                 <small class="text-danger">(≥ 834 x 1194px)</small>
                             </label>
                             <input type="file" name="mobile_image" id="mobile_image" class="form-control">
                             <span id="mobile_image_error" class="text-danger"></span>
                             @error('mobile_image') <div class="text-danger">{{ $message }}</div> @enderror
-                        </div>
+                        </div> --}}
 
                         <!-- Submit Button -->
                         <button type="submit" id="addBannerbtn" class="btn btn-primary">Submit</button>
@@ -80,7 +80,7 @@
                                 <th>Subtitle</th>
                                 <th>Order</th>
                                 <th>Web Image</th>
-                                <th>Mobile Image</th>
+                                {{-- <th>Mobile Image</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -91,24 +91,22 @@
                                 <td>{{ $banner->sub_text_content }}</td>
                                 <td>{{ $banner->display_order }}</td>
                                 <td>
-                                    <img src="{{ asset('storage/' . $banner->image_path) }}" width="150">
+                                    <img src="{{ asset('storage/'.$banner->image_path) }}" width="150">
                                 </td>
-                                <td>
-                                    <img src="{{ asset('storage/' . $banner->mobile_img_path) }}" width="100">
-                                </td>
+                             
                                 <td>
                                     <a href="javascript:void(0);"
                                         class="btn btn-sm btn-primary editBannerBtn"
                                             data-id="{{ $banner->id }}">
                                         <i class="fas fa-edit"></i>
                                         </a>
-                                    {{-- <form action="{{ route('banners.destroy', $banner->id) }}" method="POST" style="display:inline-block;">
+                                     <form action="{{ route('banners.destroy', $banner->id) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this banner?')">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                    </form> --}}
+                                    </form> 
                                 </td>
                             </tr>
                             @endforeach
@@ -129,7 +127,7 @@ $(document).on("click", ".editBannerBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/banners/" + id + "/edit",
+        url: "{{ route('banners.ajax.edit', ':id') }}".replace(':id', id),
         type: "GET",
         success: function (response) {
             // Fill form with banner data

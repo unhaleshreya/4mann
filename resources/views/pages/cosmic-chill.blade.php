@@ -43,7 +43,7 @@
                 <div class="col-lg-6">
 
                     <div class="topbar-qoute-btn d-flex justify-content-end">
-                        <a href="contact.php" class="btn-default"><span>Enquiry Now</span></a>
+                        <a href="{{ route('contact')}}" class="btn-default"><span>Enquiry Now</span></a>
                     </div>
                     <p class="text-black mb-0">MA-651</p>
                     <h2 class="text-anime-style-2 pb-3"><span>COSMIC CHILL</span></h2>

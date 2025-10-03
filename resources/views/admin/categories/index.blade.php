@@ -36,12 +36,14 @@
                         </div>
                              <div class="form-group mb-3">
                             <label for="web_image">Upload image for Sub category
-                                <small class="text-danger">(Image should be 500 x 400px)</small>
+                                <small class="text-danger">(Image should be ≥ 500 x 400px)</small>
                             </label>
                             <input type="file" name="sub_category_image" id="image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('image') <div class="text-danger">{{ $message }}</div> @enderror
-
+                         <div id="currentImagePreview" class="mt-2">
+        <!-- Filled dynamically with JS -->
+    </div>
                         </div>
 
                         <!-- Submit Button -->
@@ -54,7 +56,7 @@
             <div class="card mt-4">
 
                 <div class="card-body">
-                    <table id="subcategoryTable" class="table table-bordered table-striped">
+                    <table id="example1" class="table table-bordered table-striped">
                         <thead class="table">
                             <tr>
                                 <th>Sr. No</th>
@@ -88,11 +90,12 @@
         </div>
     </div>
 </div>
+@include('admin.footer');
 
 <!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- DataTables -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
@@ -115,49 +118,52 @@
             ]
         });
     });
-    </script>
+    </script> --}}
 
 <script>
-// $(document).on("click", ".editSubcategoryBtn", function () {
-//     let id = $(this).data("id");
-
-//     $.ajax({
-//         url: "/subcategories/" + id + "/edit",
-//         type: "GET",
-//         success: function (response) {
-//             $("#subcategory_id").val(response.id);
-//             $("#category_id").val(response.category_id);
-//             $("#name").val(response.name);
-
-//             $("#subcategoryForm").attr("action", "" + response.id);
-//             $("#subcategoryForm").append('<input type="hidden" name="_method" value="PUT">');
-//         }
-//     });
-// });
 
 $(document).on("click", ".editSubcategoryBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/subcategories/" + id + "/edit",
+        url: "{{ route('subcategory.edit', ':id') }}".replace(':id', id),
         type: "GET",
         success: function (response) {
-            // Fill form with banner data
+            // Fill form
             $("#subcategory_id").val(response.id);
             $("#category_id").val(response.category_id);
             $("#name").val(response.name);
- $("#addCategorybtn").text("Update").removeClass("btn-success").addClass("btn-primary");
 
-            // Change form action to update
-            // $("#subcategoryForm").attr("action", "" + response.id);
-            $("subcategoryForm").attr("action", "{{ route('subcategory.ajax.update') }}");
-            $("subcategoryForm").attr("method", "POST");
-             $('html, body').animate({
-                scrollTop: $("#subcategoryForm").offset().top - 20 // adjust 20px above
+            $("#addCategorybtn").text("Update").removeClass("btn-success").addClass("btn-primary");
+            $("#subcategoryForm").attr("action", "{{ route('subcategory.ajax.update') }}");
+            $("#subcategoryForm").attr("method", "POST");
+
+            // Scroll to form
+            $('html, body').animate({
+                scrollTop: $("#subcategoryForm").offset().top - 20
             }, 600);
+
+            // Show existing image preview
+            if (response.sub_category_img) {
+                let imagePath = response.sub_category_img;
+
+// remove starting slash if exists
+if (imagePath.startsWith('/')) {
+    imagePath = imagePath.substring(1);
+}
+let imageUrl = "{{ asset('') }}" + imagePath;
+
+                $("#currentImagePreview").html(
+                    `<p class="mt-2">Current Image:</p>
+                     <img src="${imageUrl}" alt="Subcategory Image" width="120" class="img-thumbnail">`
+                );
+            } else {
+                $("#currentImagePreview").html(`<p class="text-muted mt-2">No image uploaded.</p>`);
+            }
         }
     });
 });
+
 $(document).on("submit", "#subcategoryForm", function (e) {
     e.preventDefault();
 
@@ -204,7 +210,7 @@ function validateImage(input, minWidth, minHeight, errorSpanId) {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-    if (this.width != minWidth || this.height != minHeight) {
+    if (this.width < minWidth || this.height < minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }

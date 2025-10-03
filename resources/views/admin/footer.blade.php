@@ -18,18 +18,11 @@
 <script src="{{asset('assets/admin_assets/dist/js/adminlte.min.js')}}"></script>
 <!-- bs-custom-file-input -->
 <script src="{{asset('assets/admin_assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('assets/admin_assets/dist/js/demo.js')}}"></script>
 
-<script src="{{asset('assets/admin_assets/js/imageval.js')}}"></script>
-<!-- Page specific script -->
-<script>
-  $(function() {
-    bsCustomFileInput.init();
-  });
-</script>
-<!-- DataTables  & Plugins -->
+<!-- Summernote -->
 <script src="{{asset('assets/admin_assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
+
+<!-- DataTables -->
 <script src="{{asset('assets/admin_assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/admin_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/admin_assets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
@@ -42,7 +35,7 @@
 <script src="{{asset('assets/admin_assets/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('assets/admin_assets/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('assets/admin_assets/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-<!-- AdminLTE App -->
+
 <script>
   const base_url = "<?php echo url('/'); ?>";
 

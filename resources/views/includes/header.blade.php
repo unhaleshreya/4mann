@@ -5,6 +5,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Awaiken">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Page Title -->
     <title>4MANN Industries Pvt. Ltd.</title>
     <!-- Favicon Icon -->

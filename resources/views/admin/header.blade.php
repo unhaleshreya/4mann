@@ -41,12 +41,12 @@
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
-      <ul class="navbar-nav">
+   <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-
       </ul>
+
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
@@ -90,140 +90,79 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
-            {{-- <li class="nav-item">
-              <a href="{{url('admin/dashboard')}}" class="nav-link ">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <p>
-                  Home Page
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              {{-- <ul class="nav nav-treeview">
-             <li class="nav-item">
-                 <a href="{{url('admin/banners')}}" class="nav-link">
-                 <i class="fa  fa-circle"></i>
-                <p>Update Banner</p>
-                 </a>
-             </li>
-                <li class="nav-item">
-                  <a href="{{url('admin/Home/About-us')}}" class="nav-link">
-                    <i class="fa  fa-circle"></i>
-                    <p>About Us</p>
-                  </a>
-                </li>
-            <li class="nav-item">
-              <a href="{{url('admin/ourwork')}}" class="nav-link">
-                <p>Our Works</p>
-               </a>
-                </li>
-
-              </ul> --}}
-            {{-- </li> --}}
 
             <li class="nav-item">
-              <a href="{{route('banners.index')}}" class="nav-link ">
-                <i class="fa fa-calendar"></i>
-                <p>
-                Home Banners
+  <a href="{{ route('banners.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-image me-2" style="margin-right: 5px;"></i> <!-- Banner/image-related icon -->
+    <p class="mb-0">Home Banners</p>
+  </a>
+</li>
+   <li class="nav-item">
+  <a href="{{ route('leadership.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-image me-2" style="margin-right: 5px;"></i> <!-- Banner/image-related icon -->
+    <p class="mb-0">Leadership Team</p>
+  </a>
+</li>
 
-                </p>
-              </a>
+          <li class="nav-item">
+  <a href="{{ route('categories.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-list-alt me-2" style="margin-right: 5px;"></i> <!-- Subcategories/list-related icon -->
+    <p class="mb-0">Add/Edit Subcategories</p>
+  </a>
+</li>
 
-
-            </li>
             <li class="nav-item">
-                <a href="{{route('categories.index')}}" class="nav-link ">
-                  <i class="fa fa-calendar"></i>
-                  <p>
-                  Add/Edit Subcategories
+  <a href="{{ route('products.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-box me-2" style="margin-right: 5px;"></i> <!-- Product-related icon -->
+    <p class="mb-0">Product Page</p>
+  </a>
+</li>
 
-                  </p>
-                </a>
-
-
-              </li>
-            <li class="nav-item">
-           <a href="{{ route('products.index') }}" class="nav-link ">
-             <i class="fa fa-bullseye"></i>
-               <p>
-                 Product Page
-
-             </p>
-             </a>
 
 
            </li>
            <li class="nav-item">
-           <a href="{{ route('projects.index') }}" class="nav-link ">
-             <i class="fa fa-bullseye"></i>
-               <p>
-                 Add Projects
+  <a href="{{ route('projects.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-folder-open me-2" style="margin-right: 5px;"></i> <!-- Projects/folder related icon -->
+    <p class="mb-0">Add Projects</p>
+  </a>
+</li>
 
-             </p>
-             </a>
+          <li class="nav-item">
+  <a href="{{ route('testimony.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-comment-dots me-2" style="margin-right: 5px;"></i> <!-- Testimony/feedback related icon -->
+    <p class="mb-0">Add Testimony</p>
+  </a>
+</li>
+
+           <li class="nav-item">
+  <a href="{{ route('media-blog.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-photo-video me-2" style="margin-right: 5px;"></i> <!-- Media/Blog related icon -->
+    <p class="mb-0">Add Media Blog</p>
+  </a>
+</li>
+
+          <li class="nav-item">
+  <a href="{{ route('careers.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-briefcase me-2" style="margin-right: 5px;"></i> <!-- Use a career/job-related icon -->
+    <p class="mb-0">Careers</p>
+  </a>
+</li>
+
+          <li class="nav-item">
+  <a href="{{ route('contact.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-address-book me-2" style="margin-right: 5px;"></i> <!-- Use a contact-related icon -->
+    <p class="mb-0"> Contacts</p>
+  </a>
+</li>
+ <li class="nav-item">
+  <a href="{{ route('resources.index') }}" class="nav-link d-flex align-items-center">
+    <i class="fa fa-book me-2" style="margin-right: 5px;"></i>
+    <p class="mb-0">Resources</p>
+  </a>
+</li>
 
 
-           </li>
-             <a href="{{ route('testimony.index') }}" class="nav-link ">
-             <i class="fa fa-bullseye"></i>
-               <p>
-                 Add Testimony
-
-             </p>
-             </a>
-
-
-           </li>
-            <!--<li class="nav-item">-->
-            <!--  <a href="{{ url('admin/testimonials') }}" class="nav-link ">-->
-            <!--    <i class="fa fa-bullseye"></i>-->
-            <!--    <p>-->
-            <!--     testimonials-->
-
-            <!--    </p>-->
-            <!--  </a>-->
-
-
-            <!--</li>-->
-
-
-            <!--<li class="nav-item">-->
-            <!--  <a href="{{url('admin/contact')}}" class="nav-link ">-->
-            <!--    <i class="fa fa-phone-square"></i>-->
-            <!--    <p>-->
-            <!--      Contact Form-Data-->
-                  <!-- <i class="right fas fa-angle-left"></i> -->
-            <!--    </p>-->
-            <!--  </a>-->
-              <!-- <ul class="nav nav-treeview">
-            <!--    <li class="nav-item">-->
-            <!--      <a href="{{url('admin/contact')}}" class="nav-link">-->
-            <!--        <i class="fa  fa-circle"></i>-->
-            <!--        <p>Contact Form</p>-->
-            <!--      </a>-->
-            <!--    </li>-->
-            <!--    <li class="nav-item">-->
-            <!--      <a href="{{url('admin/ContactSection')}}" class="nav-link">-->
-            <!--        <i class="fa  fa-circle"></i>-->
-            <!--        <p>Contact Section</p>-->
-            <!--      </a>-->
-            <!--    </li>-->
-
-            <!--  </ul> -->
-
-            <!--</li>-->
-            {{-- <li class="nav-item">
-             <a href="{{url('admin/coupons')}}" class="nav-link ">
-               <i class="fa fa-cog"></i>
-               <p>
-                Coupons
-
-               </p>
-             </a>
-            </li> --}}
             <li class="nav-item">
               <a href="{{url('admin/logout')}}" class="nav-link">
                 <i class="fas fa-sign-out-alt"></i>
@@ -247,4 +186,14 @@
           }
         });
       });
+      $(document).ready(function() {
+    // Initialize pushmenu
+    $('[data-widget="pushmenu"]').PushMenu();
+
+    // Optional: toggle collapse on click
+    $('[data-widget="pushmenu"]').on('click', function() {
+        $('body').toggleClass('sidebar-collapse');
+    });
+});
+
     </script>

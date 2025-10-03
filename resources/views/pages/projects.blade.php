@@ -13,7 +13,7 @@
                         <h1 class="text-anime-style-2" data-cursor="-opaque">Our Projects </h1>
                         <nav class="wow fadeInUp">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.php">home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Our Projects</li>
                             </ol>
                         </nav>
@@ -40,6 +40,8 @@
                                     <option value="Hospital">Hospital</option>
                                     <option value="Interior">Interior</option>
                                     <option value="Mall">Mall</option>
+                                     <option value="Commercial">Commercial</option>
+                                      <option value="Corporate">Corporate</option>
                                 </select>
                             </div>
                             <div class="form-group col-lg-3 col-md-6 mb-4">
@@ -51,46 +53,12 @@
                                 </select>
                             </div>
                             <div class="form-group col-lg-3 col-md-6 mb-4">
-                                <select id="states" name="states" class="form-select">
-                                    <option  value="">Select state</option>
-                                    
-        <option value="Andhra Pradesh">Andhra Pradesh</option>
-        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-        <option value="Assam">Assam</option>
-        <option value="Bihar">Bihar</option>
-        <option value="Chhattisgarh">Chhattisgarh</option>
-        <option value="Goa">Goa</option>
-        <option value="Gujarat">Gujarat</option>
-        <option value="Haryana">Haryana</option>
-        <option value="Himachal Pradesh">Himachal Pradesh</option>
-        <option value="Jharkhand">Jharkhand</option>
-        <option value="Karnataka">Karnataka</option>
-        <option value="Kerala">Kerala</option>
-        <option value="Madhya Pradesh">Madhya Pradesh</option>
-        <option value="Maharashtra">Maharashtra</option>
-        <option value="Manipur">Manipur</option>
-        <option value="Meghalaya">Meghalaya</option>
-        <option value="Mizoram">Mizoram</option>
-        <option value="Nagaland">Nagaland</option>
-        <option value="Odisha">Odisha</option>
-        <option value="Punjab">Punjab</option>
-        <option value="Rajasthan">Rajasthan</option>
-        <option value="Sikkim">Sikkim</option>
-        <option value="Tamil Nadu">Tamil Nadu</option>
-        <option value="Telangana">Telangana</option>
-        <option value="Tripura">Tripura</option>
-        <option value="Uttar Pradesh">Uttar Pradesh</option>
-        <option value="Uttarakhand">Uttarakhand</option>
-        <option value="West Bengal">West Bengal</option>
-        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-        <option value="Chandigarh">Chandigarh</option>
-        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-        <option value="Ladakh">Ladakh</option>
-        <option value="Lakshadweep">Lakshadweep</option>
-        <option value="Puducherry">Puducherry</option>
-                                </select>
+                                 <select name="states" id="states" class="form-control">
+    <option value="">-- Select State --</option>
+    @foreach($states as $state)
+        <option value="{{ $state->id }}">{{ $state->name }}</option>
+    @endforeach
+</select>
                             </div>
                             <div class="form-group col-lg-3 col-md-6 mb-4">
                                 <select id="city" name="city" class="form-select">
@@ -116,12 +84,13 @@
                             <div class="project-item wow fadeInUp">
                                 <div class="project-image">
                                     <figure class="image-anime">
-                                        <img src="{{ asset('storage/' . $project->project_image) }}" alt="">
+                                        <img src="{{ asset('storage/'.$project->project_image) }}" alt="">
                                     </figure>
                                 </div>
 
                                 <div class="project-tag">
-                                    <a href="{{ route('project-showcase.slug', $project->project_slug) }}">{{ $project->project_sector }}</a>
+                                    <h3><a href="{{ route('project-showcase.slug',
+                                     $project->project_slug) }}">{{ $project->project_sector }}</a></h3>
                                 </div>
 
                                 <div class="project-content">
@@ -133,88 +102,7 @@
                         @endforeach
 
                     </div>
-                    @else
-                    <div class="row project-item-boxes align-items-center">
-                        <div class="col-md-6 project-item-box">
-                            <!-- Project Item Start -->
-                            <div class="project-item wow fadeInUp">
-                                <div class="project-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('assets/images/project/project-1.jpg') }}" alt="">
-                                    </figure>
-                                </div>
 
-                                <div class="project-tag">
-                                    <a href="project-showcase.php">Hotel</a>
-                                </div>
-
-                                <div class="project-content">
-                                    <h3><a href="project-showcase.php">THE DELTIN - DAMAN</a></h3>
-                                </div>
-                            </div>
-                            <!-- Project Item End -->
-                        </div>
-
-                        <div class="col-md-6 project-item-box">
-                            <!-- Project Item Start -->
-                            <div class="project-item wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="project-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('assets/images/project/project-2.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-
-                                <div class="project-tag">
-                                    <a href="project-showcase.php">Corporate</a>
-                                </div>
-
-                                <div class="project-content">
-                                    <h3><a href="project-showcase.php">Iscon Elegance - Ahmedabad</a></h3>
-                                </div>
-                            </div>
-                            <!-- Project Item End -->
-                        </div>
-
-                        <div class="col-md-6 project-item-box ">
-                            <!-- Project Item Start -->
-                            <div class="project-item wow fadeInUp" data-wow-delay="0.4s">
-                                <div class="project-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('assets/images/project/project-3.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-
-                                <div class="project-tag">
-                                    <a href="project-showcase.php">Commercial</a>
-                                </div>
-
-                                <div class="project-content">
-                                    <h3><a href="project-showcase.php">Arena Space Mumbai</a></h3>
-                                </div>
-                            </div>
-                            <!-- Project Item End -->
-                        </div>
-
-                        <div class="col-md-6 project-item-box ">
-                            <!-- Project Item Start -->
-                            <div class="project-item wow fadeInUp" data-wow-delay="0.6s">
-                                <div class="project-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('assets/images/project/project-4.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-
-                                <div class="project-tag">
-                                    <a href="project-showcase.php">Hospital</a>
-                                </div>
-
-                                <div class="project-content">
-                                    <h3><a href="project-showcase.php">Infosys Bangalore</a></h3>
-                                </div>
-                            </div>
-                            <!-- Project Item End -->
-                        </div>
-                    </div>
                     @endif
                     <!-- Project Item Boxes End -->
                 </div>
@@ -233,14 +121,14 @@ $(document).ready(function () {
 
         if (state) {
             $.ajax({
-                url: '/get-cities/' + state, // backend route
+                url: '{{ route('get.cities') }}/' + state, // backend route
                 type: 'GET',
                 success: function (data) {
                     let $city = $('#city');
                     $city.empty();
                     $city.append('<option value="">Select City</option>');
                     $.each(data, function (id, name) {
-                        $city.append('<option value="' + name + '">' + name + '</option>');
+                        $city.append('<option value="' + id + '">' + name + '</option>');
                     });
                 }
             });
@@ -259,7 +147,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: '/projects/filter',   // backend route
+            url: '{{ route('projects.filter') }}',   // backend route
             type: 'GET',
             data: filters,
             success: function (response) {

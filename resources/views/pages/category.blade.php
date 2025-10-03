@@ -10,7 +10,7 @@
                     <h1>{{ $category->name }}</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
                         </ol>
                     </nav>
@@ -34,7 +34,7 @@
                     <div class="col-md-4 col-lg-3 mb-4">
                         <div class="card h-100">
                             @if($subcategory->sub_category_img)
-                            <img src="{{ asset('storage/' . $subcategory->sub_category_img) }}" class="card-img-top" alt="{{ $subcategory->name }}" style="height: 200px; object-fit: cover;">
+                            <img src="{{ asset('storage/'.$subcategory->sub_category_img) }}" class="card-img-top" alt="{{ $subcategory->name }}" style="height: 200px; object-fit: cover;">
                             @endif
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title">{{ $subcategory->name }}</h5>
@@ -58,7 +58,7 @@
                     <div class="col-md-4 col-lg-3 mb-4">
                         <div class="card h-100">
                             @if($product->product_image)
-                            <img src="{{ asset('storage/' . $product->product_image) }}" class="card-img-top" alt="{{ $product->product_title }}" style="height: 200px; object-fit: cover;">
+                            <img src="{{ asset('storage/'.$product->product_image) }}" class="card-img-top" alt="{{ $product->product_title }}" style="height: 200px; object-fit: cover;">
                             @endif
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title">{{ $product->product_title }}</h5>

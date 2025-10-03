@@ -30,7 +30,7 @@
                         <!-- Product Description -->
                         <div class="form-group mb-3">
                             <label for="Message">Message</label>
-                            <textarea name="Message" id="Message" class="form-control"></textarea>
+                            <textarea name="Message" id="summernote" class="form-control"></textarea>
                             @error('Message') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group mb-3">
@@ -42,7 +42,7 @@
                         <!-- Product Image -->
                         <div class="form-group mb-3">
                             <label for="image">Upload Image</label>
-                            <small class="text-danger">(≥ 800 x 800)</small>
+                            <small class="text-danger">(Image should be 800 x 800px)</small>
                             <input type="file" name="image" id="image" class="form-control">
                             <span id="image_error" class="text-danger"></span>
                             @error('image') <div class="text-danger">{{ $message }}</div> @enderror
@@ -55,14 +55,14 @@
                                 </div>
                             </div>
                         </div>
-      
+
                          <div class="form-group mb-3">
                             <label for="customer_type">Customer type</label>
                             <input type="text" name="customer_type" id="customer_type" class="form-control">
                             @error('customer_type') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-success" id="formSubmitBtn">Add Project</button>
+                        <button type="submit" class="btn btn-success" id="formSubmitBtn">Add Testimony</button>
                         <button type="button" class="btn btn-secondary ml-2" id="resetFormBtn" style="display: none;">Reset Form</button>
                         <input type="hidden" name="testimony_id" id="testimony_id">
 
@@ -74,7 +74,7 @@
             <div class="card mt-4">
                 <div class="card-header"><strong>All Testimonies</strong></div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped" id="TesimonyTable">
+                    <table class="table table-bordered table-striped" id="example1">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -89,7 +89,7 @@
                             @foreach($testimonies as $project)
                             <tr>
                                 <td>{{ $project->name }}</td>
-                                <td>{{ $project->message}}</td>
+                                <td>{!! html_entity_decode($project->message) !!}</td>
                                 <td>{{ $project->customer_type }}</td>
                                 <td>{{ $project->rating }}</td>
                                 <td>
@@ -118,15 +118,14 @@
     </div>
 </div>
 
-<!-- jQuery for Subcategory Dropdown -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+@include('admin.footer')
 <script>
 $(document).on("click", ".editTestimonyBtn", function () {
     let id = $(this).data("id");
 
     $.ajax({
-        url: "/admin/testimony/" + id + "/edit",
+        url: "{{ route('testimony.edit', ':id') }}".replace(':id', id),
+
         type: "GET",
         success: function (response) {
             console.log('Testimony data received:', response);
@@ -136,10 +135,11 @@ $(document).on("click", ".editTestimonyBtn", function () {
 
             // Fill other fields
             $("#name").val(response.name);
-            $("#Message").val(response.message);
+            // $("#Message").val(response.message);
+                $('#summernote').summernote('code', response.message);
             $("#customer_type").val(response.customer_type);
             $("#rating").val(response.rating);
-            
+
             // Show current image if exists
             if (response.image_path) {
                 $("#currentImage").attr("src", "{{ asset('storage/') }}/" + response.image_path);
@@ -163,63 +163,11 @@ $(document).on("click", ".editTestimonyBtn", function () {
     });
 });
 
-// Reset form functionality
-// $(document).on("click", "#resetFormBtn", function () {
-//     // Reset form to add new product mode
-//     $("#testimonyForms")[0].reset();
-//     $("#testimonyForms").attr("action", "{{ route('projects.store') }}");
-//     $("#formSubmitBtn").text("Add Project").removeClass("btn-primary").addClass("btn-success");
-//     $("#resetFormBtn").hide();
-//     $("#productCodeField").show();
-//     $("#currentImageContainer").hide();
-//     $("#testimony_id").val("");
-//     pendingSubcategoryId = null;
-// });
 
-// Reset form after successful submit (optional)
-// $(document).on("submit", "#projectForm", function (e) {
-//     e.preventDefault();
-//     let formData = new FormData(this);
-
-//     $.ajax({
-//         url: $(this).attr("action"),
-//         type: "POST",
-//         data: formData,
-//         contentType: false,
-//         processData: false,
-//         success: function () {
-//             window.location.reload();
-//         },
-//         error: function () {
-//             alert("Something went wrong!");
-//         }
-//     });
-// });
 </script>
-<!-- DataTables -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
 <script>
-    $(document).ready(function () {
-        $('#TesimonyTable').DataTable({
-            dom: 'Bfrtip',   // Show buttons (Copy, CSV, Print, etc.)
-            paging: true,    // Enable pagination
-            searching: true, // Enable search
-            ordering: true,  // Enable sorting
-            responsive: true,
-            lengthMenu: [10, 25, 50, 100],
-            buttons: [
-                'copy', 'csv', 'print'
-            ]
-        });
-    });
+ 
     function validateImage(input, minWidth, minHeight, errorSpanId) {
         // alert('minWidth='+minWidth);
     let file = input.files[0];
@@ -246,7 +194,7 @@ $(document).on("click", ".editTestimonyBtn", function () {
     // Dimension check
     let img = new Image();
     img.onload = function() {
-        if (this.width < minWidth || this.height < minHeight) {
+        if (this.width != minWidth || this.height != minHeight) {
             image_error.innerText = "Image must be at least " + minWidth + "x" + minHeight + " pixels.";
             input.value = "";
         }

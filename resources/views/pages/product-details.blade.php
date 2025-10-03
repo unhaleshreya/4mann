@@ -11,16 +11,16 @@
                                 <div class="swiper-slide">
                                     <div class="product-detail-img">
                                         <figure>
-                                            <a href="{{ isset($product) && $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="{{ isset($product) ? ($product->product_title . ' 1') : 'COSMIC CHILL 1' }}">
-                                                <img src="{{ isset($product) && $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
+                                            <a href="{{ isset($product) && $product->product_image ? asset('storage/'.$product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="{{ isset($product) ? ($product->product_title . ' 1') : 'COSMIC CHILL 1' }}">
+                                                <img src="{{ isset($product) && $product->product_image ? asset('storage/'.$product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
                                             </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="product-detail-img">
                                         <figure>
-                                            <a href="{{ isset($product) && $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="{{ isset($product) ? ($product->product_title . ' 2') : 'COSMIC CHILL 2' }}">
-                                                <img src="{{ isset($product) && $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
+                                            <a href="{{ isset($product) && $product->product_image ? asset('storage/'.$product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="{{ isset($product) ? ($product->product_title . ' 2') : 'COSMIC CHILL 2' }}">
+                                                <img src="{{ isset($product) && $product->product_image ? asset('storage/'.$product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
                                             </a>
                                         </figure>
                                     </div>
@@ -28,8 +28,8 @@
                                 <div class="swiper-slide">
                                     <div class="product-detail-img">
                                         <figure>
-                                            <a href="{{ isset($product) && $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="{{ isset($product) ? ($product->product_title . ' 3') : 'COSMIC CHILL 3' }}">
-                                                <img src="{{ isset($product) && $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
+                                            <a href="{{ isset($product) && $product->product_image ? asset('storage/'.$product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" class="image-anime" data-fancybox="gallery" data-caption="{{ isset($product) ? ($product->product_title . ' 3') : 'COSMIC CHILL 3' }}">
+                                                <img src="{{ isset($product) && $product->product_image ? asset('storage/'.$product->product_image) : asset('assets/images/metallic-product/cosmic-chill.jpg') }}" alt="Image Gallery">
                                             </a>
                                         </figure>
                                     </div>
@@ -43,11 +43,11 @@
                 <div class="col-lg-6">
 
                     <div class="topbar-qoute-btn d-flex justify-content-end">
-                        <a href="contact.php" class="btn-default"><span>Enquiry Now</span></a>
+                        <a href="{{ route('contact')}}" class="btn-default"><span>Enquiry Now</span></a>
                     </div>
                     <p class="text-black mb-0">{{ isset($product) ? $product->product_code : 'MA-651' }}</p>
                     <h2 class="text-anime-style-2 pb-3"><span>{{ isset($product) ? $product->product_title : 'COSMIC CHILL' }}</span></h2>
-                    <p class="wow fadeInUp">{!! isset($product) ? nl2br(e($product->product_desc)) : 'Eye-catchy and Stylish Effects, metallic textures and beautiful visuals provide a rich look and feel. It enhances your own vision and aesthetics.' !!}</p>
+                    <p class="wow fadeInUp">{!! html_entity_decode($product->product_desc) !!}</p>
 
                 </div>
             </div>

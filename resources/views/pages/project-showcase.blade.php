@@ -11,7 +11,7 @@
                         <h1 class="text-anime-style-2" data-cursor="-opaque">{{ $project->project_title }}</h1>
                         <nav class="wow fadeInUp">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.php">home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{{ $project->project_title }}</li>
                             </ol>
                         </nav>
@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="project-detail-content">
                                         <h3>location:</h3>
-                                        <p>{{ $project->project_location }}</p>
+                                        <p>{{ $project->city->name }}, {{ $project->state->name }}</p>
                                     </div>
                                 </div>
                                 <!-- Project Detail Item End -->
@@ -102,7 +102,7 @@
                             <!-- Project Info Start -->
                             <div class="project-info">
                                 <h2 class="text-anime-style-2">Project <span>overview</span></h2>
-                                <p class="wow fadeInUp" data-wow-delay="0.2s">{{ $project->project_description }}</p>
+                                <p class="wow fadeInUp" data-wow-delay="0.2s">{!! html_entity_decode($project->project_description) !!}</p>
                                 {{-- <p class="wow fadeInUp" data-wow-delay="0.4s">The hotel is a 2.5-hour drive from Mumbai and Surat, making it an ideal location for a weekend getaway as you enjoy the road trip on your way to the hotel! With the largest banquet facility in the area, two bars, two specialty restaurants, luxury suites, and a meandering pool, this hotel has everything you need.</p> --}}
                             </div>
                             <!-- Project Info End -->
@@ -186,16 +186,16 @@
                                                 @endfor
                                             </div>
 
-                                            
+
 
                                             <div class="testimonial-content">
-                                                <p>“{{ $testimony->message }}”</p>
+                                                <p>“{!! html_entity_decode($testimony->message) !!}”</p>
                                             </div>
 
                                             <div class="testimonial-body">
                                                 <div class="author-image">
                                                     <figure class="image-anime">
-                                                        <img src="{{ asset('storage/' . $testimony->image_path) }}" alt="">
+                                                        <img src="{{ asset('storage/'.$testimony->image_path) }}" alt="">
                                                     </figure>
                                                 </div>
                                                 <div class="author-content">
@@ -208,7 +208,7 @@
                                     @endforeach
                                     <!-- Testimonial Slide End -->
 
-                        
+
                                 </div>
                                 <!-- <div class="testimonial-btn">
                                     <div class="testimonial-button-prev"></div>
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                         @endif
-                        
+
                         <!-- Testimonial Slider End -->
                     </div>
                     <!-- Our Testimonial Content End -->

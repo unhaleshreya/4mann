@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimony;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TestimonyController extends Controller
 {
@@ -54,10 +55,17 @@ class TestimonyController extends Controller
 
         $testimony = Testimony::findOrFail($request->testimony_id);
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('testimonies', 'public');
-            $testimony->image_path = $imagePath;
-        }
+       if ($request->hasFile('image')) {
+    // Delete old image if it exists
+    if (!empty($testimony->image_path) && Storage::disk('public')->exists($testimony->image_path)) {
+        Storage::disk('public')->delete($testimony->image_path);
+    }
+
+    // Upload new image
+    $imagePath = $request->file('image')->store('testimonies', 'public');
+    $testimony->image_path = $imagePath;
+}
+
 
         $testimony->name = $request->name;
         $testimony->message = $request->Message;

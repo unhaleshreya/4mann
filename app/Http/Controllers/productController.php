@@ -15,7 +15,7 @@ class productController extends Controller
     {
         $products = products::with(['category', 'subcategory'])->orderBy("id","desc")->paginate(10);
         $categories = categories::with(['subCategories'])->get();
-        return view("products.index", compact("products","categories"));
+        return view("admin.products.index", compact("products","categories"));
     }
 
     public function store(Request $request)
@@ -90,7 +90,7 @@ public function update(Request $request)
 
     $product->save();
 
-    return response()->json(['success' => 'Product updated successfully!']);
+    return redirect()->route('products.index')->with('success', 'Product updated successfully!');
 }
 public function checkProductCode(Request $request)
 {
