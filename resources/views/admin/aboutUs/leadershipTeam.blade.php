@@ -28,15 +28,11 @@
 
                         <!-- Content 1 -->
                         <div class="form-group mb-3">
-                            <label>Content 1</label>
-                            <textarea name="content1" id="summernote1" class="form-control" rows="4"></textarea>
+                            <label>Content</label>
+                            <textarea name="content" id="summernote" class="form-control" rows="4"></textarea>
                         </div>
 
-                        <!-- Content 2 -->
-                        <div class="form-group mb-3">
-                            <label>Content 2</label>
-                            <textarea name="content2" id="summernote2" class="form-control" rows="4"></textarea>
-                        </div>
+                        <input type="hidden" name="leader_id" id="leader_id">
 
                         <button type="submit" id="updateLeaderBtn" class="btn btn-primary">Update</button>
                     </form>
@@ -52,8 +48,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Position</th>
-                                <th>Content 1</th>
-                                <th>Content 2</th>
+                                <th>Content</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -62,8 +57,7 @@
                                 <tr>
                                     <td>{{ $leader->name }}</td>
                                     <td>{{ $leader->position }}</td>
-                                    <td>{!! html_entity_decode($leader->content1) !!}</td>
-                                    <td>{!! html_entity_decode($leader->content2) !!}</td>
+                                    <td>{!! html_entity_decode($leader->content) !!}</td>
                                     <td>
                                         <a href="javascript:void(0);" class="btn btn-sm btn-primary editLeaderBtn" data-id="{{ $leader->id }}">
                                             <i class="fas fa-edit"></i>
@@ -94,11 +88,10 @@ $(document).on("click", ".editLeaderBtn", function () {
             $("#leader_id").val(response.id);
             $("#leader_name").val(response.name);
             $("#leader_position").val(response.position);
-            $('#summernote1').summernote('code', response.content1);
-            $('#summernote2').summernote('code', response.content2);
-
+            $('#summernote').summernote('code', response.content);
+           
             // Update form action
-            $("#leaderForm").attr("action", "{{ url('admin/leadership/update') }}/" + response.id);
+            $("#leaderForm").attr("action",  "{{ route('leadership.update') }}");
 
             // Scroll to form
             $('html, body').animate({

@@ -113,7 +113,7 @@ Route::get('/our_resources/{id}/edit', [App\Http\Controllers\ResourcesController
 Route::post('/our_resources/update', [App\Http\Controllers\ResourcesController::class, 'update'])->name('resources.update');
 Route::get('/about-us',[App\Http\Controllers\AboutusController::class, 'index'])->name('leadership.index');
  Route::get('leadership/edit/{id}', [AboutusController::class, 'edit'])->name('leadership.edit');
-    Route::post('leadership/update/{id}', [AboutusController::class, 'update'])->name('leadership.update');
+    Route::post('leadership/update', [AboutusController::class, 'update'])->name('leadership.update');
 });
 
 

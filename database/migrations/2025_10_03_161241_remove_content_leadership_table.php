@@ -7,16 +7,14 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.php
+     * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('leadershipteam', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('position');
+        //
+        Schema::table('leadershipteam', function (Blueprint $table) {
+            $table->dropColumn(['content1', 'content2']);
             $table->longText('content')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -25,6 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('leadershipteam');
+        //
+        Schema::table('leadershipteam', function (Blueprint $table) {
+            $table->longText('content1')->nullable();
+            $table->longText('content2')->nullable();
+        });
     }
 };

@@ -20,8 +20,7 @@ class AboutusController extends Controller
         $request->validate([
             'name'      => 'required|string|max:255',
             'position'  => 'required|string|max:255',
-            'content1'  => 'required|string',
-            'content2'  => 'required|string',
+            'content'  => 'required|string',
         ]);
 
         leadership::create($request->all());
@@ -36,17 +35,15 @@ class AboutusController extends Controller
     return response()->json($leader);
 }
 
-public function update(Request $request, $id)
+public function update(Request $request)
 {
     $request->validate([
-        'content1' => 'nullable|string',
-        'content2' => 'nullable|string',
+        'content' => 'nullable|string',
     ]);
 
-    $leader = leadership::findOrFail($id);
+    $leader = leadership::findOrFail($request->leader_id);
     $leader->update([
-        'content1' => $request->content1,
-        'content2' => $request->content2,
+        'content' => $request->content,
     ]);
 
     return redirect()->back()->with('success', 'Contents updated successfully.');
